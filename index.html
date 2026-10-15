@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drive for Precision Deliveries | Contract Drivers in Ontario, Manitoba and Quebec</title>
+<meta name="description" content="Independent contractor delivery opportunities with Precision Deliveries, a FastFrate Group company. Use your own vehicle across Ontario, Manitoba and Quebec. Paid for each piece delivered.">
+<meta property="og:title" content="Drive for Precision Deliveries">
+<meta property="og:description" content="Independent contractor delivery opportunities across Ontario, Manitoba and Quebec. Your Success is Our Success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- PEAK SEASON MODULE: shows only Oct 6 to Jan 12 (dates in CONFIG). Delete this block to retire it. -->
+<div id="peak" hidden>
+  <a class="ticker" href="#locations" data-apply data-cta="peak_banner" aria-label="Peak season is here. We're building contractor capacity across Ontario, Manitoba and Quebec. Apply to Drive.">
+    <span class="track" aria-hidden="true">
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><span class="cta">Apply to Drive</span><i class="dot"></i></span>
+    </span>
+  </a>
+  <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
+</div>
+
+<div class="rainbow-bar" aria-hidden="true"></div>
+<header class="top has-apply">
+  <div class="wrap">
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a class="logo-chip" href="./" aria-label="Precision Deliveries home"><img src="assets/img/precision-logo.png" width="296" height="120" alt="Precision Parcel &amp; Package Deliveries, a FastFrate Group company"></a>
+    <a class="btn topapply" href="#locations" data-apply data-cta="top" aria-label="Apply to Drive"><span class="long">Apply to </span>Drive</a>
+    <nav class="sitenav" id="sitenav" aria-label="Main">
+      <a href="./" aria-current="page" data-nav="home">Home</a>
+      <a href="requirements/" data-keep-utm data-nav="requirements">Requirements</a>
+      <a href="#locations" data-nav="locations">Locations</a>
+      <a href="#driver-match" data-nav="driver_match">Driver Match</a>
+      <a href="#game" data-nav="game">Play the game</a>
+      <button class="lang" id="lang" type="button" lang="fr" aria-label="Voir la page en français">Français</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Blue fades to white across the hero, locations and how-it-works sections -->
+<div class="fade-zone">
+<!-- ===== HERO ===== -->
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 id="h1">Drive your own vehicle. Deliver with us.</h1>
+      <ul class="chips" aria-label="Key facts">
+        <li>Independent contractors</li>
+        <li>Paid for each piece delivered</li>
+        <li>Ontario &middot; Manitoba &middot; Quebec</li>
+      </ul>
+    </div>
+    <div class="vid">
+      <h2 class="slogan">Your Success is Our Success</h2>
+      <div class="vidframe"><div class="vidbox" id="vidbox">
+        <img class="bg" src="assets/img/precision-route-icon.webp" alt="" width="300" height="232">
+        <button class="vidbtn" id="vidbtn" type="button" aria-label="Play video: Your Success is Our Success">
+          <span class="play" aria-hidden="true"></span>
+          <span>Watch the video</span>
+        </button>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATIONS: province -> cities. Edit cities and links in CONFIG ===== -->
+<section class="band" id="locations" aria-labelledby="loc">
+  <div class="wrap">
+    <h2 id="loc">Choose your location to apply</h2>
+    <p>Pick your province, then your city. You'll go straight to the application for that location.</p>
+    <div class="grid c3" id="prov-grid"></div>
+    <div class="card match" id="driver-match">
+      <div>
+        <h3>Consider our Driver Match Program</h3>
+        <p>Want to be paired with a team that's already operating? Request a team and we'll help match you.</p>
+      </div>
+      <button class="btn" id="match-link" type="button" aria-expanded="false" aria-controls="match-panel">Request a team here</button>
+    </div>
+    <div class="card match-panel" id="match-panel" hidden>
+      <h3 id="match-h" tabindex="-1">How the Driver Match Program works</h3>
+      <p>The Driver Match Program pairs you with an existing team that's already operating.</p>
+      <ol class="mm-steps">
+        <li><b>1</b><span>Choose your location below.</span></li>
+        <li><b>2</b><span>Request a team.</span></li>
+        <li><b>3</b><span>We help match you with a team that's already operating.</span></li>
+      </ol>
+      <p class="note">Every driver still meets our onboarding requirements.</p>
+      <h3>Choose your location</h3>
+      <div class="grid c3" id="match-grid"></div>
+      <p class="note"><a id="match-any" href="#">Don't see your city? Request a team anyway.</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="tint-mint" aria-labelledby="how">
+  <div class="wrap">
+    <h2 id="how">How it works</h2>
+    <div class="grid c4">
+      <div class="card step"><b>1</b><div><h3>Click the Apply to Drive button</h3><p>Choose your location to start the conversation. It's not a commitment.</p></div></div>
+      <div class="card step"><b>2</b><div><h3>Submit your documents</h3><p>Gather a few business documents. You're running your own show, not clocking in.</p></div></div>
+      <div class="card step"><b>3</b><div><h3>Complete onboarding</h3><p>Get road-ready. Every driver goes through the same onboarding.</p></div></div>
+      <div class="card step"><b>4</b><div><h3>Start delivering</h3><p>Hit the road in your own vehicle. Your business, your wheels.</p></div></div>
+    </div>
+    <!-- CONFIRM: add timelines or extra onboarding steps only once verified -->
+  </div>
+</section>
+
+</div><!-- end fade-zone -->
+
+<!-- ===== GAME: Build your road trip playlist (anonymous picks feed Spotify targeting insight) ===== -->
+<section class="game" id="game" aria-labelledby="gh">
+  <div class="wrap">
+    <h2 id="gh">What's your delivery playlist?</h2>
+    <div class="led" aria-hidden="true"></div>
+    <audio id="bgm" loop preload="none" src="assets/audio/road-trip-loop.mp3"></audio>
+    <button class="btn btn-ghost rb sound" id="sound" type="button" aria-pressed="true" hidden>&#9834; Music on</button>
+    <ul class="bubbles" id="bubbles" aria-label="About this game">
+      <li class="bubble" style="--i:0;--r:-2deg">Four picks</li>
+      <li class="bubble" style="--i:1;--r:1.5deg">One driver persona</li>
+      <li class="bubble" style="--i:2;--r:-1.5deg">Dare you to find out!</li>
+      <li class="bubble" style="--i:3;--r:2deg">Just for fun</li>
+      <li class="bubble" style="--i:4;--r:-1deg">No wrong answers</li>
+    </ul>
+    <div id="quiz-start">
+      <button class="btn btn-light rb" id="start-quiz" type="button"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Press play</button>
+      <p class="fine">Not an application or an eligibility check.</p>
+    </div>
+    <div id="quiz" hidden>
+      <div class="road" aria-hidden="true">
+        <div class="road-line"></div>
+        <span class="stop"></span><span class="stop"></span><span class="stop"></span><span class="stop"></span>
+        <div class="van" id="van"></div>
+      </div>
+      <div class="progress" id="qprog"></div>
+      <h3 id="qtext" tabindex="-1"></h3>
+      <div class="q-opts" id="qopts"></div>
+    </div>
+    <div id="result" class="result rb" hidden>
+      <p class="np"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Now playing</p>
+      <h3 id="rtitle" tabindex="-1"></h3>
+      <p id="rbody"></p>
+      <ul class="tags" id="rtags"></ul>
+      <a class="btn btn-light btn-block rb" href="#locations" data-apply data-cta="game_result">Apply to Drive</a>
+      <div class="row">
+        <button class="btn btn-ghost rb" id="share" type="button" aria-expanded="false" aria-controls="sharepanel">Share my playlist</button>
+        <button class="btn btn-ghost rb" id="again" type="button">Build another</button>
+      </div>
+      <div class="sharepanel" id="sharepanel" hidden>
+        <p class="np2">Share your playlist</p>
+        <div class="sharegrid">
+          <button type="button" class="btn btn-ghost rb" data-net="native" hidden>Use my phone's apps</button>
+          <button type="button" class="btn btn-ghost rb" data-net="facebook">Facebook</button>
+          <button type="button" class="btn btn-ghost rb" data-net="whatsapp">WhatsApp</button>
+          <button type="button" class="btn btn-ghost rb" data-net="linkedin">LinkedIn</button>
+          <button type="button" class="btn btn-ghost rb" data-net="instagram">Instagram</button>
+          <button type="button" class="btn btn-ghost rb" data-net="tiktok">TikTok</button>
+          <button type="button" class="btn btn-ghost rb" data-net="copy">Copy link</button>
+        </div>
+        <p class="fine" id="sharemsg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fade-zone-2">
+<!-- ===== REQUIREMENTS ===== -->
+<section class="band tint-sky" aria-labelledby="req">
+  <div class="wrap grid c2">
+    <div>
+      <h2 id="req">What you need to get started</h2>
+      <ul class="check">
+        <li>A full driver's licence</li>
+        <li>No more than 3 demerit points on your driver's abstract</li>
+        <li>A criminal background check from the last 90 days that hasn't been pulled for another transportation company</li>
+        <li>A suitable vehicle, insurance, required documents and the tools to do the job</li>
+      </ul>
+    </div>
+    <div class="card t-navy">
+      <h3>Vehicles we recruit for</h3>
+      <div class="vehicles">
+        <figure><svg viewBox="0 0 160 80" aria-hidden="true" focusable="false"><ellipse cx="80" cy="73" rx="62" ry="4" fill="#ffffff" opacity=".18"/>
+<path d="M10 58V20Q10 14 16 14H104L132 36Q146 38 148 48V58Z" fill="#fff" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M108 22L128 37H108Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M108 38V58" fill="none" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="42" cy="60" r="10" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="42" cy="60" r="4.0" fill="#C9CFEA"/><circle cx="122" cy="60" r="10" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="122" cy="60" r="4.0" fill="#C9CFEA"/></svg><figcaption>Cargo van</figcaption></figure>
+        <figure><svg viewBox="0 0 160 80" aria-hidden="true" focusable="false"><ellipse cx="80" cy="73" rx="62" ry="4" fill="#ffffff" opacity=".18"/>
+<path d="M8 58V36Q8 26 20 22Q34 17 58 17H96Q108 17 118 30L138 38Q152 41 152 49V58Z" fill="#fff" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M22 25Q30 22 42 22V35H16Q16 28 22 25Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M47 22H70V35H47Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M75 22H94Q104 24 112 35H75Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M75 36V57" fill="none" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M47 36V57" fill="none" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="38" cy="60" r="10" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="38" cy="60" r="4.0" fill="#C9CFEA"/><circle cx="122" cy="60" r="10" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="122" cy="60" r="4.0" fill="#C9CFEA"/></svg><figcaption>Minivan</figcaption></figure>
+        <figure><svg viewBox="0 0 160 80" aria-hidden="true" focusable="false"><ellipse cx="80" cy="73" rx="62" ry="4" fill="#ffffff" opacity=".18"/>
+<path d="M10 58V24Q10 14 20 14H92Q104 14 110 24L120 34H140Q152 36 152 46V58Z" fill="#fff" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M18 20H46V32H18Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M51 20H88V32H51Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M93 20H99L107 32H93Z" fill="#CFE3FF" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M51 33V57" fill="none" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/><path d="M93 33V57" fill="none" stroke="#0A1033" stroke-width="3" stroke-linejoin="round"/>
+<path d="M22 9H88" fill="none" stroke="#0A1033" stroke-width="3" stroke-linecap="round"/>
+<circle cx="38" cy="60" r="12" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="38" cy="60" r="4.8" fill="#C9CFEA"/><circle cx="122" cy="60" r="12" fill="#0A1033" stroke="#fff" stroke-width="2"/><circle cx="122" cy="60" r="4.8" fill="#C9CFEA"/></svg><figcaption>SUV</figcaption></figure>
+      </div>
+      <p>Minivans, cargo vans such as the Mercedes Sprinter or Ford Transit, and some small cube trucks.</p>
+      <p class="note">Accepted vehicles can vary by location and contract. You'll see what applies to you when you apply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW PAY WORKS ===== -->
+<section class="tint-pink" aria-labelledby="pay">
+  <div class="wrap">
+    <h2 id="pay">How contractor pay works</h2>
+    <p>You're an independent contractor, not an employee. You're paid for each piece delivered, and a fuel surcharge may apply depending on the contract or program. You provide your own vehicle, fuel and tools.</p>
+    <p class="note">Earnings are performance based. No two drivers are the same, and earnings are never forecasted or guaranteed.</p>
+  </div>
+</section>
+
+</div><!-- end fade-zone-2 -->
+
+<!-- ===== FAQ ===== -->
+<section class="band tint-sky" aria-labelledby="faq">
+  <div class="wrap">
+    <h2 id="faq">Questions drivers ask</h2>
+    <details><summary>Is this a job?</summary><p>No. These are independent contractor opportunities, not employee positions.</p></details>
+    <details><summary>How am I paid?</summary><p>You're paid for each piece delivered. A fuel surcharge may apply depending on the contract or program. Earnings are performance based, and we don't forecast or promise specific earnings, hours or routes.</p></details>
+    <details><summary>What do I provide?</summary><p>Your own suitable vehicle, insurance, required documentation, fuel and the tools you need to deliver.</p></details>
+    <details><summary>Do all drivers meet the same requirements?</summary><p>Yes. Every driver has to meet our onboarding requirements, including a full licence, no more than 3 demerit points and a background check from the last 90 days that hasn't been pulled for another transportation company.</p></details>
+    <details><summary>Which vehicles can I use?</summary><p>We recruit for minivans, cargo vans and some small cube trucks. Accepted vehicles vary by location.</p></details>
+    <details><summary>Can I be paired with an existing team?</summary><p>Yes. Check out our Driver Match Program in the locations section above and request a team.</p></details>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="finale" aria-labelledby="final">
+  <div class="wrap final">
+    <div>
+      <h2 id="final">Your Success is Our Success</h2>
+      <p>Ready to drive with Precision? Choose your location and apply.</p>
+      <a class="btn btn-block" href="#locations" data-apply data-cta="final">Apply to Drive</a>
+    </div>
+    <img src="assets/img/precision-route-icon.webp" alt="" width="300" height="232" loading="lazy">
+  </div>
+</section>
+</main>
+
+<div class="rainbow-bar" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <p><strong>Follow us</strong></p>
+    <ul id="social"></ul>
+    <details>
+      <summary>Privacy</summary>
+      <p>This page doesn't collect personal information. When you apply, you're taken to our secure application portal, where the information you submit is used to assess your application and onboard contractors. We use analytics to understand how visitors find and use this page, including the campaign that brought you here. If you play the playlist game, your picks, including any genre you type in, are counted anonymously and aren't tied to you. <a href="#" data-pending="Full privacy policy link goes here once approved.">Read the full privacy policy</a>.</p>
+    </details>
+    <p class="note">Precision Deliveries is a FastFrate Group company. Independent contractor opportunities only. No guarantee of work, routes or income.</p>
+  </div>
+</footer>
+
+<div id="sticky"><a class="btn btn-block" href="#locations" data-apply data-cta="sticky_bar">Apply to Drive</a></div>
+<div id="toast" role="status" hidden></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/common.js"></script>
+<script>
+/* ===== CONFIG: the only place you edit locations, links and IDs ===== */
+var CONFIG = {
+  captureCustomGenre: true,      // records a cleaned-up (letters only, 24 characters max) custom genre in analytics; set false to stop. Needs privacy sign-off before launch
+  videoId: "wunY1iC9IBc",
+  matchUrl: "https://intake.driveridbadge.ca/driver-match",
+  provinces: [
+    { code:"ON", name:"Ontario", cities:[
+      {n:"Windsor",  u:"https://intake.driveridbadge.ca/e/251a854b248f164a"},
+      {n:"London",   u:"https://intake.driveridbadge.ca/e/af1b6f624f2a1518"},
+      {n:"Hanover",  u:"https://intake.driveridbadge.ca/e/300f02af2df4d910"},
+      {n:"Hamilton", u:"https://intake.driveridbadge.ca/e/411cb7a06cf66278"},
+      {n:"Oakville", u:"https://intake.driveridbadge.ca/e/7f7b0b6a264fb193"},
+      {n:"Pickering",u:"https://intake.driveridbadge.ca/e/40419b965494c561"},
+      {n:"Barrie",   u:"https://intake.driveridbadge.ca/e/9526ae5c2d9075c1"},
+      {n:"Orillia",  u:"https://intake.driveridbadge.ca/e/7c4e32c821842f62"},
+      {n:"Ottawa",   u:"https://intake.driveridbadge.ca/e/00b64a1afc428592"} ]},
+    { code:"MB", name:"Manitoba", cities:[
+      {n:"Winnipeg", u:"https://intake.driveridbadge.ca/e/d13f64a31c14c5f3"},
+      {n:"Brandon",  u:""},                 // link pending
+      {n:"Morden",   u:""},                 // link pending
+      {n:"Portage la Prairie", u:""} ]},    // link pending
+    { code:"QC", name:"Quebec", cities:[
+      {n:"Montreal",    u:"https://intake.driveridbadge.ca/e/17295a28d5fd3ff2"},
+      {n:"Laval",       u:""},                // link pending
+      {n:"Quebec City", u:"https://intake.driveridbadge.ca/e/3b0d9ed353b92bee"} ]}
+  ],
+  social: [ {label:"LinkedIn", url:"https://www.linkedin.com/company/precision-parcel-package-deliveries/posts/"} ]
+};
+
+/* ===== Peak banner ticker: duplicate the message so the loop never shows a gap; pause button ===== */
+(function(){
+  var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild; if(!c) return;
+  for(var i=0;i<3;i++){ t.appendChild(c.cloneNode(true)); }
+  var pk=document.getElementById("peak"), pp=document.getElementById("peak-pause");
+  pp.addEventListener("click",function(){ var p=pk.classList.toggle("paused"); pp.setAttribute("aria-pressed",String(p)); pp.setAttribute("aria-label",p?"Play scrolling banner":"Pause scrolling banner"); });
+})();
+
+/* ===== Peak banner ===== */
+if (isPeak()) document.getElementById("peak").hidden = false;
+
+/* ===== Province -> cities ===== */
+var grid=document.getElementById("prov-grid");
+CONFIG.provinces.forEach(function(p){
+  var box=document.createElement("div"), id="cities-"+p.code;
+  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+p.name+'<small>'+p.cities.length+' locations</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities" id="'+id+'" hidden></div>';
+  var btn=box.querySelector("button"), list=box.querySelector(".cities");
+  p.cities.forEach(function(c){
+    var el;
+    if (c.u) { el=document.createElement("a"); el.href=withUtm(c.u); el.className="city"; el.innerHTML=c.n+'<span aria-hidden="true">&rarr;</span>';
+      el.addEventListener("click",function(){ track("application_link_click",{province:p.code,city:c.n}); }); }
+    else { el=document.createElement("button"); el.type="button"; el.className="city soon"; el.textContent=c.n+" (link coming soon)";
+      el.addEventListener("click",function(){ track("location_select",{province:p.code,city:c.n,link_available:"no"}); openMatch(); toast("The application link for "+c.n+" isn't ready yet. Try our Driver Match Program below."); }); }
+    list.appendChild(el);
+  });
+  btn.addEventListener("click", function(){
+    var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", String(!open)); list.hidden=open;
+    if(!open) track("location_select",{province:p.code});
+  });
+  grid.appendChild(box);
+});
+/* ===== Driver Match Program: opens in place, offers the same locations, then goes to the match request ===== */
+function matchHref(city){ try{ var u=new URL(withUtm(CONFIG.matchUrl)); if(city) u.searchParams.set("location",city); return u.toString(); }catch(e){ return CONFIG.matchUrl; } }
+var mb=document.getElementById("match-link"), mp=document.getElementById("match-panel"), mg=document.getElementById("match-grid");
+function openMatch(){ if(mb.getAttribute("aria-expanded")==="true") { mp.scrollIntoView({behavior:"smooth",block:"nearest"}); return; }
+  mb.setAttribute("aria-expanded","true"); mp.hidden=false; mb.textContent="Close"; track("driver_match_click");
+  mp.scrollIntoView({behavior:"smooth",block:"nearest"}); document.getElementById("match-h").focus({preventScroll:true}); }
+function closeMatch(){ mb.setAttribute("aria-expanded","false"); mp.hidden=true; mb.textContent="Request a team here"; }
+mb.addEventListener("click",function(){ if(mb.getAttribute("aria-expanded")==="true") closeMatch(); else openMatch(); });
+CONFIG.provinces.forEach(function(p){
+  var box=document.createElement("div"), id="mcities-"+p.code;
+  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+p.name+'<small>'+p.cities.length+' locations</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities" id="'+id+'" hidden></div>';
+  var btn=box.querySelector("button"), list=box.querySelector(".cities");
+  p.cities.forEach(function(c){ var a=document.createElement("a"); a.className="city"; a.href=matchHref(c.n); a.innerHTML=c.n+'<span aria-hidden="true">&rarr;</span>';
+    a.addEventListener("click",function(){ track("driver_match_start",{province:p.code,city:c.n}); }); list.appendChild(a); });
+  btn.addEventListener("click",function(){ var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded",String(!open)); list.hidden=open; });
+  mg.appendChild(box);
+});
+var any=document.getElementById("match-any"); any.href=matchHref("");
+any.addEventListener("click",function(){ track("driver_match_start",{city:"unspecified"}); });
+
+/* ===== Video: loads YouTube only after a tap (keeps the page fast) ===== */
+document.getElementById("vidbtn").addEventListener("click", function(){
+  document.querySelector(".vid").classList.add("playing");          // wide tile opens into a tall player for the vertical video
+  var box=document.getElementById("vidbox"), f=document.createElement("iframe");
+  f.src="https://www.youtube-nocookie.com/embed/"+CONFIG.videoId+"?autoplay=1&rel=0&playsinline=1";
+  f.title="Your Success is Our Success"; f.allow="autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen=true;
+  box.innerHTML=""; box.appendChild(f); track("video_play");
+});
+
+/* ===== Playlist game: picks are counted anonymously (no names, no storage) ===== */
+var G={
+ genre:{t:"Pick your road trip with friends soundtrack",two:true,add:true,o:[["pop","Pop & Hits"],["country","Country"],["rock","Rock & Classic Rock"],["hiphop","Hip-Hop & R&B"],["electronic","Electronic & Dance"],["chill","Chill & Acoustic"]]},
+ format:{t:"What's in your ears on a long route?",o:[["music","Music all the way"],["podcasts","Podcasts"],["audiobooks","Audiobooks"],["talk","Talk, sports & news"]]},
+ moment:{t:"When do you do your best driving?",o:[["early","Early morning start"],["midday","Midday grind"],["afternoon","Afternoon push"],["night","Evening & night"]]},
+ mood:{t:"What's your driving mood?",o:[["career","Career mode"],["sing","Sing-along"],["hype","Hype me up"],["cruise","Easy cruise"]]}
+};
+var ORDER=["genre","format","moment","mood"], MOOD={
+ career:["The Empire Builder","Big plans and a long game. You treat every route as a step toward building your own business."],
+ sing:["The Windows-Down Sing-Along","Loud, happy and a little off-key. The whole route is your stage."],
+ hype:["The Full-Throttle Mix","High energy from first stop to last. You bring the momentum."],
+ cruise:["The Easy Cruise","Relaxed and unbothered. You keep it smooth, mile after mile."]
+}, qi=0, ans={};
+function show(id,on){ document.getElementById(id).hidden=!on; }
+function lab(q,id){ if(q==="genre"&&id==="other"&&ans.genreText) return ans.genreText; var r=G[q].o.filter(function(x){return x[0]===id})[0]; return r?r[1]:id; }
+function road(p,done){ document.getElementById("van").style.setProperty("--p",p); document.querySelectorAll(".stop").forEach(function(s,i){ s.classList.toggle("done", i<done); }); }
+function ask(){
+  var q=ORDER[qi], item=G[q];
+  document.getElementById("qprog").textContent="Stop "+(qi+1)+" of "+ORDER.length;
+  var t=document.getElementById("qtext"); t.textContent=item.t;
+  var box=document.getElementById("qopts"); box.innerHTML=""; box.className="q-opts"+(item.two?" two":"");
+  item.o.forEach(function(o){ var b=document.createElement("button"); b.type="button"; b.className="opt rb"; b.textContent=o[1];
+    b.addEventListener("click",function(){ ans[q]=o[0]; track("game_answer",{question:q,answer:o[0]}); qi++; if(qi<ORDER.length) ask(); else finish(); }); box.appendChild(b); });
+  if(item.add){
+    var tile=document.createElement("button"); tile.type="button"; tile.className="opt rb add"; tile.textContent="+ Add your own genre";
+    tile.addEventListener("click",function(){
+      var w=document.createElement("div"); w.className="addgenre";
+      w.innerHTML='<label class="sr" for="gin">Your genre</label><input id="gin" type="text" maxlength="24" autocomplete="off" placeholder="A music genre, like lo-fi"><button type="button" class="btn btn-light rb">Add</button><p class="fine hint">Just a music genre, please. No names or personal details.</p>';
+      box.replaceChild(w,tile); var inp=w.querySelector("input"), go=w.querySelector("button");
+      function submit(){ var v=inp.value.replace(/[\u0000-\u001f<>]/g,"").replace(/\s+/g," ").trim().slice(0,24); if(!v){ inp.focus(); return; }
+        ans.genre="other"; ans.genreText=v;
+        var ev={question:q,answer:"other"}, rec="";
+        // analytics gets a cleaned-up copy only: letters, spaces, hyphens, ampersands, max 24 characters; anything that looks like an email, web address or number is not recorded
+        if(CONFIG.captureCustomGenre && !/@|https?:|www\.|\d{4,}/i.test(v)){ rec=v.toLowerCase().replace(/[^a-z\u00c0-\u017f &'\-]/g,"").replace(/\s+/g," ").trim().slice(0,24); }
+        if(rec) ev.custom_genre=rec;
+        track("game_answer",ev); qi++; if(qi<ORDER.length) ask(); else finish(); }
+      go.addEventListener("click",submit); inp.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); submit(); } }); inp.focus();
+    });
+    box.appendChild(tile);
+  }
+  road(qi/(ORDER.length-1), qi); t.focus();
+}
+function finish(){
+  road(1, ORDER.length);
+  var m=MOOD[ans.mood];
+  document.getElementById("rtitle").textContent=m[0];
+  document.getElementById("rbody").textContent=m[1]+" Ready to put it on a route?";
+  var tags=document.getElementById("rtags"); tags.innerHTML="";
+  [lab("genre",ans.genre),lab("format",ans.format),lab("moment",ans.moment)].forEach(function(x){ var li=document.createElement("li"); li.textContent=x; tags.appendChild(li); });
+  show("quiz",false); show("result",true); document.getElementById("rtitle").focus();
+  track("game_complete",{genre:ans.genre,audio_format:ans.format,listen_time:ans.moment,mood:ans.mood});
+}
+document.getElementById("start-quiz").addEventListener("click",function(){ qi=0; ans={}; show("quiz-start",false); show("result",false); show("quiz",true); track("game_start"); ask(); });
+document.getElementById("again").addEventListener("click",function(){ show("result",false); show("quiz-start",true); });
+/* ===== Share: persona message + Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link, and the phone's own share menu ===== */
+var shBtn=document.getElementById("share"), shP=document.getElementById("sharepanel"), shMsg=document.getElementById("sharemsg");
+if (navigator.share) shP.querySelector('[data-net="native"]').hidden=false;
+function shareText(){ var t=document.getElementById("rtitle").textContent||"a delivery driver"; return "I'm "+t+". What's your delivery playlist?"; }
+function shareUrl(net){ return location.origin+location.pathname+"?utm_source=game_share&utm_medium=referral&utm_campaign=playlist_game&utm_content="+encodeURIComponent(net)+"#game"; }
+function copyText(t){
+  if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+  return new Promise(function(res,rej){ var ta=document.createElement("textarea"); ta.value=t; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
+    var ok=false; try{ ok=document.execCommand("copy"); }catch(e){} document.body.removeChild(ta); ok?res():rej(); });
+}
+shBtn.addEventListener("click",function(){ var opening=shP.hidden; shP.hidden=!opening; shBtn.setAttribute("aria-expanded",String(opening)); if(opening) track("game_share_open"); });
+shP.addEventListener("click",function(e){
+  var b=e.target.closest("[data-net]"); if(!b) return;
+  var net=b.getAttribute("data-net"), url=shareUrl(net), txt=shareText(); shMsg.textContent=""; track("game_share",{method:net});
+  if(net==="native"){ navigator.share({title:"What's your delivery playlist?",text:txt,url:url}).catch(function(){}); return; }
+  if(net==="facebook"){ window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url),"_blank","noopener,width=600,height=500"); return; }
+  if(net==="whatsapp"){ window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank","noopener"); return; }
+  if(net==="linkedin"){ window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url),"_blank","noopener,width=600,height=600"); return; }
+  var done=copyText(txt+" "+url);                                    // Instagram and TikTok have no web share link, so copy the message and open the site
+  if(net==="instagram") window.open("https://www.instagram.com/","_blank","noopener");
+  if(net==="tiktok") window.open("https://www.tiktok.com/","_blank","noopener");
+  done.then(function(){ shMsg.textContent = net==="copy" ? "Link copied. Paste it anywhere." : "Message and link copied. Paste it into your "+(net==="instagram"?"Instagram":"TikTok")+" story, post or message."; })
+      .catch(function(){ shMsg.textContent="Couldn't copy. Copy this link: "+url; });
+});
+
+/* ===== Social, language, pending links, generic tracked links ===== */
+var so=document.getElementById("social");
+CONFIG.social.forEach(function(s){ var li=document.createElement("li"), a=document.createElement("a"); a.textContent=s.label; a.href=s.url; a.target="_blank"; a.rel="noopener";
+  a.addEventListener("click",function(){ track("social_click",{network:s.label}); }); li.appendChild(a); so.appendChild(li); });
+document.querySelectorAll("[data-pending]").forEach(function(a){ a.addEventListener("click",function(e){ e.preventDefault(); toast(a.dataset.pending); }); });
+document.querySelectorAll("[data-track]").forEach(function(a){ a.addEventListener("click",function(){ track(a.dataset.track); }); });
+
+
+
+/* ===== Game music: starts only when the visitor presses play, can be switched off, stops when the game leaves the screen ===== */
+var bgm=document.getElementById("bgm"), snd=document.getElementById("sound"), musicOn=true, inGame=false, fadeT;
+function fade(to,ms,done){ clearInterval(fadeT); var from=bgm.volume, n=12, i=0; fadeT=setInterval(function(){ i++; try{ bgm.volume=Math.max(0,Math.min(1,from+(to-from)*i/n)); }catch(e){} if(i>=n){ clearInterval(fadeT); if(done) done(); } }, ms/n); }
+function musicStart(){ if(!musicOn||!inGame) return; try{ bgm.volume=0; }catch(e){} var p=bgm.play(); if(p&&p.then){ p.then(function(){ fade(0.45,800); }).catch(function(){}); } else { fade(0.45,800); } }
+function musicStop(){ fade(0,500,function(){ bgm.pause(); }); }
+function soundLabel(){ snd.setAttribute("aria-pressed", String(musicOn)); snd.innerHTML = musicOn ? "&#9834; Music on" : "&#9834; Music off"; }
+snd.addEventListener("click",function(){ musicOn=!musicOn; soundLabel(); track("music_toggle",{state:musicOn?"on":"off"}); if(musicOn) musicStart(); else musicStop(); });
+document.getElementById("start-quiz").addEventListener("click",function(){ inGame=true; snd.hidden=false; soundLabel(); musicStart(); });
+document.getElementById("again").addEventListener("click",function(){ inGame=false; snd.hidden=true; musicStop(); });
+document.addEventListener("visibilitychange",function(){ if(document.hidden){ bgm.pause(); } else { musicStart(); } });
+function onGameVisibility(on){ if(on){ musicStart(); } else if(!bgm.paused){ musicStop(); } }
+
+
+/* ===== Game intro bubbles: first time they pop in with a small bounce; every later scroll back they softly fade and glow ===== */
+(function(){
+  var b=document.getElementById("bubbles"); if(!b) return;
+  if(!("IntersectionObserver" in window)) return;           // without support the bubbles are simply visible
+  b.classList.add("anim");
+  var state="waiting", armed=false;
+  var io=new IntersectionObserver(function(en){
+    var r=en[0].intersectionRatio;
+    if(state==="waiting" && r>=0.4){ state="popped"; b.classList.add("in"); setTimeout(function(){ b.classList.add("settled"); },1600); return; }
+    if(state!=="popped" || !b.classList.contains("settled")) return;
+    if(r===0){ armed=true; return; }                          // fully out of view: ready to replay
+    if(armed && r>=0.4){ armed=false; b.classList.remove("glowin"); void b.offsetWidth; b.classList.add("glowin"); setTimeout(function(){ b.classList.remove("glowin"); },1500); }
+  },{threshold:[0,0.4]});
+  io.observe(b);
+})();
+
+/* ===== Game animations run only while the game is on screen (saves battery and keeps the page fast) ===== */
+var gs=document.getElementById("game");
+if ("IntersectionObserver" in window){ new IntersectionObserver(function(en){ gs.classList.toggle("live", en[0].isIntersecting); onGameVisibility(en[0].isIntersecting); },{threshold:0.05}).observe(gs); } else { gs.classList.add("live"); }
+
+/* ===== Sticky Apply bar: shows after the hero button scrolls away, hides while the location picker is on screen ===== */
+var hb=document.querySelector(".hero"), loc=document.getElementById("locations"), sb=document.getElementById("sticky"), past=false, inLoc=false;
+function upd(){ sb.classList.toggle("show", past && !inLoc); }
+if ("IntersectionObserver" in window){
+  new IntersectionObserver(function(en){ past=!en[0].isIntersecting && en[0].boundingClientRect.top<0; upd(); }).observe(hb);
+  new IntersectionObserver(function(en){ inLoc=en[0].isIntersecting; upd(); }).observe(loc);
+}
+</script>
+</body>
+</html>
