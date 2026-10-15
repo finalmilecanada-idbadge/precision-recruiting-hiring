@@ -173,3 +173,6 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-15 - v2.11 (pre-launch)
 - Game result now pops open like a balloon with a colourful burst, on a white card that keeps the rainbow outline, glow and colours. Share my playlist is now a large button with a prompt ("Think your friends will match?") right under Apply to Drive; Build another moved to the bottom. Reduced-motion visitors see the card without animation.
+
+## 2026-10-15 - v2.12 (pre-launch)
+- Cache-busting: styles and scripts are linked with ?v=2.12 so browsers and GitHub Pages pick up new versions straight away. Bump this number (in both HTML files) with every release.
