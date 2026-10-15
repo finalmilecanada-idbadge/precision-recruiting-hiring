@@ -183,3 +183,9 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-15 - v2.14 (pre-launch)
 - Share picture: slogan removed; centred "Hiring Now" badge added in the bottom block (artifact/chat request). Repository card matches.
+
+## 2026-10-15 - v2.15 (pre-launch)
+- Favicon added: white P on royal blue (browser tab, iPhone/Android home screen, web manifest). Files: favicon.ico, favicon-16x16.png, favicon-32x32.png, favicon-48x48.png, apple-touch-icon.png, android-chrome-192x192.png, android-chrome-512x512.png, site.webmanifest. Made from the logo's P mark; swap in a vector version if the brand team has one.
+
+## 2026-10-15 - v2.16 (pre-launch)
+- Favicon links now carry ?v=2.16 so browsers fetch the icon fresh instead of showing an old cached (blank) one.
