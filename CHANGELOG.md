@@ -176,3 +176,10 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-15 - v2.12 (pre-launch)
 - Cache-busting: styles and scripts are linked with ?v=2.12 so browsers and GitHub Pages pick up new versions straight away. Bump this number (in both HTML files) with every release.
+
+## 2026-10-15 - v2.13 (pre-launch)
+- Share picture added (assets/img/share-card.png, 1200x630) and wired in with og:image and twitter:card tags, so links shared from the game show a picture on Facebook, LinkedIn, WhatsApp and others. BEFORE LAUNCH: replace REPLACE-WITH-LIVE-ADDRESS in the og:image tag of both pages with the real web address (platforms need the full address).
+- GitHub repository card (1280x640) made separately: upload it under Settings > General > Social preview (optional).
+
+## 2026-10-15 - v2.14 (pre-launch)
+- Share picture: slogan removed; centred "Hiring Now" badge added in the bottom block (artifact/chat request). Repository card matches.
