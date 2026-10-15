@@ -562,3 +562,44 @@ header.has-apply{isolation:isolate}
 .vidbox{aspect-ratio:16/9;max-height:none}
 .vid.playing{max-width:306px}
 .vid.playing .vidbox{aspect-ratio:9/16;max-height:540px}
+
+/* ===== Result card: pops open like a balloon, on a white card that keeps all the colour ===== */
+.game .result.rb{--fill:#fff;color:#0A1033;transform-origin:50% 100%}
+.game .result h3{color:#0A1033}
+.game .result p{color:#0A1033}
+.game .result .np{color:#454B73}
+.game .result .fine{color:#454B73}
+.game .result .tags li{color:#0A1033;border:0;font-weight:700}
+.game .result .tags li:nth-child(1){background:#FFE5F1}
+.game .result .tags li:nth-child(2){background:#FFF4CC}
+.game .result .tags li:nth-child(3){background:#E1F0FF}
+.game .result .btn-light.rb{--fill:#1E2AE6;color:#fff}
+.game .result .btn-ghost.rb{--fill:#fff;color:#0A1033}
+.game .result .sharepanel .np2{color:#0A1033}
+.game .btn.sharebtn.rb{--fill:#0A1033;color:#fff;width:100%}
+.nudge{margin:18px 0 8px;font-weight:700}
+.again-row{margin:14px 0 0}
+.game .result .btn-ghost{min-height:44px;padding:8px 18px;font-size:1rem}
+
+.burst{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;z-index:5}
+.burst i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;opacity:0;animation:burstout .95s .25s ease-out forwards}
+@keyframes burstout{0%{opacity:1;transform:translate(0,0) scale(.4)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.1)}}
+
+.result.pop{animation:balloon 1s cubic-bezier(.2,.9,.3,1.2) both}
+.game.live .result.pop{animation:balloon 1s cubic-bezier(.2,.9,.3,1.2) both, rbmove 6s linear infinite}
+.game.live .result.pop::before{animation:glowmove 6s linear infinite, glowin .4s .9s both}
+.result.pop > *:not(.burst){animation:risein .5s .45s ease-out both}
+@keyframes balloon{
+  0%{opacity:0;transform:translateY(40px) scale(.12)}
+  40%{opacity:1;transform:translateY(0) scale(1.1,1.2)}
+  62%{transform:scale(.95,.92)}
+  80%{transform:scale(1.03,1.04)}
+  100%{opacity:1;transform:none}
+}
+@keyframes glowin{from{opacity:0}to{opacity:.4}}
+@keyframes risein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .result.pop,.game.live .result.pop{animation:none}
+  .game.live .result.pop::before{animation:none}
+  .result.pop > *:not(.burst){animation:none}
+}

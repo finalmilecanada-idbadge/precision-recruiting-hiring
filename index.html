@@ -150,10 +150,8 @@
       <p id="rbody"></p>
       <ul class="tags" id="rtags"></ul>
       <a class="btn btn-light btn-block rb" href="#locations" data-apply data-cta="game_result">Apply to Drive</a>
-      <div class="row">
-        <button class="btn btn-ghost rb" id="share" type="button" aria-expanded="false" aria-controls="sharepanel">Share my playlist</button>
-        <button class="btn btn-ghost rb" id="again" type="button">Build another</button>
-      </div>
+      <p class="nudge">Think your friends will match? Send them your playlist.</p>
+      <button class="btn sharebtn rb" id="share" type="button" aria-expanded="false" aria-controls="sharepanel">Share my playlist &#8599;</button>
       <div class="sharepanel" id="sharepanel" hidden>
         <p class="np2">Share your playlist</p>
         <div class="sharegrid">
@@ -167,6 +165,7 @@
         </div>
         <p class="fine" id="sharemsg" role="status" aria-live="polite"></p>
       </div>
+      <p class="again-row"><button class="btn btn-ghost rb" id="again" type="button">Build another</button></p>
     </div>
   </div>
 </section>
@@ -396,6 +395,16 @@ function ask(){
   }
   road(qi/(ORDER.length-1), qi); t.focus();
 }
+
+/* Colourful burst when the result pops open (skipped for visitors who prefer reduced motion) */
+function burst(host){
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var cols=["#ff2d95","#ff7a00","#ffd400","#2dff7a","#17e1c4","#2d7bff","#a62dff"], w=document.createElement("div");
+  w.className="burst"; w.setAttribute("aria-hidden","true");
+  for (var i=0;i<16;i++){ var d=document.createElement("i"), a=Math.PI*2*i/16+Math.random()*.3, r=90+Math.random()*70;
+    d.style.setProperty("--dx",Math.round(Math.cos(a)*r)+"px"); d.style.setProperty("--dy",Math.round(Math.sin(a)*r)+"px"); d.style.background=cols[i%cols.length]; w.appendChild(d); }
+  host.appendChild(w); setTimeout(function(){ if(w.parentNode) w.parentNode.removeChild(w); },1400);
+}
 function finish(){
   road(1, ORDER.length);
   var m=MOOD[ans.mood];
@@ -403,7 +412,9 @@ function finish(){
   document.getElementById("rbody").textContent=m[1]+" Ready to put it on a route?";
   var tags=document.getElementById("rtags"); tags.innerHTML="";
   [lab("genre",ans.genre),lab("format",ans.format),lab("moment",ans.moment)].forEach(function(x){ var li=document.createElement("li"); li.textContent=x; tags.appendChild(li); });
-  show("quiz",false); show("result",true); document.getElementById("rtitle").focus();
+  show("quiz",false); show("result",true);
+  var rs=document.getElementById("result"); rs.classList.remove("pop"); void rs.offsetWidth; rs.classList.add("pop"); burst(rs);   // pops open like a balloon
+  document.getElementById("rtitle").focus({preventScroll:true}); rs.scrollIntoView({behavior:"smooth",block:"center"});
   track("game_complete",{genre:ans.genre,audio_format:ans.format,listen_time:ans.moment,mood:ans.mood});
 }
 document.getElementById("start-quiz").addEventListener("click",function(){ qi=0; ans={}; show("quiz-start",false); show("result",false); show("quiz",true); track("game_start"); ask(); });

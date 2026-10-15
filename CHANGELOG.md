@@ -170,3 +170,6 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-15 - v2.10 (pre-launch)
 - Hero restacked (artifact comment): bigger headline and tags on top, wide 16:9 video tile below. Because the YouTube Short is vertical, pressing play opens the tile into a tall player so the picture isn't tiny.
+
+## 2026-10-15 - v2.11 (pre-launch)
+- Game result now pops open like a balloon with a colourful burst, on a white card that keeps the rainbow outline, glow and colours. Share my playlist is now a large button with a prompt ("Think your friends will match?") right under Apply to Drive; Build another moved to the bottom. Reduced-motion visitors see the card without animation.
