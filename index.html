@@ -5,11 +5,11 @@
 <meta name="robots" content="noindex, nofollow">
 <!-- build v2.16 -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="favicon.ico?v=2.16" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2.16">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2.16">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2.16">
-<link rel="manifest" href="site.webmanifest?v=2.16">
+<link rel="icon" href="favicon.ico?v=2.17" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2.17">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2.17">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2.17">
+<link rel="manifest" href="site.webmanifest?v=2.17">
 <meta name="theme-color" content="#0A1033">
 <title>Drive for Precision Deliveries | Contract Drivers in Ontario, Manitoba and Quebec</title>
 <meta name="description" content="Independent contractor delivery opportunities with Precision Deliveries, a FastFrate Group company. Use your own vehicle across Ontario, Manitoba and Quebec. Paid for each piece delivered.">
@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.16">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.17">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -275,34 +275,36 @@
 <div id="sticky"><a class="btn btn-block" href="#locations" data-apply data-cta="sticky_bar">Apply to Drive</a></div>
 <div id="toast" role="status" hidden></div>
 
-<script src="assets/js/config.js?v=2.16"></script>
-<script src="assets/js/common.js?v=2.16"></script>
+<script src="assets/js/config.js?v=2.17"></script>
+<script src="assets/js/common.js?v=2.17"></script>
 <script>
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
+/* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
+var INTAKE = "https://intake.driveridbadge.ca";
 var CONFIG = {
   captureCustomGenre: true,      // records a cleaned-up (letters only, 24 characters max) custom genre in analytics; set false to stop. Needs privacy sign-off before launch
   videoId: "wunY1iC9IBc",
-  matchUrl: "https://intake.driveridbadge.ca/driver-match",
+  matchUrl: INTAKE + "/driver-match",
   provinces: [
     { code:"ON", name:"Ontario", cities:[
-      {n:"Windsor",  u:"https://intake.driveridbadge.ca/e/251a854b248f164a"},
-      {n:"London",   u:"https://intake.driveridbadge.ca/e/af1b6f624f2a1518"},
-      {n:"Hanover",  u:"https://intake.driveridbadge.ca/e/300f02af2df4d910"},
-      {n:"Hamilton", u:"https://intake.driveridbadge.ca/e/411cb7a06cf66278"},
-      {n:"Oakville", u:"https://intake.driveridbadge.ca/e/7f7b0b6a264fb193"},
-      {n:"Pickering",u:"https://intake.driveridbadge.ca/e/40419b965494c561"},
-      {n:"Barrie",   u:"https://intake.driveridbadge.ca/e/9526ae5c2d9075c1"},
-      {n:"Orillia",  u:"https://intake.driveridbadge.ca/e/7c4e32c821842f62"},
-      {n:"Ottawa",   u:"https://intake.driveridbadge.ca/e/00b64a1afc428592"} ]},
+      {n:"Windsor",  u:INTAKE+"/e/251a854b248f164a"},
+      {n:"London",   u:INTAKE+"/e/af1b6f624f2a1518"},
+      {n:"Hanover",  u:INTAKE+"/e/300f02af2df4d910"},
+      {n:"Hamilton", u:INTAKE+"/e/411cb7a06cf66278"},
+      {n:"Oakville", u:INTAKE+"/e/7f7b0b6a264fb193"},
+      {n:"Pickering",u:INTAKE+"/e/40419b965494c561"},
+      {n:"Barrie",   u:INTAKE+"/e/9526ae5c2d9075c1"},
+      {n:"Orillia",  u:INTAKE+"/e/7c4e32c821842f62"},
+      {n:"Ottawa",   u:INTAKE+"/e/00b64a1afc428592"} ]},
     { code:"MB", name:"Manitoba", cities:[
-      {n:"Winnipeg", u:"https://intake.driveridbadge.ca/e/d13f64a31c14c5f3"},
+      {n:"Winnipeg", u:INTAKE+"/e/d13f64a31c14c5f3"},
       {n:"Brandon",  u:""},                 // link pending
       {n:"Morden",   u:""},                 // link pending
       {n:"Portage la Prairie", u:""} ]},    // link pending
     { code:"QC", name:"Quebec", cities:[
-      {n:"Montreal",    u:"https://intake.driveridbadge.ca/e/17295a28d5fd3ff2"},
+      {n:"Montreal",    u:INTAKE+"/e/17295a28d5fd3ff2"},
       {n:"Laval",       u:""},                // link pending
-      {n:"Quebec City", u:"https://intake.driveridbadge.ca/e/3b0d9ed353b92bee"} ]}
+      {n:"Quebec City", u:INTAKE+"/e/3b0d9ed353b92bee"} ]}
   ],
   social: [ {label:"LinkedIn", url:"https://www.linkedin.com/company/precision-parcel-package-deliveries/posts/"} ]
 };
