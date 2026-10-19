@@ -1,17 +1,13 @@
 /* Shared by every page: analytics, campaign attribution, toast message, menu. Load config.js first. */
 var PDCFG = { gaId: window.PD_GA_ID || "", peak: { start: "10-06", end: "01-12" } };   // peak season: Oct 6 to Jan 12
 
-/* ===== Analytics: one event name per action. Logs to the console until a GA4 ID is set in config.js ===== */
+/* ===== Analytics: one event name per action. The Google tag itself is loaded once, in the <head> of index.html. ===== */
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 function isPeak(d){ d=d||new Date(); var m=("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); return m>=PDCFG.peak.start||m<=PDCFG.peak.end; }
 function track(name, params){
   params = params || {}; params.season = isPeak() ? "peak" : "off_peak"; params.language = "en";
   if (PDCFG.gaId) { gtag("event", name, params); } else { console.log("[event]", name, params); }
-}
-if (PDCFG.gaId) {
-  var gs_=document.createElement("script"); gs_.async=true; gs_.src="https://www.googletagmanager.com/gtag/js?id="+PDCFG.gaId; document.head.appendChild(gs_);
-  gtag("js", new Date()); gtag("config", PDCFG.gaId, {transport_type:"beacon"});
 }
 
 /* ===== Campaign attribution: capture UTMs once, keep them for the visit, add them to application links and links between pages ===== */
