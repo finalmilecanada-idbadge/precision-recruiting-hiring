@@ -189,3 +189,8 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-15 - v2.16 (pre-launch)
 - Favicon links now carry ?v=2.16 so browsers fetch the icon fresh instead of showing an old cached (blank) one.
+
+## 2026-10-20 - v2.18 (pre-launch)
+- ANALYTICS FIX: assets/js/config.js had an empty Google Analytics ID, so custom events (apply_click, application_link_click, location_select, game_*, etc.) were logged to the browser console but never sent to GA4. The ID is now set. Only automatic events (page_view, session_start, first_visit, scroll, user_engagement, outbound click) were being recorded before this date, so custom-event data starts 2026-10-20.
+- game_complete and game_share now include a persona parameter (the result title, e.g. "The Empire Builder"). Heads-up: with analytics now live, the cleaned-up custom genre a visitor types is sent as custom_genre on game_answer, because captureCustomGenre is true in index.html (its code comment says it needs privacy sign-off before launch). Set it to false to stop.
+- Cache-busting version bumped to ?v=2.18 in both pages.

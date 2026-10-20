@@ -11,13 +11,13 @@
   gtag('config', 'G-V95SMRNV4X');
 </script>
 <meta name="robots" content="noindex, nofollow">
-<!-- build v2.16 -->
+<!-- build v2.18 -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="favicon.ico?v=2.17" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2.17">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2.17">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2.17">
-<link rel="manifest" href="site.webmanifest?v=2.17">
+<link rel="icon" href="favicon.ico?v=2.18" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2.18">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2.18">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2.18">
+<link rel="manifest" href="site.webmanifest?v=2.18">
 <meta name="theme-color" content="#0A1033">
 <title>Drive for Precision Deliveries | Contract Drivers in Ontario, Manitoba and Quebec</title>
 <meta name="description" content="Independent contractor delivery opportunities with Precision Deliveries, a FastFrate Group company. Use your own vehicle across Ontario, Manitoba and Quebec. Paid for each piece delivered.">
@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.17">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.18">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -282,8 +282,8 @@
 <div id="sticky"><a class="btn btn-block" href="#locations" data-apply data-cta="sticky_bar">Apply to Drive</a></div>
 <div id="toast" role="status" hidden></div>
 
-<script src="assets/js/config.js?v=2.17"></script>
-<script src="assets/js/common.js?v=2.17"></script>
+<script src="assets/js/config.js?v=2.18"></script>
+<script src="assets/js/common.js?v=2.18"></script>
 <script>
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
@@ -438,7 +438,7 @@ function finish(){
   show("quiz",false); show("result",true);
   var rs=document.getElementById("result"); rs.classList.remove("pop"); void rs.offsetWidth; rs.classList.add("pop"); burst(rs);   // pops open like a balloon
   document.getElementById("rtitle").focus({preventScroll:true}); rs.scrollIntoView({behavior:"smooth",block:"center"});
-  track("game_complete",{genre:ans.genre,audio_format:ans.format,listen_time:ans.moment,mood:ans.mood});
+  track("game_complete",{genre:ans.genre,audio_format:ans.format,listen_time:ans.moment,mood:ans.mood,persona:m[0]});
 }
 document.getElementById("start-quiz").addEventListener("click",function(){ qi=0; ans={}; show("quiz-start",false); show("result",false); show("quiz",true); track("game_start"); ask(); });
 document.getElementById("again").addEventListener("click",function(){ show("result",false); show("quiz-start",true); });
@@ -455,7 +455,7 @@ function copyText(t){
 shBtn.addEventListener("click",function(){ var opening=shP.hidden; shP.hidden=!opening; shBtn.setAttribute("aria-expanded",String(opening)); if(opening) track("game_share_open"); });
 shP.addEventListener("click",function(e){
   var b=e.target.closest("[data-net]"); if(!b) return;
-  var net=b.getAttribute("data-net"), url=shareUrl(net), txt=shareText(); shMsg.textContent=""; track("game_share",{method:net});
+  var net=b.getAttribute("data-net"), url=shareUrl(net), txt=shareText(); shMsg.textContent=""; track("game_share",{method:net,persona:document.getElementById("rtitle").textContent});
   if(net==="native"){ navigator.share({title:"What's your delivery playlist?",text:txt,url:url}).catch(function(){}); return; }
   if(net==="facebook"){ window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url),"_blank","noopener,width=600,height=500"); return; }
   if(net==="whatsapp"){ window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank","noopener"); return; }
