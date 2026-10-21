@@ -94,7 +94,7 @@
     if(S.correct>=22&&acc>=90){rank="Dock veteran"; msg="Fast and clean. You’d feel at home on the terminal floor.";}
     else if(S.correct>=12){rank="Solid sorter"; msg="Good rhythm. A few runs and the route list becomes second nature.";}
     else{rank="Getting your bearings"; msg="Everyone starts slow. Learning the route list is most of the skill.";}
-    S.rank=rank; S.acc=acc;
+    S.rank=rank; S.acc=acc; S.played=true;
     $("sr-rank").textContent=rank; $("sr-msg").textContent=msg;
     $("sr-r-count").textContent=S.correct; $("sr-r-acc").textContent=acc+"%"; $("sr-r-score").textContent=S.score;
     var vs=$("sr-vs");
@@ -201,16 +201,42 @@
     function openSR(why){
       if(!modal.hidden) return;
       lastFocus=document.activeElement; modal.hidden=false; root.classList.add("sr-lock"); game.classList.add("live");
+      if(launch) launch.hidden=true;
       try{ sessionStorage.setItem(seenKey,"1"); }catch(e){}
       modal.scrollTop=0; track("sort_popup_open",{trigger:why});
       setTimeout(function(){ closeBtn.focus({preventScroll:true}); },60);
     }
+    var launch=$("sr-launch"), launchBtn=$("sr-launch-btn"), launchX=$("sr-launch-x"), clicked=false;
+    function launcherOff(){ try{ return sessionStorage.getItem("sr_launch_off")==="1"; }catch(e){ return false; } }
+    function showLauncher(){
+      if(!launch||launcherOff()) return;
+      launch.classList.toggle("calm",clicked||!!S.played);
+      launch.classList.remove("in"); launch.hidden=false; void launch.offsetWidth; launch.classList.add("in");
+    }
     function closeSR(){
       if(modal.hidden) return;
       if(S.running){ S.running=false; clearInterval(S.timer); game.classList.remove("run"); play.hidden=true; res.hidden=true; intro.hidden=false; }
-      modal.hidden=true; root.classList.remove("sr-lock"); track("sort_popup_close");
-      if(lastFocus&&lastFocus.focus) lastFocus.focus({preventScroll:true});
+      root.classList.remove("sr-lock"); track("sort_popup_close");
+      var box=modal.querySelector(".sr-modal-box");
+      function finishClose(){
+        modal.hidden=true; modal.style.background=""; modal.style.transition="";
+        if(box&&box.getAnimations) box.getAnimations().forEach(function(a){ if(a.id==="srzoom") a.cancel(); });
+        showLauncher();
+        if(lastFocus&&lastFocus.focus&&document.contains(lastFocus)) lastFocus.focus({preventScroll:true});
+      }
+      var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if(!launch||launcherOff()||reduce||!box||!box.animate){ finishClose(); return; }
+      // zoom the pop-up toward where the side tab will appear
+      launch.hidden=false; launch.style.visibility="hidden";
+      var L=launch.getBoundingClientRect(), B=box.getBoundingClientRect();
+      var dx=(L.left+L.width/2)-(B.left+B.width/2), dy=(L.top+L.height/2)-(B.top+B.height/2);
+      launch.hidden=true; launch.style.visibility="";
+      modal.style.transition="background-color .42s"; modal.style.background="rgba(4,7,26,0)";
+      var a=box.animate([{transform:"none",opacity:1},{transform:"translate("+dx+"px,"+dy+"px) scale(.05)",opacity:.2}],{duration:460,easing:"cubic-bezier(.55,0,.75,.35)",fill:"forwards",id:"srzoom"});
+      a.onfinish=finishClose; a.oncancel=function(){};
     }
+    if(launchBtn) launchBtn.addEventListener("click",function(){ clicked=true; track("sort_tab_click"); openSR("tab"); });
+    if(launchX) launchX.addEventListener("click",function(){ try{ sessionStorage.setItem("sr_launch_off","1"); }catch(e){} launch.hidden=true; track("sort_tab_hide"); });
     closeBtn.addEventListener("click",closeSR);
     modal.addEventListener("click",function(e){ if(e.target===modal) closeSR(); });
     document.addEventListener("keydown",function(e){

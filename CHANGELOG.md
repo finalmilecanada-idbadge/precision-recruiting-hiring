@@ -200,6 +200,7 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Players get a drawn score card image ("I scored N! Can you keep up?") they can share as a picture or save. It is made in their browser and never uploaded or stored.
 - Friends who open a shared link (?beat=N) see "A friend scored N points. Can you beat it?".
 - Standalone page for emails and posts: /sort-run/. Both use the same code: assets/js/sortrun.js and assets/css/sortrun.css.
+- After the Sort Run pop-up is closed it zooms to a "Play Sort Run" tab on the right edge of the screen, which bounces and glows until clicked (calm once clicked or after a run is finished, and a small x hides it for the visit). New events: sort_tab_click, sort_tab_hide.
 - Start button: the old bouncing bars are replaced by little packages dropping in from the top of the tile.
 - New events: sort_popup_open (trigger: scroll, menu, shared_link), sort_popup_close, sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
 - New file: assets/img/sort-run-share-card.png (link preview picture for /sort-run/). Privacy text updated to mention Sort Run.
