@@ -194,3 +194,12 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - ANALYTICS FIX: assets/js/config.js had an empty Google Analytics ID, so custom events (apply_click, application_link_click, location_select, game_*, etc.) were logged to the browser console but never sent to GA4. The ID is now set. Only automatic events (page_view, session_start, first_visit, scroll, user_engagement, outbound click) were being recorded before this date, so custom-event data starts 2026-10-20.
 - game_complete and game_share now include a persona parameter (the result title, e.g. "The Empire Builder"). Heads-up: with analytics now live, the cleaned-up custom genre a visitor types is sent as custom_genre on game_answer, because captureCustomGenre is true in index.html (its code comment says it needs privacy sign-off before launch). Set it to false to stop.
 - Cache-busting version bumped to ?v=2.18 in both pages.
+
+## 2026-10-21 - v2.19 (pre-launch)
+- New second game on the landing page: "Sort Run", a 45-second parcel sorting game (match each parcel to its route, oversize parcels go to the shelf). Sits directly under the playlist game and has a "Sort Run" link in the menu. Same LED outlines, pop-open result with burst, Apply to Drive button and share options (phone share menu, Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link).
+- Players get a drawn score card image ("I scored N! Can you keep up?") they can share as a picture or save. It is made in their browser and never uploaded or stored.
+- Friends who open a shared link (?beat=N) see "A friend scored N points. Can you beat it?".
+- Standalone page for emails and posts: /sort-run/. Both use the same code: assets/js/sortrun.js and assets/css/sortrun.css.
+- New events: sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
+- New file: assets/img/sort-run-share-card.png (link preview picture for /sort-run/). Privacy text updated to mention Sort Run.
+
