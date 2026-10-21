@@ -190,4 +190,56 @@
     done.then(function(){ shMsg.textContent = net==="copy" ? "Link copied. Paste it anywhere." : "Message and link copied. Save the score card above and add it to your "+(net==="instagram"?"Instagram":"TikTok")+" story or post."; })
         .catch(function(){ shMsg.textContent="Couldn’t copy. Copy this link: "+url; });
   });
+
+  /* ===== Pop-up mode (landing page only): opens once per visit when the visitor scrolls past the section named in data-after,
+     from the menu link, or from a shared challenge link. Easy to close (X, Esc, tap outside). ===== */
+  var modal=$("sr-modal");
+  if(modal){
+    var closeBtn=$("sr-close"), lastFocus=null, root=document.documentElement;
+    var seenKey="sr_popup_seen";
+    function alreadySeen(){ try{ return sessionStorage.getItem(seenKey)==="1"; }catch(e){ return false; } }
+    function openSR(why){
+      if(!modal.hidden) return;
+      lastFocus=document.activeElement; modal.hidden=false; root.classList.add("sr-lock"); game.classList.add("live");
+      try{ sessionStorage.setItem(seenKey,"1"); }catch(e){}
+      modal.scrollTop=0; track("sort_popup_open",{trigger:why});
+      setTimeout(function(){ closeBtn.focus({preventScroll:true}); },60);
+    }
+    function closeSR(){
+      if(modal.hidden) return;
+      if(S.running){ S.running=false; clearInterval(S.timer); game.classList.remove("run"); play.hidden=true; res.hidden=true; intro.hidden=false; }
+      modal.hidden=true; root.classList.remove("sr-lock"); track("sort_popup_close");
+      if(lastFocus&&lastFocus.focus) lastFocus.focus({preventScroll:true});
+    }
+    closeBtn.addEventListener("click",closeSR);
+    modal.addEventListener("click",function(e){ if(e.target===modal) closeSR(); });
+    document.addEventListener("keydown",function(e){
+      if(modal.hidden) return;
+      if(e.key==="Escape"){ closeSR(); return; }
+      if(e.key==="Tab"){   // keep keyboard focus inside the pop-up
+        var f=[].filter.call(modal.querySelectorAll("button,a[href]"),function(el){ return !el.hidden && el.offsetParent!==null; });
+        if(!f.length) return; var first=f[0], last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    // Menu link and any other link to #sortrun
+    document.addEventListener("click",function(e){
+      var a=e.target.closest&&e.target.closest('a[href="#sortrun"]'); if(!a) return;
+      e.preventDefault(); openSR("menu");
+    });
+    // Shared challenge link (?beat=N) or #sortrun in the address
+    if(location.hash==="#sortrun"||beat){ setTimeout(function(){ openSR("shared_link"); },500); }
+    // Auto-open once, after the visitor has seen the section and scrolled past it
+    var after=document.getElementById(modal.getAttribute("data-after")||"");
+    if(after&&"IntersectionObserver" in window){
+      var seen=false;
+      new IntersectionObserver(function(en){
+        en.forEach(function(e){   // read every entry, oldest first, so fast scrolling can't skip one
+          if(e.isIntersecting){ seen=true; return; }
+          if(seen&&e.boundingClientRect.bottom<0&&!alreadySeen()&&modal.hidden){ setTimeout(function(){ if(modal.hidden&&!alreadySeen()) openSR("scroll"); },300); }
+        });
+      },{threshold:0}).observe(after);
+    }
+  }
 })();

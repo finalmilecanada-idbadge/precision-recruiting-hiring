@@ -196,10 +196,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Cache-busting version bumped to ?v=2.18 in both pages.
 
 ## 2026-10-21 - v2.19 (pre-launch)
-- New second game on the landing page: "Sort Run", a 45-second parcel sorting game (match each parcel to its route, oversize parcels go to the shelf). Sits directly under the playlist game and has a "Sort Run" link in the menu. Same LED outlines, pop-open result with burst, Apply to Drive button and share options (phone share menu, Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link).
+- New second game: "Sort Run", a 45-second parcel sorting game (match each parcel to its route, oversize parcels go to the shelf). It is a pop-up, not a page section: it opens once per visit when a visitor scrolls past "What you need to get started", or from the "Sort Run" menu link or a shared challenge link. Close with X, Esc or a tap outside. The playlist game is unchanged. Same LED outlines, pop-open result with burst, Apply to Drive button and share options (phone share menu, Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link).
 - Players get a drawn score card image ("I scored N! Can you keep up?") they can share as a picture or save. It is made in their browser and never uploaded or stored.
 - Friends who open a shared link (?beat=N) see "A friend scored N points. Can you beat it?".
 - Standalone page for emails and posts: /sort-run/. Both use the same code: assets/js/sortrun.js and assets/css/sortrun.css.
-- New events: sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
+- Start button: the old bouncing bars are replaced by little packages dropping in from the top of the tile.
+- New events: sort_popup_open (trigger: scroll, menu, shared_link), sort_popup_close, sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
 - New file: assets/img/sort-run-share-card.png (link preview picture for /sort-run/). Privacy text updated to mention Sort Run.
 

@@ -67,3 +67,23 @@
   .sr-parcel.in,.sr-parcel.ok,.sr-parcel.no,.sr-bins.in .cell,.sr-bins .cell.pulse{animation:none}
   .sr-parcel.ok{opacity:0}
 }
+
+/* ===== Start button: packages drop in from the top of the tile ===== */
+.sortrun .btn .lbl{position:relative;z-index:1}
+.pkgfall{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.pkgfall i{position:absolute;top:-24px;width:var(--s,14px);height:var(--s,14px);background:#C99A5E;border:2px solid #A87B43;border-radius:2px;box-sizing:border-box;opacity:0}
+.pkgfall i::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;transform:translateX(-50%);background:rgba(255,255,255,.5)}
+.game.live .pkgfall i{animation:pkgdrop 1.7s cubic-bezier(.5,0,.9,.6) infinite;animation-delay:var(--d,0s)}
+@keyframes pkgdrop{0%{opacity:0;transform:translateY(0) rotate(0)}12%{opacity:1}100%{opacity:1;transform:translateY(96px) rotate(var(--r,20deg))}}
+@media(prefers-reduced-motion:reduce){.pkgfall{display:none}}
+
+/* ===== Pop-up mode (landing page) ===== */
+html.sr-lock,html.sr-lock body{overflow:hidden}
+.sr-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(4,7,26,.8);overflow-y:auto;overscroll-behavior:contain}
+.sr-modal[hidden]{display:none}
+.sr-modal-box{position:relative;width:100%;max-width:780px;margin:auto;border-radius:18px;overflow:hidden;background:#0A1033;box-shadow:0 24px 70px rgba(0,0,0,.6),0 0 0 2px rgba(255,255,255,.14);animation:srpop .4s cubic-bezier(.2,.9,.3,1.1) both}
+@keyframes srpop{from{opacity:0;transform:translateY(34px) scale(.93)}to{opacity:1;transform:none}}
+.sr-modal .sortrun{padding:60px 0 34px}
+.sr-close{position:absolute;top:10px;right:10px;z-index:5;width:46px;height:46px;border-radius:50%;border:2px solid #fff;background:#0A1033;color:#fff;font:700 28px/1 Archivo,system-ui,sans-serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.sr-close:hover{background:#1E2AE6}
+@media(prefers-reduced-motion:reduce){.sr-modal-box{animation:none}}
