@@ -256,16 +256,14 @@
     });
     // Shared challenge link (?beat=N) or #sortrun in the address
     if(location.hash==="#sortrun"||beat){ setTimeout(function(){ openSR("shared_link"); },500); }
-    // Auto-open once, after the visitor has seen the section and scrolled past it
-    var after=document.getElementById(modal.getAttribute("data-after")||"");
-    if(after&&"IntersectionObserver" in window){
-      var seen=false;
-      new IntersectionObserver(function(en){
-        en.forEach(function(e){   // read every entry, oldest first, so fast scrolling can't skip one
-          if(e.isIntersecting){ seen=true; return; }
-          if(seen&&e.boundingClientRect.bottom<0&&!alreadySeen()&&modal.hidden){ setTimeout(function(){ if(modal.hidden&&!alreadySeen()) openSR("scroll"); },300); }
-        });
-      },{threshold:0}).observe(after);
+    // Auto-open once, when the visitor scrolls past the section named in data-after (checked on scroll, so a fast flick or jump can't skip it)
+    var after=document.getElementById(modal.getAttribute("data-after")||""), touched=false, ticking=false;
+    ["wheel","touchmove","keydown","mousedown"].forEach(function(ev){ window.addEventListener(ev,function(){ touched=true; },{passive:true,once:true}); });
+    function checkPast(){
+      ticking=false;
+      if(!after||!touched||!modal.hidden||alreadySeen()) return;
+      if(after.getBoundingClientRect().bottom<0){ setTimeout(function(){ if(modal.hidden&&!alreadySeen()) openSR("scroll"); },300); }
     }
+    window.addEventListener("scroll",function(){ if(!ticking){ ticking=true; requestAnimationFrame(checkPast); } },{passive:true});
   }
 })();

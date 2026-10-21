@@ -205,3 +205,7 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - New events: sort_popup_open (trigger: scroll, menu, shared_link), sort_popup_close, sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
 - New file: assets/img/sort-run-share-card.png (link preview picture for /sort-run/). Privacy text updated to mention Sort Run.
 
+## 2026-10-21 - v2.20 (pre-launch)
+- Sort Run pop-up: the scroll trigger now checks the scroll position directly, so a fast flick or jump past "What you need to get started" can no longer skip it. It still waits for a real scroll, tap or key press so it never opens on page load.
+- Cache-busting version for assets/css/sortrun.css and assets/js/sortrun.js bumped to ?v=2.20 so browsers fetch the new files instead of an older saved copy.
+
