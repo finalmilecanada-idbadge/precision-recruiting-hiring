@@ -474,11 +474,6 @@ header.top .wrap{position:relative}
 .finale .note-light{margin:14px 0 0;font-size:.95rem}
 .finale .note-light a{color:#fff;font-weight:700}
 .t-navy .vehicles{margin-bottom:12px}
-/* items still to be confirmed before launch: delete these blocks, or add class "hide-confirm" to <body> */
-.confirm{border:2px dashed #ff9d00;background:#FFF4CC;color:#0A1033;border-radius:12px;padding:12px 16px;font-size:.95rem;text-align:left;margin-top:14px}
-.confirm strong{display:block;margin-bottom:4px}
-.confirm ul{margin:0;padding-left:1.2em}
-.hide-confirm .confirm{display:none}
 
 /* ===== Bubbles: after the first pop they rest; on every scroll back they fade and glow ===== */
 .bubbles.anim.settled .bubble{animation:none;opacity:1;transform:rotate(var(--r,0deg))}
