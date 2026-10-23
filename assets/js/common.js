@@ -61,6 +61,7 @@ function langTarget(){
     var href=lg.getAttribute("href");
     if(lg.tagName==="A" && href && href!=="#") return;      // a normal link: the browser takes the visitor there
     var t=langTarget(); if(!t) return;                      // older pages had a button here: send the visitor ourselves
-    e.preventDefault(); location.href=t;
+    e.preventDefault(); e.stopImmediatePropagation();          // also silences any older "French is coming" message left in the page itself
+    location.href=t;
   });
 })();
