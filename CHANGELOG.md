@@ -213,3 +213,9 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Share wording: the playlist game now shares "I'm The Empire Builder. Click to find your delivery playlist." and Sort Run shares "I scored N! Can you keep up? Click to play Sort Run...". On phones the link is now placed inside the message text (instead of as a separate item), so the message and link are sent together as one message.
 - sortrun.css / sortrun.js cache version bumped to ?v=2.21.
 
+
+## 2026-10-23 - location application links moved
+- All 12 location application links (English and French) now point to shani.precisiondeliveries.com/jobfair/<id> instead of intake.driveridbadge.ca/e/<id>; same 12 location IDs, no wording or layout change
+- Driver Match link (intake.driveridbadge.ca/driver-match) intentionally unchanged: still working in the old system
+- Brandon, Morden, Portage la Prairie and Laval still pending
+- Analytics unchanged: UTM tagging and application_link_click event still apply to the new links

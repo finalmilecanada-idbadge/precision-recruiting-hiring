@@ -373,30 +373,32 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
+/* JOBFAIR: the address every location application link is built from (per-location IDs below). */
+var JOBFAIR = "https://shani.precisiondeliveries.com/jobfair";
 var CONFIG = {
   captureCustomGenre: true,      // records a cleaned-up (letters only, 24 characters max) custom genre in analytics; set false to stop. Needs privacy sign-off before launch
   videoId: "wunY1iC9IBc",
   matchUrl: INTAKE + "/driver-match",
   provinces: [
     { code:"ON", name:"Ontario", cities:[
-      {n:"Windsor",  u:INTAKE+"/e/251a854b248f164a"},
-      {n:"London",   u:INTAKE+"/e/af1b6f624f2a1518"},
-      {n:"Hanover",  u:INTAKE+"/e/300f02af2df4d910"},
-      {n:"Hamilton", u:INTAKE+"/e/411cb7a06cf66278"},
-      {n:"Oakville", u:INTAKE+"/e/7f7b0b6a264fb193"},
-      {n:"Pickering",u:INTAKE+"/e/40419b965494c561"},
-      {n:"Barrie",   u:INTAKE+"/e/9526ae5c2d9075c1"},
-      {n:"Orillia",  u:INTAKE+"/e/7c4e32c821842f62"},
-      {n:"Ottawa",   u:INTAKE+"/e/00b64a1afc428592"} ]},
+      {n:"Windsor",  u:JOBFAIR+"/251a854b248f164a"},
+      {n:"London",   u:JOBFAIR+"/af1b6f624f2a1518"},
+      {n:"Hanover",  u:JOBFAIR+"/300f02af2df4d910"},
+      {n:"Hamilton", u:JOBFAIR+"/411cb7a06cf66278"},
+      {n:"Oakville", u:JOBFAIR+"/7f7b0b6a264fb193"},
+      {n:"Pickering",u:JOBFAIR+"/40419b965494c561"},
+      {n:"Barrie",   u:JOBFAIR+"/9526ae5c2d9075c1"},
+      {n:"Orillia",  u:JOBFAIR+"/7c4e32c821842f62"},
+      {n:"Ottawa",   u:JOBFAIR+"/00b64a1afc428592"} ]},
     { code:"MB", name:"Manitoba", cities:[
-      {n:"Winnipeg", u:INTAKE+"/e/d13f64a31c14c5f3"},
+      {n:"Winnipeg", u:JOBFAIR+"/d13f64a31c14c5f3"},
       {n:"Brandon",  u:""},                 // link pending
       {n:"Morden",   u:""},                 // link pending
       {n:"Portage la Prairie", u:""} ]},    // link pending
     { code:"QC", name:"Quebec", cities:[
-      {n:"Montreal",    u:INTAKE+"/e/17295a28d5fd3ff2"},
+      {n:"Montreal",    u:JOBFAIR+"/17295a28d5fd3ff2"},
       {n:"Laval",       u:""},                // link pending
-      {n:"Quebec City", u:INTAKE+"/e/3b0d9ed353b92bee"} ]}
+      {n:"Quebec City", u:JOBFAIR+"/3b0d9ed353b92bee"} ]}
   ],
   social: [ {label:"LinkedIn", url:"https://www.linkedin.com/company/precision-parcel-package-deliveries/posts/"} ]
 };
