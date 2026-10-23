@@ -1,11 +1,15 @@
-FRENCH PAGES ONLY (reviewed by Flora). Upload these into your LIVE repository (precision-recruiting-hiring).
-They add two new pages and one picture. They do NOT replace index.html, so your Sort Run changes are safe.
+FRENCH PAGES + FRANCAIS BUTTON FIX  (safe for your live repository)
 
-  fr/index.html                 -> the French home page   (…/fr/)
-  fr/exigences/index.html       -> the French requirements page   (…/fr/exigences/)
-  assets/img/share-card-fr.png  -> the French link-preview picture
+What this adds
+  fr/index.html                 the French home page                    (...your address.../fr/)
+  fr/exigences/index.html       the French requirements page            (...your address.../fr/exigences/)
+  assets/img/share-card-fr.png  the French link-preview picture
+  assets/js/common.js           makes the "Francais" button in the menu open the French page
+                                (and the "English" button on the French pages open the English page)
 
-Upload tip: Add file > Upload files, then drag the "fr" and "assets" folders in. GitHub keeps the folder structure and only adds/replaces these three files.
+What it does NOT touch: index.html, requirements/index.html, assets/js/config.js (your Google Analytics ID) or anything for Sort Run.
 
-The French pages need the shared files from version 2.17 or newer (assets/js/common.js and assets/css/styles.css). If a French page looks unstyled or its menu does not open, tell Shannon's assistant and it will be sorted.
-When the driveprecision.ca address is live, the picture/address lines inside the two French pages need a one-line update (ask for it).
+How to upload: open the live repository > Add file > Upload files > drag in the "fr" folder and the "assets" folder > Commit changes.
+Wait two minutes, then reload the page with Ctrl + F5.
+
+If you ever changed assets/js/common.js yourself, tell Shannon's assistant before uploading.
