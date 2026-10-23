@@ -209,6 +209,7 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Sort Run pop-up: the scroll trigger now checks the scroll position directly, so a fast flick or jump past "What you need to get started" can no longer skip it. It still waits for a real scroll, tap or key press so it never opens on page load.
 - Cache-busting version for assets/css/sortrun.css and assets/js/sortrun.js bumped to ?v=2.20 so browsers fetch the new files instead of an older saved copy.
 
+## 2026-10-21 - v2.21 (pre-launch)
+- Share wording: the playlist game now shares "I'm The Empire Builder. Click to find your delivery playlist." and Sort Run shares "I scored N! Can you keep up? Click to play Sort Run...". On phones the link is now placed inside the message text (instead of as a separate item), so the message and link are sent together as one message.
+- sortrun.css / sortrun.js cache version bumped to ?v=2.21.
 
-## 2026-10-22 - v2.21 (pre-launch)
-- Requirements page: removed the three yellow "To confirm before launch" blocks (licence and age, vehicles, business documents and insurance) and their unused CSS. No wording about unconfirmed age, right-to-work, licence class, vehicle standards, or insurance minimums is shown on the page.

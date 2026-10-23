@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css?v=2.18">
-<link rel="stylesheet" href="assets/css/sortrun.css?v=2.20">
+<link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -368,7 +368,7 @@
 
 <script src="assets/js/config.js?v=2.18"></script>
 <script src="assets/js/common.js?v=2.18"></script>
-<script src="assets/js/sortrun.js?v=2.20"></script>
+<script src="assets/js/sortrun.js?v=2.21"></script>
 <script>
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
@@ -530,7 +530,7 @@ document.getElementById("again").addEventListener("click",function(){ show("resu
 /* ===== Share: persona message + Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link, and the phone's own share menu ===== */
 var shBtn=document.getElementById("share"), shP=document.getElementById("sharepanel"), shMsg=document.getElementById("sharemsg");
 if (navigator.share) shP.querySelector('[data-net="native"]').hidden=false;
-function shareText(){ var t=document.getElementById("rtitle").textContent||"a delivery driver"; return "I'm "+t+". What's your delivery playlist?"; }
+function shareText(){ var t=document.getElementById("rtitle").textContent||"a delivery driver"; return "I'm "+t+". Click to find your delivery playlist."; }
 function shareUrl(net){ return location.origin+location.pathname+"?utm_source=game_share&utm_medium=referral&utm_campaign=playlist_game&utm_content="+encodeURIComponent(net)+"#game"; }
 function copyText(t){
   if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
@@ -541,7 +541,7 @@ shBtn.addEventListener("click",function(){ var opening=shP.hidden; shP.hidden=!o
 shP.addEventListener("click",function(e){
   var b=e.target.closest("[data-net]"); if(!b) return;
   var net=b.getAttribute("data-net"), url=shareUrl(net), txt=shareText(); shMsg.textContent=""; track("game_share",{method:net,persona:document.getElementById("rtitle").textContent});
-  if(net==="native"){ navigator.share({title:"What's your delivery playlist?",text:txt,url:url}).catch(function(){}); return; }
+  if(net==="native"){ navigator.share({title:"What's your delivery playlist?",text:txt+" "+url}).catch(function(){}); return; }
   if(net==="facebook"){ window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url),"_blank","noopener,width=600,height=500"); return; }
   if(net==="whatsapp"){ window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank","noopener"); return; }
   if(net==="linkedin"){ window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url),"_blank","noopener,width=600,height=600"); return; }

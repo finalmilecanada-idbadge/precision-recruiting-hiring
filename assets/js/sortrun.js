@@ -162,7 +162,7 @@
     Promise.all([fonts,loadLogo()]).then(function(r){ drawCard(r[1]); });
   }
 
-  function shareText(){ return "I scored "+S.score+"! Can you keep up? Play Sort Run, the 45-second parcel sorting game from Precision Deliveries, and try to beat me."; }
+  function shareText(){ return "I scored "+S.score+"! Can you keep up? Click to play Sort Run, the 45-second parcel sorting game from Precision Deliveries, and try to beat me."; }
   function shareUrl(net){ return location.origin+location.pathname+"?utm_source=game_share&utm_medium=referral&utm_campaign=sort_run&utm_content="+encodeURIComponent(net)+"&beat="+S.score+"#sortrun"; }
   function copyText(t){
     if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
@@ -180,7 +180,7 @@
       var a=document.createElement("a"); a.href=URL.createObjectURL(S.blob); a.download="sort-run-score.jpg"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
       shMsg.textContent="Score card saved. Add it to your story, post or message."; return;
     }
-    if(net==="native"){ navigator.share({title:"I scored "+S.score+" on Sort Run",text:txt,url:url}).catch(function(){}); return; }
+    if(net==="native"){ navigator.share({title:"I scored "+S.score+" on Sort Run",text:txt+" "+url}).catch(function(){}); return; }
     if(net==="facebook"){ window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url),"_blank","noopener,width=600,height=500"); return; }
     if(net==="whatsapp"){ window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank","noopener"); return; }
     if(net==="linkedin"){ window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url),"_blank","noopener,width=600,height=600"); return; }
