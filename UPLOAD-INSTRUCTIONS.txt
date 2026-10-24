@@ -6,12 +6,14 @@ WHAT THIS DOES
 - Adds structured data (Organization, FAQ) and a plain-text list of locations
 - Fixes Google Analytics firing twice on the English home page and Sort Run
 - Uses one official name everywhere: Precision Parcel & Package Deliveries (matches precisiondeliveries.com)
+- Adds 4 new pages: accepted vehicles by location and contract driver / how pay works, in English and French
+- Removes a stray "SANDBOX build" line that showed in the English Requirements footer
 - Does NOT change headlines, hero, buttons, application links or tracking events
 
 STEP 1: UPLOAD (about 5 minutes)
 1. Unzip this pack. Open the folder "upload-these".
 2. In the live GitHub repository: Add file > Upload files.
-3. Drag EVERYTHING inside "upload-these" (the folders fr, requirements, sort-run and the files
+3. Drag EVERYTHING inside "upload-these" (the folders fr, requirements, sort-run, vehicles, contract-driver and the files
    index.html, robots.txt, sitemap.xml, README.md, CHANGELOG.md). GitHub will replace the old copies.
 4. Commit changes. Wait 2 minutes, then reload driveprecision.ca with Ctrl + F5.
 
@@ -20,14 +22,15 @@ STEP 2: CHECK THE DOMAIN SETTINGS
 
 STEP 3: QUICK TEST
 - Open driveprecision.ca/robots.txt : it should say Allow: /
-- Open driveprecision.ca/sitemap.xml : it should list 4 pages
+- Open driveprecision.ca/sitemap.xml : it should list 8 pages
+- Open driveprecision.ca/vehicles/ and driveprecision.ca/contract-driver/ (and the French pages under /fr/) : they should load
 - View page source on the home page and search for "noindex": it should NOT be there
 
 STEP 4: TELL GOOGLE AND BING (this is what gets you found fastest)
 1. Google Search Console (search.google.com/search-console): add driveprecision.ca as a DOMAIN property,
    verify with the DNS TXT record at wherever you bought the domain.
 2. Sitemaps > submit: sitemap.xml
-3. URL Inspection: paste https://driveprecision.ca/ > Request indexing. Repeat for /fr/ and /requirements/.
+3. URL Inspection: paste https://driveprecision.ca/ > Request indexing. Repeat for /fr/, /requirements/, /vehicles/ and /contract-driver/.
 4. Bing Webmaster Tools (bing.com/webmasters): Import from Google Search Console. Several AI search tools use Bing.
 
 STEP 5: CLEAN UP THE REPOSITORY (delete in GitHub: open the file/folder > trash can icon > commit)
@@ -53,8 +56,9 @@ drivers or driveprecision.ca. Ask the corporate site owner to add a short block 
       autonome, et non de postes d’employé. Pour en savoir plus et postuler : https://driveprecision.ca/fr/
   (English text goes on /careers/, French text on /fr/carrieres/)
 
-WHEN A PENDING LOCATION GOES LIVE (Brandon, Morden, Portage la Prairie, Laval)
-Update TWO places on each language page: the CONFIG list AND the sentence with id="loc-list".
+WHEN A LOCATION CHANGES (pending link goes live, or a location changes the vehicles it accepts)
+Update: the CONFIG list AND the sentence with id="loc-list" on the home pages, and the table AND the FAQ answers
+on /vehicles/ and /fr/vehicules/. Each has a comment at the top of the section saying so.
 
 ANALYTICS NOTE
 Page views on the English home page and Sort Run will drop by about half starting today. That is the

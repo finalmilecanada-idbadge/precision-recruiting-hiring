@@ -230,3 +230,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Brand name standardised to "Precision Parcel & Package Deliveries" (matches the corporate site, precisiondeliveries.com) in page titles, descriptions, footers, schema and share tags; page titles now lead with the keywords. Organization schema links to the corporate site.
 - No headline, hero, CTA, layout or tracking-event changes
 
+## 2026-10-23 - new pages: accepted vehicles by location, contract driver and pay (English + French)
+- New: /vehicles/ and /fr/vehicules/ (per-location table from the recruiter's list: Montreal, Quebec City, Winnipeg, Windsor, London, Hamilton, Oakville, Pickering, Barrie, Orillia, Ottawa; Hanover and pending locations confirmed at application)
+- New: /contract-driver/ and /fr/chauffeur-contractuel/ (contractor not employee, paid per piece, fuel surcharge paid every two weeks where it applies, no hourly or salaried roles)
+- Links added to the footer of every page and to the vehicles note in the requirements sections; hero, headline and Apply buttons unchanged
+- New pages use the same events: apply clicks are tagged vehicles_* and contract_* (top, final, sticky); language param separates English and French
+- Removed the visible "SANDBOX build v2.16 (test copy)" line from the English Requirements footer
+- Sitemap now lists 8 pages
+
