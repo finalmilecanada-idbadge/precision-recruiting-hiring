@@ -1,0 +1,61 @@
+DRIVEPRECISION.CA: GO-LIVE FOR SEARCH AND AI  (upload pack, 2026-10-23)
+
+WHAT THIS DOES
+- Turns indexing ON (removes noindex, lets robots.txt allow crawling, adds sitemap.xml)
+- Makes every page identify itself as https://driveprecision.ca (it said github.io before)
+- Adds structured data (Organization, FAQ) and a plain-text list of locations
+- Fixes Google Analytics firing twice on the English home page and Sort Run
+- Uses one official name everywhere: Precision Parcel & Package Deliveries (matches precisiondeliveries.com)
+- Does NOT change headlines, hero, buttons, application links or tracking events
+
+STEP 1: UPLOAD (about 5 minutes)
+1. Unzip this pack. Open the folder "upload-these".
+2. In the live GitHub repository: Add file > Upload files.
+3. Drag EVERYTHING inside "upload-these" (the folders fr, requirements, sort-run and the files
+   index.html, robots.txt, sitemap.xml, README.md, CHANGELOG.md). GitHub will replace the old copies.
+4. Commit changes. Wait 2 minutes, then reload driveprecision.ca with Ctrl + F5.
+
+STEP 2: CHECK THE DOMAIN SETTINGS
+- Repository > Settings > Pages: Custom domain shows driveprecision.ca and "Enforce HTTPS" is ticked.
+
+STEP 3: QUICK TEST
+- Open driveprecision.ca/robots.txt : it should say Allow: /
+- Open driveprecision.ca/sitemap.xml : it should list 4 pages
+- View page source on the home page and search for "noindex": it should NOT be there
+
+STEP 4: TELL GOOGLE AND BING (this is what gets you found fastest)
+1. Google Search Console (search.google.com/search-console): add driveprecision.ca as a DOMAIN property,
+   verify with the DNS TXT record at wherever you bought the domain.
+2. Sitemaps > submit: sitemap.xml
+3. URL Inspection: paste https://driveprecision.ca/ > Request indexing. Repeat for /fr/ and /requirements/.
+4. Bing Webmaster Tools (bing.com/webmasters): Import from Google Search Console. Several AI search tools use Bing.
+
+STEP 5: CLEAN UP THE REPOSITORY (delete in GitHub: open the file/folder > trash can icon > commit)
+- Folder "site"                              (old copy with the wrong address)
+- Folder "precision-recruiting-hiring-main" inside the repo (duplicate)
+- File "requirements-index.html"             (duplicate)
+- File "READ-ME-FIRST.txt"                   (old French upload note, now misleading)
+
+STEP 6: GIVE THE SITE OUTSIDE MENTIONS (this is most of the work for AI search)
+- Put https://driveprecision.ca on the Precision LinkedIn page, JazzHR postings, Indeed and every terminal posting
+- Use one brand name in every posting: Precision Parcel & Package Deliveries
+- Claim a Google Business Profile for each terminal where that applies
+
+STEP 7: ASK THE CORPORATE WEB TEAM FOR A LINK (biggest single trust signal)
+precisiondeliveries.com/careers/ currently says "No open positions at this time" and does not mention contract
+drivers or driveprecision.ca. Ask the corporate site owner to add a short block with a link. Suggested copy:
+
+  EN: Precision Parcel & Package Deliveries works with independent contract drivers who use their own vehicle
+      in Ontario, Manitoba and Quebec. These are independent contractor opportunities, not employee positions.
+      Learn more and apply: https://driveprecision.ca/
+  FR: Precision Parcel & Package Deliveries collabore avec des chauffeurs contractuels indépendants qui utilisent
+      leur propre véhicule en Ontario, au Manitoba et au Québec. Il s’agit d’occasions à titre de travailleur
+      autonome, et non de postes d’employé. Pour en savoir plus et postuler : https://driveprecision.ca/fr/
+  (English text goes on /careers/, French text on /fr/carrieres/)
+
+WHEN A PENDING LOCATION GOES LIVE (Brandon, Morden, Portage la Prairie, Laval)
+Update TWO places on each language page: the CONFIG list AND the sentence with id="loc-list".
+
+ANALYTICS NOTE
+Page views on the English home page and Sort Run will drop by about half starting today. That is the
+double-count being fixed. It is logged in CHANGELOG.md so before/after comparisons stay honest.
