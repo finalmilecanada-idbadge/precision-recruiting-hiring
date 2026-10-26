@@ -8,7 +8,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 function isPeak(d){ d=d||new Date(); var m=("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); return m>=PDCFG.peak.start||m<=PDCFG.peak.end; }
 function track(name, params){
-  params = params || {}; params.season = isPeak() ? "peak" : "off_peak"; params.language = LANG;
+  params = params || {}; params.season = isPeak() ? "peak" : "off_peak"; params.site_language = LANG;   // site_language, not "language": GA4 already uses "language" for the browser language
   if (PDCFG.gaId) { gtag("event", name, params); } else { console.log("[event]", name, params); }
 }
 if (PDCFG.gaId) {
