@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.18">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.19">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 </head>
 <body>
@@ -40,11 +40,11 @@
 
 <!-- PEAK SEASON MODULE: shows only Oct 6 to Jan 12 (dates in CONFIG). Delete this block to retire it. -->
 <div id="peak" hidden>
-  <a class="ticker" href="#locations" data-apply data-cta="peak_banner" aria-label="Peak season is here. We're building contractor capacity across Ontario, Manitoba and Quebec. Apply to Drive.">
-    <span class="track" aria-hidden="true">
-      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><span class="cta">Apply to Drive</span><i class="dot"></i></span>
+  <div class="ticker" role="group" aria-label="Peak season announcements">
+    <span class="track">
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span>Job Fair: Sat. Oct 31 in Oakville. Walk-ins welcome.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://intake.driveridbadge.ca/jobfair" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Oakville Job Fair on October 31 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
     </span>
-  </a>
+  </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
 </div>
 
@@ -373,6 +373,9 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
+/* JOBFAIR_RSVP: the Oct 31 Oakville job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (3:30 p.m. Eastern, Oct 31, 2026) the banner button disappears by itself. */
+var JOBFAIR_RSVP = INTAKE + "/jobfair";
+var JOBFAIR_END = new Date("2026-10-31T19:30:00Z").getTime();
 /* JOBFAIR: the address every location application link is built from (per-location IDs below). */
 var JOBFAIR = "https://shani.precisiondeliveries.com/jobfair";
 var CONFIG = {
@@ -406,7 +409,23 @@ var CONFIG = {
 /* ===== Peak banner ticker: duplicate the message so the loop never shows a gap; pause button ===== */
 (function(){
   var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild; if(!c) return;
-  for(var i=0;i<3;i++){ t.appendChild(c.cloneNode(true)); }
+  /* Job Fair button: its link comes from JOBFAIR_RSVP (top of this script). The whole Job Fair part leaves the banner once the fair is over. */
+  var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
+  if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* The copies are for the endless loop only: hidden from screen readers and skipped by the Tab key */
+  for(var i=0;i<3;i++){
+    var k=c.cloneNode(true); k.setAttribute("aria-hidden","true");
+    Array.prototype.forEach.call(k.querySelectorAll("a"),function(a){ a.tabIndex=-1; a.removeAttribute("id"); });
+    t.appendChild(k);
+  }
+  /* Clicks, counted once for all copies: Apply link and clicking the banner text = apply_click; Job Fair button = jobfair_rsvp_click */
+  var tk=document.querySelector("#peak .ticker");
+  tk.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-peak]");
+    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner"}); return; }
+    track("apply_click",{cta_location:"peak_banner"});
+    if(!a) location.hash="#locations";
+  });
   var pk=document.getElementById("peak"), pp=document.getElementById("peak-pause");
   pp.addEventListener("click",function(){ var p=pk.classList.toggle("paused"); pp.setAttribute("aria-pressed",String(p)); pp.setAttribute("aria-label",p?"Play scrolling banner":"Pause scrolling banner"); });
 })();

@@ -1,0 +1,14 @@
+JOB FAIR BUTTON IN THE PEAK BANNER
+
+UPLOAD NOW (live site):
+  index.html, CHANGELOG.md and the "assets" folder
+  GitHub > Add file > Upload files > drag those in > Commit. Wait 2 minutes, then Ctrl + F5 on driveprecision.ca.
+
+DO NOT UPLOAD NOW:
+  The folder "for-the-go-live-pack-only". It is the same banner change made on the go-live pack's index.html
+  (the one inside the repo's upload-these folder). Only use it if you upload that pack later, so the
+  Job Fair button is not lost.
+
+The button opens https://intake.driveridbadge.ca/jobfair. If the RSVP form lives at a different address,
+change the one line  var JOBFAIR_RSVP = INTAKE + "/jobfair";  in index.html.
+After 3:30 p.m. Eastern on Oct 31, 2026 the Job Fair part of the banner disappears by itself.

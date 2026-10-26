@@ -219,3 +219,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Driver Match link (intake.driveridbadge.ca/driver-match) intentionally unchanged: still working in the old system
 - Brandon, Morden, Portage la Prairie and Laval still pending
 - Analytics unchanged: UTM tagging and application_link_click event still apply to the new links
+
+## 2026-10-26 - Job Fair RSVP button in the peak banner (v2.22)
+- The scrolling peak banner now carries the Oct 31 Oakville Job Fair: message "Job Fair: Sat. Oct 31 in Oakville. Walk-ins welcome." plus an orange "RSVP for the Job Fair" button that opens the RSVP form (intake.driveridbadge.ca/jobfair) in a new tab
+- The banner is no longer one big link: "Apply to Drive" is its own button and the Job Fair button is its own link. Clicking the banner text still jumps to the locations. Copies used for the endless loop are hidden from screen readers and skipped by the Tab key
+- The Job Fair part removes itself after 3:30 p.m. Eastern on Oct 31, 2026 (JOBFAIR_END in index.html). Scroll time raised from 32s to 54s so the speed stays the same with the longer message
+- Analytics: new event jobfair_rsvp_click (cta_location: peak_banner). apply_click for the banner is unchanged
+- styles.css cache version bumped to ?v=2.19 on the English home page
+- To retire after the fair: delete the .jf-part span in index.html, the JOBFAIR_RSVP/JOBFAIR_END lines, and the "Peak banner: Job Fair RSVP button" block at the end of styles.css

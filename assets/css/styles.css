@@ -598,3 +598,17 @@ header.has-apply{isolation:isolate}
   .game.live .result.pop::before{animation:none}
   .result.pop > *:not(.burst){animation:none}
 }
+
+/* ===== Peak banner: Job Fair RSVP button (Oct 31, 2026). Delete this block with the .jf-part in index.html when the fair is over. ===== */
+#peak .ticker{cursor:pointer}
+#peak .track{animation-duration:54s}   /* the message is longer now, so the loop takes longer and the scroll speed stays the same as before (was 32s) */
+#peak .jf-part{display:inline-flex;align-items:center;flex:none}
+#peak a.cta:focus-visible{outline:3px solid #ffd400;outline-offset:3px}
+#peak .cta-jf{background:#FF9A3D;color:#0A1033;padding:.4em 1.15em;box-shadow:0 0 0 3px #fff,0 0 22px rgba(255,154,61,.95);animation:jfpulse 1.8s ease-in-out infinite}
+@keyframes jfpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){
+  #peak .cta-jf{animation:none}
+  #peak .copy > a{margin:.25em .35em}
+  #peak .jf-part{flex-basis:100%;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  #peak .jf-part > span{margin:0 .35em}
+}
