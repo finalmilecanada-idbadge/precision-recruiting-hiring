@@ -227,3 +227,14 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Analytics: new event jobfair_rsvp_click (cta_location: peak_banner). apply_click for the banner is unchanged
 - styles.css cache version bumped to ?v=2.19 on the English home page
 - To retire after the fair: delete the .jf-part span in index.html, the JOBFAIR_RSVP/JOBFAIR_END lines, and the "Peak banner: Job Fair RSVP button" block at the end of styles.css
+
+## 2026-10-26 - Halloween Job Fair video in the hero video spot (v2.23)
+- English home page: the hero video spot now shows the self-hosted Halloween Job Fair 2026 video (assets/video/precision-halloween-job-fair-2026.mp4, 720p, about 4 MB, 53 seconds). Until it is tapped it shows the "BOO!" picture (assets/img/job-fair-poster.webp) with a play button. Nothing downloads until the visitor taps play (preload none), so page speed is unchanged.
+- The video swaps itself out after JOBFAIR_END (3:30 p.m. Eastern, Oct 31, 2026): it hides and the previous "Your Success is Our Success" YouTube tile returns. No upload needed on Nov 1.
+- Analytics: video_play now carries a video_name parameter (halloween_job_fair_2026 or your_success_youtube); same event name for both videos. New event video_complete (video_name). Register video_name as a custom dimension in GA4 (Admin > Custom definitions) to see it in reports.
+- No captions file yet. French page unchanged (still the YouTube tile).
+- styles.css cache version bumped to ?v=2.23. The same change was made in for-the-go-live-pack-only/index.html so it is not lost when the go-live pack is uploaded.
+- To retire for good: delete the #jf-frame block, the "Job Fair video" script and the .jfvid CSS block, remove the hidden attribute from #yt-frame, and delete assets/video/ and job-fair-poster.webp.
+
+## 2026-10-26 - Job Fair video captions (v2.23, same upload)
+- English captions added to the Job Fair video (assets/video/precision-halloween-job-fair-2026.en.vtt, from Shannon's SRT). They are on by default; viewers can switch them off in the player. Remove the "default" word on the <track> line in index.html to make them opt-in.

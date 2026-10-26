@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.19">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.23">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 </head>
 <body>
@@ -83,7 +83,20 @@
     </div>
     <div class="vid">
       <h2 class="slogan">Your Success is Our Success</h2>
-      <div class="vidframe"><div class="vidbox" id="vidbox">
+      <!-- JOB FAIR VIDEO (self-hosted). Shows until JOBFAIR_END (Oct 31, 2026, 3:30 p.m. ET), then the script swaps back to the YouTube tile below.
+           To retire early or later: change JOBFAIR_END. To remove for good: delete this block, the "Job Fair video" script, the .jfvid CSS block, and un-hide #yt-frame. -->
+      <div class="vidframe jfvid" id="jf-frame"><div class="vidbox">
+        <video id="jfvideo" controls preload="none" playsinline poster="assets/img/job-fair-poster.webp" width="1280" height="720" aria-label="Precision Halloween Job Fair 2026 video">
+          <source src="assets/video/precision-halloween-job-fair-2026.mp4" type="video/mp4">
+          <track kind="captions" src="assets/video/precision-halloween-job-fair-2026.en.vtt" srclang="en" label="English" default>
+          Your browser can't play this video.
+        </video>
+        <button class="vidbtn" id="jfbtn" type="button" aria-label="Play video: Halloween Job Fair 2026" hidden>
+          <span class="play" aria-hidden="true"></span>
+        </button>
+      </div></div>
+      <!-- Original YouTube tile: hidden while the job fair video runs, shown automatically afterwards -->
+      <div class="vidframe" id="yt-frame" hidden><div class="vidbox" id="vidbox">
         <img class="bg" src="assets/img/precision-route-icon.webp" alt="" width="300" height="232">
         <button class="vidbtn" id="vidbtn" type="button" aria-label="Play video: Your Success is Our Success">
           <span class="play" aria-hidden="true"></span>
@@ -479,8 +492,23 @@ document.getElementById("vidbtn").addEventListener("click", function(){
   var box=document.getElementById("vidbox"), f=document.createElement("iframe");
   f.src="https://www.youtube-nocookie.com/embed/"+CONFIG.videoId+"?autoplay=1&rel=0&playsinline=1";
   f.title="Your Success is Our Success"; f.allow="autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen=true;
-  box.innerHTML=""; box.appendChild(f); track("video_play");
+  box.innerHTML=""; box.appendChild(f); track("video_play",{video_name:"your_success_youtube"});
 });
+
+/* ===== Job Fair video (self-hosted): poster image until tapped, then plays inline. After JOBFAIR_END it hides itself and the YouTube tile returns ===== */
+(function(){
+  var jf=document.getElementById("jf-frame"), yt=document.getElementById("yt-frame");
+  if(!jf||!yt) return;
+  if(Date.now()>JOBFAIR_END){ jf.hidden=true; yt.hidden=false; return; }
+  var v=document.getElementById("jfvideo"), b=document.getElementById("jfbtn"), name="halloween_job_fair_2026";
+  v.removeAttribute("controls"); b.hidden=false;           // no-JavaScript visitors keep the browser's own controls; with JavaScript we use the big play button
+  b.addEventListener("click", function(){
+    b.hidden=true; v.setAttribute("controls","");
+    var p=v.play(); if(p&&p.catch){ p.catch(function(){}); }
+    v.focus(); track("video_play",{video_name:name});          // same event name as the YouTube video; video_name tells them apart
+  });
+  v.addEventListener("ended", function(){ track("video_complete",{video_name:name}); });
+})();
 
 /* ===== Playlist game: picks are counted anonymously (no names, no storage) ===== */
 var G={
