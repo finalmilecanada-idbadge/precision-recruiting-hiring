@@ -238,3 +238,18 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-10-26 - Job Fair video captions (v2.23, same upload)
 - English captions added to the Job Fair video (assets/video/precision-halloween-job-fair-2026.en.vtt, from Shannon's SRT). They are on by default; viewers can switch them off in the player. Remove the "default" word on the <track> line in index.html to make them opt-in.
+
+## 2026-10-26 - Job Fair video with French captions on the French page (v2.24)
+- fr/index.html: the hero video spot now shows the same Job Fair video (English audio) with French captions (assets/video/precision-halloween-job-fair-2026.fr.vtt, Quebec French, drafted from the English captions, on by default) and the note "Vidéo en anglais, avec sous-titres en français." Same poster image, same tap-to-play, same auto-swap back to the YouTube tile after JOBFAIR_END (3:30 p.m. Eastern, Oct 31, 2026).
+- Analytics: same events as the English page (video_play, video_complete with video_name halloween_job_fair_2026); the language parameter is fr automatically. The French YouTube tile's video_play now also carries video_name your_success_youtube.
+- styles.css cache version on the French page bumped to ?v=2.24.
+- Same change made in for-the-go-live-pack-only/fr/index.html (go-live version of the French page).
+- Known gaps on the French page, not part of this change: no Sort Run, no Job Fair button in the peak banner, still on the v2.18 build.
+
+## 2026-10-26 - French page now mirrors the English page (v2.24)
+- fr/index.html: added the Job Fair banner (Salon de recrutement, sam. 31 oct. à Oakville, button "Confirmer ma présence", same RSVP form as English, same auto-removal at 3:30 p.m. Eastern on Oct 31, 2026) and the Sort Run game (menu link, pop-up after "Les prérequis pour commencer", side tab, French privacy sentence). Section "Les prérequis pour commencer" now has id="needs" so the pop-up trigger works.
+- New page fr/sort-run/ (French standalone Sort Run for emails and posts), with an English link back to /sort-run/.
+- assets/js/sortrun.js now carries English and French text and picks by the page language. The English page behaves as before. Analytics values stay English on both languages (rank is always "Dock veteran", "Solid sorter" or "Getting your bearings"), so reports are not split by language; the language parameter says fr or en. Cache version for sortrun.js bumped to ?v=2.24 on all pages that load it.
+- Banner clicks on the French page now use the same events as English: apply_click (cta_location peak_banner) and jobfair_rsvp_click (cta_location peak_banner).
+- The French banner's whole-strip link was replaced by the same layout as English: separate Apply link and Job Fair button.
+- Same changes made in the go-live copies under for-the-go-live-pack-only/.

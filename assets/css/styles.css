@@ -622,3 +622,7 @@ header.has-apply{isolation:isolate}
 .jfvid .vidbtn:hover .play,.jfvid .vidbtn:focus-visible .play{transform:scale(1.08)}
 .jfvid .vidbtn:focus-visible{outline:3px solid #fff;outline-offset:-6px}
 @media(prefers-reduced-motion:reduce){.jfvid .play{transition:none}}
+
+/* Job Fair video note under the French player (English audio, French captions) */
+.jfnote{margin:8px 0 0;font-size:.9rem;opacity:.85}
+.jfnote[hidden]{display:none}

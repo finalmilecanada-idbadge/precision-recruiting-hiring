@@ -29,7 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.18">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.24">
+<link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 </head>
 <body>
@@ -37,11 +38,11 @@
 
 <!-- PEAK SEASON MODULE: shows only Oct 6 to Jan 12 (dates in CONFIG). Delete this block to retire it. -->
 <div id="peak" hidden>
-  <a class="ticker" href="#locations" data-apply data-cta="peak_banner" aria-label="La haute saison est arrivée ! Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec. Présentez votre candidature comme chauffeur.">
-    <span class="track" aria-hidden="true">
-      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><span class="cta">Présentez votre candidature comme chauffeur</span><i class="dot"></i></span>
+  <div class="ticker" role="group" aria-label="Annonces de la haute saison">
+    <span class="track">
+      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Présentez votre candidature comme chauffeur</a><i class="dot"></i><span class="jf-part"><span>Salon de recrutement : sam. 31 oct. à Oakville. Sans inscription, vous êtes les bienvenus.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://intake.driveridbadge.ca/jobfair" target="_blank" rel="noopener" data-peak="jobfair" aria-label="Confirmer votre présence au salon de recrutement d’Oakville du 31 octobre (s’ouvre dans un nouvel onglet)">Confirmer ma présence</a><i class="dot"></i></span></span>
     </span>
-  </a>
+  </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Mettre en pause le défilement du bandeau"></button>
 </div>
 
@@ -57,6 +58,7 @@
       <a href="#locations" data-nav="locations">Emplacements</a>
       <a href="#driver-match" data-nav="driver_match">Jumelage des chauffeurs</a>
       <a href="#game" data-nav="game">Jouer au jeu</a>
+      <a href="#sortrun" data-nav="sort_run">Sort Run</a>
       <a class="lang" id="lang" href="../" hreflang="en-CA" lang="en" data-keep-utm data-nav="language" aria-label="View this page in English">English</a>
     </nav>
   </div>
@@ -79,7 +81,21 @@
     </div>
     <div class="vid">
       <h2 class="slogan">Votre réussite, c’est aussi la nôtre</h2>
-      <div class="vidframe"><div class="vidbox" id="vidbox">
+      <!-- VIDÉO DU SALON DE RECRUTEMENT (hébergée sur le site). Affichée jusqu'à JOBFAIR_END (31 oct. 2026, 15 h 30 HE), puis la tuile YouTube ci-dessous revient d'elle-même.
+           Pour la retirer pour de bon : supprimer ce bloc, le script « Vidéo du salon », le bloc CSS .jfvid et retirer l'attribut hidden de #yt-frame. -->
+      <div class="vidframe jfvid" id="jf-frame"><div class="vidbox">
+        <video id="jfvideo" controls preload="none" playsinline poster="../assets/img/job-fair-poster.webp" width="1280" height="720" aria-label="Vidéo du salon de recrutement de la haute saison de Precision">
+          <source src="../assets/video/precision-halloween-job-fair-2026.mp4" type="video/mp4">
+          <track kind="captions" src="../assets/video/precision-halloween-job-fair-2026.fr.vtt" srclang="fr" label="Français" default>
+          Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+        <button class="vidbtn" id="jfbtn" type="button" aria-label="Lancer la vidéo : salon de recrutement de la haute saison" hidden>
+          <span class="play" aria-hidden="true"></span>
+        </button>
+      </div></div>
+      <p class="jfnote" id="jf-note">Vidéo en anglais, avec sous-titres en français.</p>
+      <!-- Tuile YouTube d'origine : cachée pendant la vidéo du salon, réaffichée automatiquement ensuite -->
+      <div class="vidframe" id="yt-frame" hidden><div class="vidbox" id="vidbox">
         <img class="bg" src="../assets/img/precision-route-icon.webp" alt="" width="300" height="232">
         <button class="vidbtn" id="vidbtn" type="button" aria-label="Lancer la vidéo : Votre réussite, c’est aussi la nôtre">
           <span class="play" aria-hidden="true"></span>
@@ -191,7 +207,7 @@
 
 <div class="fade-zone-2">
 <!-- ===== REQUIREMENTS ===== -->
-<section class="band tint-sky" aria-labelledby="req">
+<section class="band tint-sky" id="needs" aria-labelledby="req">
   <div class="wrap grid c2">
     <div>
       <h2 id="req">Les prérequis pour commencer</h2>
@@ -271,20 +287,106 @@
     <ul id="social"></ul>
     <details>
       <summary>Confidentialité</summary>
-      <p>Cette page ne recueille aucun renseignement personnel. Lorsque vous présentez votre candidature, vous êtes redirigé vers notre portail sécurisé, où les renseignements que vous fournissez servent à évaluer votre candidature et à procéder à l’intégration des chauffeurs contractuels. Nous utilisons des technologies d’analyse afin de comprendre le parcours des visiteurs sur cette page, notamment pour identifier la campagne publicitaire qui vous a redirigé vers nous. Si vous jouez au jeu des playlists, vos choix, y compris les genres musicaux que vous saisissez, sont comptés de manière anonyme et ne sont pas reliés à vous. <a href="#" data-pending="Insérer le lien de la politique de confidentialité ici après validation.">Consulter notre politique de confidentialité</a>.</p>
+      <p>Cette page ne recueille aucun renseignement personnel. Lorsque vous présentez votre candidature, vous êtes redirigé vers notre portail sécurisé, où les renseignements que vous fournissez servent à évaluer votre candidature et à procéder à l’intégration des chauffeurs contractuels. Nous utilisons des technologies d’analyse afin de comprendre le parcours des visiteurs sur cette page, notamment pour identifier la campagne publicitaire qui vous a redirigé vers nous. Si vous jouez au jeu des playlists, vos choix, y compris les genres musicaux que vous saisissez, sont comptés de manière anonyme et ne sont pas reliés à vous. Si vous jouez à Sort Run, votre pointage et votre précision sont aussi comptés de manière anonyme. <a href="#" data-pending="Insérer le lien de la politique de confidentialité ici après validation.">Consulter notre politique de confidentialité</a>.</p>
     </details>
     <p class="note">Precision Deliveries est une entreprise du Groupe FastFrate. Offres de sous-traitance indépendante uniquement. Aucun volume de travail, itinéraire ou revenu n’est garanti.</p>
   </div>
 </footer>
+
+<!-- ===== POP-UP SORT RUN : s'ouvre une fois quand le visiteur dépasse « Les prérequis pour commencer », ou depuis le lien du menu. Code : assets/js/sortrun.js, styles : assets/css/sortrun.css ===== -->
+<div class="sr-modal" id="sr-modal" role="dialog" aria-modal="true" aria-labelledby="srh" data-after="needs" hidden>
+  <div class="sr-modal-box">
+    <button class="sr-close" id="sr-close" type="button" aria-label="Fermer Sort Run">&times;</button>
+<section class="game sortrun" id="sortrun" aria-labelledby="srh" data-logo="../assets/img/precision-logo.png">
+  <div class="wrap">
+    <h2 id="srh">Sort Run : saurez-vous garder le convoyeur en marche ?</h2>
+    <div class="led" aria-hidden="true"></div>
+    <p class="lead">45 secondes sur un quai de terminal. Découvrez l’effet du tri du matin, puis mettez un ami au défi de faire mieux.</p>
+
+    <p class="challenge" id="sr-challenge" hidden></p>
+
+    <div id="sr-intro">
+      <ul class="bubbles" aria-label="À propos de ce jeu">
+        <li class="bubble" style="--r:-2deg">45 secondes</li>
+        <li class="bubble" style="--r:1.5deg">Cinq bacs</li>
+        <li class="bubble" style="--r:-1.5deg">Contre la montre</li>
+        <li class="bubble" style="--r:2deg">Juste pour le plaisir</li>
+      </ul>
+      <p>Les colis arrivent un à un. Vérifiez le code postal et dirigez chaque colis vers la route qui le couvre. Les colis lourds ou hors format vont toujours sur l’étagère des colis hors format, peu importe le code postal.</p>
+      <p class="muted">Touchez un bac ou appuyez sur 1 à 5 sur votre clavier. Les bonnes réponses forment une série. Les mauvaises vous font perdre des points.</p>
+      <button class="btn btn-light rb" id="sr-start" type="button"><span class="pkgfall" aria-hidden="true"><i style="left:7%;--d:0s;--s:12px;--r:25deg"></i><i style="left:24%;--d:.7s;--s:16px;--r:-20deg"></i><i style="left:42%;--d:.3s;--s:13px;--r:35deg"></i><i style="left:60%;--d:1s;--s:17px;--r:-30deg"></i><i style="left:78%;--d:.5s;--s:12px;--r:20deg"></i><i style="left:90%;--d:1.2s;--s:15px;--r:-25deg"></i></span><span class="lbl">Lancer le tri</span></button>
+      <p class="fine">Il ne s’agit ni d’une demande d’inscription ni d’une vérification d’admissibilité.</p>
+    </div>
+
+    <div id="sr-play" hidden>
+      <div class="sr-hud" aria-live="polite">
+        <div><small>Pointage</small><b id="sr-score">0</b></div>
+        <div><small>Série</small><b id="sr-streak">0</b></div>
+        <div><small>Temps restant</small><b id="sr-time">45</b></div>
+      </div>
+      <div class="sr-time" aria-hidden="true"><i id="sr-bar"></i></div>
+      <div class="sr-belt"><div class="sr-parcel" id="sr-parcel" aria-live="polite"></div></div>
+      <div class="sr-hint" id="sr-hint"></div>
+      <div class="sr-bins" id="sr-bins"></div>
+    </div>
+
+    <div id="sr-result" class="result rb" hidden>
+      <p class="np"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Partie terminée</p>
+      <h2 id="sr-rank" tabindex="-1" style="margin:0 0 6px"></h2>
+      <p id="sr-msg"></p>
+      <div class="sr-stats">
+        <div class="sr-stat"><b id="sr-r-count">0</b><span>colis triés</span></div>
+        <div class="sr-stat"><b id="sr-r-acc">0 %</b><span>précision</span></div>
+        <div class="sr-stat"><b id="sr-r-score">0</b><span>pointage</span></div>
+      </div>
+      <p id="sr-vs" hidden></p>
+      <p>Un vrai tri du matin dure bien plus de 45 secondes. Choisissez votre région pour présenter votre candidature, ou demandez-nous d’organiser une visite pour en voir un.</p>
+      <a class="btn btn-light btn-block rb" href="#locations" data-apply data-cta="sortrun_result" data-keep-utm>Présentez votre candidature comme chauffeur</a>
+      <p class="nudge">Vous pensez qu’un ami peut faire mieux ? Envoyez-lui votre pointage.</p>
+      <canvas id="sr-card" width="1080" height="1080" role="img" aria-label="Votre carte de pointage Sort Run"></canvas>
+      <button class="btn sharebtn rb" id="sr-share" type="button" aria-expanded="false" aria-controls="sr-sharepanel">Partager mon pointage &#8599;</button>
+      <div class="sharepanel" id="sr-sharepanel" hidden>
+        <p class="np2">Partagez votre pointage</p>
+        <div class="sharegrid">
+          <button type="button" class="btn btn-ghost rb" data-net="image" hidden>Partager la carte de pointage</button>
+          <button type="button" class="btn btn-ghost rb" data-net="save">Enregistrer la carte de pointage</button>
+          <button type="button" class="btn btn-ghost rb" data-net="native" hidden>Partager le texte et le lien</button>
+          <button type="button" class="btn btn-ghost rb" data-net="facebook">Facebook</button>
+          <button type="button" class="btn btn-ghost rb" data-net="whatsapp">WhatsApp</button>
+          <button type="button" class="btn btn-ghost rb" data-net="linkedin">LinkedIn</button>
+          <button type="button" class="btn btn-ghost rb" data-net="instagram">Instagram</button>
+          <button type="button" class="btn btn-ghost rb" data-net="tiktok">TikTok</button>
+          <button type="button" class="btn btn-ghost rb" data-net="copy">Copier le lien</button>
+        </div>
+        <p class="fine" id="sr-sharemsg" role="status" aria-live="polite"></p>
+      </div>
+      <p class="again-row"><button class="btn btn-ghost rb" id="sr-again" type="button">Rejouer</button></p>
+    </div>
+
+    <p class="fine">Jeu d’entraînement seulement. Les codes postaux sont des exemples de Hamilton, regroupés de façon simplifiée. Il ne s’agit pas d’affectations réelles de routes.</p>
+  </div>
+</section>
+  </div>
+</div>
+
+<!-- Onglet latéral Sort Run : une fois le pop-up fermé, il s'y déplace et rebondit jusqu'au clic -->
+<div class="sr-launch" id="sr-launch" hidden>
+  <button type="button" class="sr-launch-x" id="sr-launch-x" aria-label="Masquer le bouton Sort Run">&times;</button>
+  <button type="button" class="sr-launch-btn" id="sr-launch-btn" aria-label="Jouer à Sort Run, un jeu de 45 secondes"><span class="sr-launch-pkg" aria-hidden="true"></span><span>Jouer à Sort Run</span></button>
+</div>
 
 <div id="sticky"><a class="btn btn-block" href="#locations" data-apply data-cta="sticky_bar">Présentez votre candidature comme chauffeur</a></div>
 <div id="toast" role="status" hidden></div>
 
 <script src="../assets/js/config.js?v=2.18"></script>
 <script src="../assets/js/common.js?v=2.18"></script>
+<script src="../assets/js/sortrun.js?v=2.24"></script>
 <script>if(typeof I18N!=="undefined"){I18N.open="Ouvrir le menu principal";}</script>
 <script>
 /* ===== CONFIG : the only place you edit locations, links and IDs ===== */
+/* JOBFAIR_RSVP : formulaire de confirmation du salon d'Oakville du 31 oct. (sur le site d'accueil). JOBFAIR_END : après ce moment (15 h 30 HE, 31 oct. 2026), le bouton du salon disparaît de lui-même. */
+var JOBFAIR_RSVP = "https://intake.driveridbadge.ca/jobfair";
+var JOBFAIR_END = new Date("2026-10-31T19:30:00Z").getTime();
 var CONFIG = {
   captureCustomGenre : true,      // records a cleaned-up (letters only, 24 characters max) custom genre in analytics ; set false to stop. Needs privacy sign-off before launch
   videoId : "wunY1iC9IBc",
@@ -315,8 +417,24 @@ var CONFIG = {
 
 /* ===== Peak banner ticker : duplicate the message so the loop never shows a gap ; pause button ===== */
 (function(){
-  var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild ; if(!c) return;
-  for(var i=0;i<3;i++){ t.appendChild(c.cloneNode(true)); }
+  var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild; if(!c) return;
+  /* Bouton du salon : son lien vient de JOBFAIR_RSVP (haut du script). Toute la partie « salon » quitte le bandeau une fois le salon terminé. */
+  var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
+  if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* Les copies servent seulement à la boucle sans fin : cachées des lecteurs d'écran et ignorées par la touche Tab */
+  for(var i=0;i<3;i++){
+    var k=c.cloneNode(true); k.setAttribute("aria-hidden","true");
+    Array.prototype.forEach.call(k.querySelectorAll("a"),function(a){ a.tabIndex=-1; a.removeAttribute("id"); });
+    t.appendChild(k);
+  }
+  /* Clics, comptés une seule fois pour toutes les copies : lien « candidature » et clic sur le texte du bandeau = apply_click ; bouton du salon = jobfair_rsvp_click */
+  var tk=document.querySelector("#peak .ticker");
+  tk.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-peak]");
+    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner"}); return; }
+    track("apply_click",{cta_location:"peak_banner"});
+    if(!a) location.hash="#locations";
+  });
   var pk=document.getElementById("peak"), pp=document.getElementById("peak-pause");
   pp.addEventListener("click",function(){ var p=pk.classList.toggle("paused"); pp.setAttribute("aria-pressed",String(p)); pp.setAttribute("aria-label",p?"Faire défiler le bandeau":"Mettre en pause le défilement du bandeau"); });
 })();
@@ -370,8 +488,23 @@ document.getElementById("vidbtn").addEventListener("click", function(){
   var box=document.getElementById("vidbox"), f=document.createElement("iframe");
   f.src="https://www.youtube-nocookie.com/embed/"+CONFIG.videoId+"?autoplay=1&rel=0&playsinline=1";
   f.title="Votre réussite, c’est aussi la nôtre"; f.allow="autoplay ; encrypted-media ; picture-in-picture"; f.allowFullscreen=true;
-  box.innerHTML=""; box.appendChild(f); track("video_play");
+  box.innerHTML=""; box.appendChild(f); track("video_play",{video_name:"your_success_youtube"});
 });
+
+/* ===== Vidéo du salon (hébergée sur le site) : image d'aperçu jusqu'au toucher, puis lecture sur place. Après JOBFAIR_END, elle se cache et la tuile YouTube revient ===== */
+(function(){
+  var jf=document.getElementById("jf-frame"), yt=document.getElementById("yt-frame"), nt=document.getElementById("jf-note");
+  if(!jf||!yt) return;
+  if(Date.now()>JOBFAIR_END){ jf.hidden=true; if(nt) nt.hidden=true; yt.hidden=false; return; }
+  var v=document.getElementById("jfvideo"), b=document.getElementById("jfbtn"), name="halloween_job_fair_2026";
+  v.removeAttribute("controls"); b.hidden=false;           // sans JavaScript : les commandes du navigateur restent; avec JavaScript : grand bouton de lecture
+  b.addEventListener("click", function(){
+    b.hidden=true; v.setAttribute("controls","");
+    var p=v.play(); if(p&&p.catch){ p.catch(function(){}); }
+    v.focus(); track("video_play",{video_name:name});          // même nom d'événement que la page anglaise; video_name distingue les vidéos
+  });
+  v.addEventListener("ended", function(){ track("video_complete",{video_name:name}); });
+})();
 
 /* ===== Playlist game: picks are counted anonymously (no names, no storage) ===== */
 var G={

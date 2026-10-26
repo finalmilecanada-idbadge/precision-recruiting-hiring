@@ -1,12 +1,14 @@
-JOB FAIR VIDEO IN THE HERO SPOT (English home page)
+JOB FAIR VIDEO + FRENCH PAGE MIRROR (English and French)
 
 UPLOAD NOW (live site):
-  index.html, CHANGELOG.md, and the "assets" folder (it holds the new video, its captions file, the BOO! picture and the updated styles.css)
-  GitHub > Add file > Upload files > drag those in > Commit. Wait 2 minutes, then Ctrl + F5 on driveprecision.ca.
+  index.html, CHANGELOG.md, and the folders "fr", "sort-run" and "assets"
+  GitHub > Add file > Upload files > drag those in > Commit. Wait 2 minutes, then Ctrl + F5 on:
+    driveprecision.ca              driveprecision.ca/fr/            driveprecision.ca/fr/sort-run/
+  (assets holds the video, English and French captions, the BOO! picture, styles.css and the updated sortrun.js)
 
 DO NOT UPLOAD NOW:
-  The folder "for-the-go-live-pack-only". It is the same video change made on the go-live pack's index.html.
-  Only use it if you upload the go-live pack later, so the video is not lost.
+  The folder "for-the-go-live-pack-only" (English and French pages plus both Sort Run pages for the go-live pack).
+  Only use its files if you upload the go-live pack later, so none of these changes are lost.
 
-After 3:30 p.m. Eastern on Oct 31, 2026 the video swaps itself back to the "Your Success is Our Success" YouTube tile.
-To change that moment, edit the one line  var JOBFAIR_END = ...  in index.html.
+After 3:30 p.m. Eastern on Oct 31, 2026 the video swaps back to the "Your Success is Our Success" YouTube tile and the Job Fair part of the banner disappears, on both languages.
+To change that moment, edit  var JOBFAIR_END = ...  in index.html and in fr/index.html.

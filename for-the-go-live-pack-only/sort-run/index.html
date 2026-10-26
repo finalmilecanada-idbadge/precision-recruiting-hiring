@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../favicon.ico?v=2.18" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=2.18">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2.18">
+<link rel="manifest" href="../site.webmanifest?v=2.18">
+<meta name="theme-color" content="#0A1033">
+<title>Sort Run | Precision Parcel &amp; Package Deliveries</title>
+<meta name="description" content="Try a 45-second version of the morning sort at a Precision Parcel &amp; Package Deliveries terminal. Sort the parcels, beat the clock, challenge a friend.">
+<meta property="og:title" content="Sort Run: can you keep the belt moving?">
+<meta property="og:description" content="A 45-second game from Precision Parcel &amp; Package Deliveries. Match each parcel to its route and challenge a friend to beat your score.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://driveprecision.ca/assets/img/sort-run-share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sort Run from Precision Parcel &amp; Package Deliveries: a 45-second parcel sorting game with glowing route bins.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.18">
+<link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="rainbow-bar" aria-hidden="true"></div>
+<header class="top has-apply">
+  <div class="wrap">
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a class="logo-chip" href="../" aria-label="Precision Parcel &amp; Package Deliveries home"><img src="../assets/img/precision-logo.png" width="296" height="120" alt="Precision Parcel &amp; Package Deliveries, a FastFrate Group company"></a>
+    <a class="btn topapply" href="../#locations" data-apply data-cta="sortrun_top" data-keep-utm aria-label="Apply to Drive"><span class="long">Apply to </span>Drive</a>
+    <nav class="sitenav" id="sitenav" aria-label="Main">
+      <a href="../" data-keep-utm data-nav="home">Home</a>
+      <a href="../requirements/" data-keep-utm data-nav="requirements">Requirements</a>
+      <a href="../#locations" data-keep-utm data-nav="locations">Locations</a>
+      <a href="../#driver-match" data-keep-utm data-nav="driver_match">Driver Match</a>
+      <a href="./" aria-current="page" data-nav="sort_run">Sort Run</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="game sortrun" id="sortrun" aria-labelledby="h1" data-logo="../assets/img/precision-logo.png">
+  <div class="wrap">
+    <h1 id="h1">Sort Run</h1>
+    <div class="led" aria-hidden="true"></div>
+    <p class="lead">45 seconds on a terminal dock. See what the morning sort feels like, then dare a friend to beat you.</p>
+
+    <p class="challenge" id="sr-challenge" hidden></p>
+
+    <div id="sr-intro">
+      <ul class="bubbles" aria-label="About this game">
+        <li class="bubble" style="--r:-2deg">45 seconds</li>
+        <li class="bubble" style="--r:1.5deg">Five bins</li>
+        <li class="bubble" style="--r:-1.5deg">Beat the clock</li>
+        <li class="bubble" style="--r:2deg">Just for fun</li>
+      </ul>
+      <p>Parcels roll in one at a time. Check the postal code and send each one to the route that covers it. Heavy or oversize parcels always go to the oversize shelf, whatever the postal code says.</p>
+      <p class="muted">Tap a bin, or press 1 to 5 on your keyboard. Right answers build a streak. Wrong ones cost you points.</p>
+      <button class="btn btn-light rb" id="sr-start" type="button"><span class="pkgfall" aria-hidden="true"><i style="left:7%;--d:0s;--s:12px;--r:25deg"></i><i style="left:24%;--d:.7s;--s:16px;--r:-20deg"></i><i style="left:42%;--d:.3s;--s:13px;--r:35deg"></i><i style="left:60%;--d:1s;--s:17px;--r:-30deg"></i><i style="left:78%;--d:.5s;--s:12px;--r:20deg"></i><i style="left:90%;--d:1.2s;--s:15px;--r:-25deg"></i></span><span class="lbl">Start the sort</span></button>
+      <p class="fine">Not an application or an eligibility check.</p>
+    </div>
+
+    <div id="sr-play" hidden>
+      <div class="sr-hud" aria-live="polite">
+        <div><small>Score</small><b id="sr-score">0</b></div>
+        <div><small>Streak</small><b id="sr-streak">0</b></div>
+        <div><small>Time left</small><b id="sr-time">45</b></div>
+      </div>
+      <div class="sr-time" aria-hidden="true"><i id="sr-bar"></i></div>
+      <div class="sr-belt"><div class="sr-parcel" id="sr-parcel" aria-live="polite"></div></div>
+      <div class="sr-hint" id="sr-hint"></div>
+      <div class="sr-bins" id="sr-bins"></div>
+    </div>
+
+    <div id="sr-result" class="result rb" hidden>
+      <p class="np"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Run complete</p>
+      <h2 id="sr-rank" tabindex="-1" style="margin:0 0 6px"></h2>
+      <p id="sr-msg"></p>
+      <div class="sr-stats">
+        <div class="sr-stat"><b id="sr-r-count">0</b><span>parcels sorted</span></div>
+        <div class="sr-stat"><b id="sr-r-acc">0%</b><span>accuracy</span></div>
+        <div class="sr-stat"><b id="sr-r-score">0</b><span>score</span></div>
+      </div>
+      <p id="sr-vs" hidden></p>
+      <p>A real morning sort is bigger than 45 seconds. Pick your city to apply, or ask us to set up a visit to watch one.</p>
+      <a class="btn btn-light btn-block rb" href="../#locations" data-apply data-cta="sortrun_result" data-keep-utm>Apply to Drive</a>
+      <p class="nudge">Think a friend can beat that? Send them your score.</p>
+      <canvas id="sr-card" width="1080" height="1080" role="img" aria-label="Your Sort Run score card"></canvas>
+      <button class="btn sharebtn rb" id="sr-share" type="button" aria-expanded="false" aria-controls="sr-sharepanel">Share my score &#8599;</button>
+      <div class="sharepanel" id="sr-sharepanel" hidden>
+        <p class="np2">Share your score</p>
+        <div class="sharegrid">
+          <button type="button" class="btn btn-ghost rb" data-net="image" hidden>Share score card</button>
+          <button type="button" class="btn btn-ghost rb" data-net="save">Save score card</button>
+          <button type="button" class="btn btn-ghost rb" data-net="native" hidden>Share text and link</button>
+          <button type="button" class="btn btn-ghost rb" data-net="facebook">Facebook</button>
+          <button type="button" class="btn btn-ghost rb" data-net="whatsapp">WhatsApp</button>
+          <button type="button" class="btn btn-ghost rb" data-net="linkedin">LinkedIn</button>
+          <button type="button" class="btn btn-ghost rb" data-net="instagram">Instagram</button>
+          <button type="button" class="btn btn-ghost rb" data-net="tiktok">TikTok</button>
+          <button type="button" class="btn btn-ghost rb" data-net="copy">Copy link</button>
+        </div>
+        <p class="fine" id="sr-sharemsg" role="status" aria-live="polite"></p>
+      </div>
+      <p class="again-row"><button class="btn btn-ghost rb" id="sr-again" type="button">Play again</button></p>
+    </div>
+
+    <p class="fine">Practice game only. Postal codes are Hamilton examples, grouped in a simplified way. They are not real route assignments.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Follow us</strong></p>
+    <ul><li><a href="https://www.linkedin.com/company/precision-parcel-package-deliveries/posts/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <details>
+      <summary>Privacy</summary>
+      <p>This page doesn’t collect personal information. We use analytics to understand how visitors find and use it, including the campaign that brought you here. If you play Sort Run, your score and accuracy are counted anonymously and aren’t tied to you. If you share a challenge, the link carries only your score.</p>
+    </details>
+    <p class="note">Precision Parcel &amp; Package Deliveries is a FastFrate Group company. Independent contractor opportunities only. No guarantee of work, routes or income.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/config.js?v=2.18"></script>
+<script src="../assets/js/common.js?v=2.18"></script>
+<script src="../assets/js/sortrun.js?v=2.24"></script>
+</body>
+</html>

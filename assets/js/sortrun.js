@@ -1,5 +1,42 @@
 /* Sort Run: 45-second parcel sorting game. Shared by the landing page (#sortrun section) and /sort-run/. Needs assets/js/common.js loaded first (uses track). */
 (function(){
+  /* ===== Language: English by default; French when the page is <html lang="fr..."> (strings only; analytics values stay English so reports match) ===== */
+  var FR=(document.documentElement.lang||"").slice(0,2)==="fr";
+  var T=FR?{
+    osName:"Étagère hors format", osSub:"Colis lourds ou volumineux", oversize:"HORS FORMAT",
+    friend:function(n){return "Un ami a obtenu "+n+" points. Réussirez-vous à le battre ?";},
+    streak:"Belle série.", osMiss:"Celui-là était hors format. Il va sur l’étagère.", routeMiss:"Vérifiez la liste des routes pour ce code postal.",
+    r1:"Vétéran du quai", m1:"Rapide et précis. Vous vous sentiriez comme chez vous sur le plancher du terminal.",
+    r2:"Trieur solide", m2:"Bon rythme. Après quelques parties, la liste des routes n’aura plus de secrets pour vous.",
+    r3:"Vous prenez vos repères", m3:"Tout le monde commence lentement. Apprendre la liste des routes, c’est l’essentiel du tri.",
+    win:function(b){return "Vous avez battu les "+b+" points de votre ami.";}, tie:function(b){return "Égalité avec les "+b+" points de votre ami.";},
+    lose:function(d,b){return "Il vous manque "+d+" points pour égaler les "+b+" points de votre ami. Rejouer ?";},
+    cIScored:"J’ai obtenu", cBang:"!", cKeep:"Saurez-vous suivre ?", cStats:function(c,a){return c+" colis triés  |  "+a+"\u00a0% de précision";},
+    cPlay:"Jouez à Sort Run", cBeat:"45 secondes. Battez mon pointage.", cBrand:"Precision Deliveries  |  une entreprise du Groupe FastFrate",
+    shareText:function(s){return "J’ai obtenu "+s+" points\u00a0! Saurez-vous suivre\u00a0? Cliquez pour jouer à Sort Run, le jeu de tri de colis de 45 secondes de Precision Deliveries, et essayez de me battre.";},
+    shareTitle:function(s){return "J’ai obtenu "+s+" points à Sort Run";},
+    drawing:"Un instant, votre carte est encore en cours de création. Réessayez.", saved:"Carte de pointage enregistrée. Ajoutez-la à votre story, à votre publication ou à votre message.",
+    copied:"Lien copié. Collez-le où vous voulez.", copiedMsg:function(n){return "Message et lien copiés. Enregistrez la carte de pointage ci-dessus et ajoutez-la à votre story ou à votre publication "+n+".";},
+    copyFail:"Impossible de copier. Copiez ce lien\u00a0: "
+  }:{
+    osName:"Oversize shelf", osSub:"Heavy or large parcels", oversize:"OVERSIZE",
+    friend:function(n){return "A friend scored "+n+" points. Can you beat it?";},
+    streak:"Nice streak.", osMiss:"That one was oversize. It goes on the shelf.", routeMiss:"Check the route list for that postal code.",
+    r1:"Dock veteran", m1:"Fast and clean. You’d feel at home on the terminal floor.",
+    r2:"Solid sorter", m2:"Good rhythm. A few runs and the route list becomes second nature.",
+    r3:"Getting your bearings", m3:"Everyone starts slow. Learning the route list is most of the skill.",
+    win:function(b){return "You beat your friend’s "+b+" points.";}, tie:function(b){return "A tie with your friend’s "+b+" points.";},
+    lose:function(d,b){return "You’re "+d+" points short of your friend’s "+b+". Play again?";},
+    cIScored:"I scored", cBang:"!", cKeep:"Can you keep up?", cStats:function(c,a){return c+" parcels sorted  |  "+a+"% accuracy";},
+    cPlay:"Play Sort Run", cBeat:"45 seconds. Beat my score.", cBrand:"Precision Deliveries  |  a FastFrate Group company",
+    shareText:function(s){return "I scored "+s+"! Can you keep up? Click to play Sort Run, the 45-second parcel sorting game from Precision Deliveries, and try to beat me.";},
+    shareTitle:function(s){return "I scored "+s+" on Sort Run";},
+    drawing:"One moment, your card is still drawing. Try again.", saved:"Score card saved. Add it to your story, post or message.",
+    copied:"Link copied. Paste it anywhere.", copiedMsg:function(n){return "Message and link copied. Save the score card above and add it to your "+n+" story or post.";},
+    copyFail:"Couldn’t copy. Copy this link: "
+  };
+  var RANKKEY={1:"Dock veteran",2:"Solid sorter",3:"Getting your bearings"};   // analytics always receives the English rank name
+
   /* ===== Data ===== */
   var ROUTES=[
     {n:"Route 1",c:"#2d7bff",fsa:["L8L","L8M","L8N","L8P","L8R","L8S"]},
@@ -7,7 +44,7 @@
     {n:"Route 3",c:"#a62dff",fsa:["L9A","L9B","L9C"]},
     {n:"Route 4",c:"#ff2d95",fsa:["L9G","L9H","L9K"]}
   ];
-  var OS={n:"Oversize shelf",c:"#ffd400",p:"Heavy or large parcels"};
+  var OS={n:T.osName,c:"#ffd400",p:T.osSub};
   var LETTERS="ABCEGHJKLMNPRSTVWXYZ", DURATION=45;
 
   var $=function(id){return document.getElementById(id)};
@@ -20,7 +57,7 @@
   /* ===== Challenge link: ?beat=NN shows a friend's score ===== */
   var beat=0;
   try{ var b=parseInt(new URLSearchParams(location.search).get("beat"),10); if(b>0&&b<=2000) beat=b; }catch(e){}
-  if(beat){ var ch=$("sr-challenge"); ch.textContent="A friend scored "+beat+" points. Can you beat it?"; ch.hidden=false; }
+  if(beat){ var ch=$("sr-challenge"); ch.textContent=T.friend(beat); ch.hidden=false; }
 
   /* ===== Build bins ===== */
   function build(){
@@ -42,7 +79,7 @@
     var os=Math.random()<0.18, r=ROUTES[rnd(ROUTES.length)], f=r.fsa[rnd(r.fsa.length)];
     S.answer=os?4:ROUTES.indexOf(r);
     parcelEl.className="sr-parcel";
-    parcelEl.innerHTML='<div class="sr-lbl"><div class="sr-code">'+f+" "+ldu()+'</div><div class="sr-city">Hamilton, ON</div></div>'+(os?'<span class="sr-tag">OVERSIZE · '+(18+rnd(20))+" kg</span>":"");
+    parcelEl.innerHTML='<div class="sr-lbl"><div class="sr-code">'+f+" "+ldu()+'</div><div class="sr-city">Hamilton, ON</div></div>'+(os?'<span class="sr-tag">'+T.oversize+' · '+(18+rnd(20))+" kg</span>":"");
     void parcelEl.offsetWidth; parcelEl.className="sr-parcel in";
     S.locked=false;
   }
@@ -58,11 +95,11 @@
     var ok=(i===S.answer), h=$("sr-hint");
     if(ok){
       S.correct++; S.streak++; S.score+=10+Math.min(S.streak,5)*2;
-      parcelEl.className="sr-parcel ok"; h.textContent=S.streak>=3?"Nice streak.":"";
+      parcelEl.className="sr-parcel ok"; h.textContent=S.streak>=3?T.streak:"";
     }else{
       S.streak=0; S.score=Math.max(0,S.score-5);
       parcelEl.className="sr-parcel no";
-      h.textContent=S.answer===4?"That one was oversize. It goes on the shelf.":"Check the route list for that postal code.";
+      h.textContent=S.answer===4?T.osMiss:T.routeMiss;
     }
     hud();
     setTimeout(function(){ if(S.running) nextParcel(); }, ok?170:400);
@@ -90,18 +127,18 @@
     S.running=false; clearInterval(S.timer); game.classList.remove("run");
     play.hidden=true; res.hidden=false;
     res.classList.remove("pop"); void res.offsetWidth; res.classList.add("pop"); burst(res);   // pops open like a balloon
-    var acc=S.total?Math.round(S.correct/S.total*100):0, rank, msg;
-    if(S.correct>=22&&acc>=90){rank="Dock veteran"; msg="Fast and clean. You’d feel at home on the terminal floor.";}
-    else if(S.correct>=12){rank="Solid sorter"; msg="Good rhythm. A few runs and the route list becomes second nature.";}
-    else{rank="Getting your bearings"; msg="Everyone starts slow. Learning the route list is most of the skill.";}
+    var acc=S.total?Math.round(S.correct/S.total*100):0, rank, msg, rk;
+    if(S.correct>=22&&acc>=90){rk=1; rank=T.r1; msg=T.m1;}
+    else if(S.correct>=12){rk=2; rank=T.r2; msg=T.m2;}
+    else{rk=3; rank=T.r3; msg=T.m3;}
     S.rank=rank; S.acc=acc; S.played=true;
     $("sr-rank").textContent=rank; $("sr-msg").textContent=msg;
     $("sr-r-count").textContent=S.correct; $("sr-r-acc").textContent=acc+"%"; $("sr-r-score").textContent=S.score;
     var vs=$("sr-vs");
-    if(beat){ vs.hidden=false; vs.textContent = S.score>beat ? "You beat your friend’s "+beat+" points." : (S.score===beat ? "A tie with your friend’s "+beat+" points." : "You’re "+(beat-S.score)+" points short of your friend’s "+beat+". Play again?"); }
+    if(beat){ vs.hidden=false; vs.textContent = S.score>beat ? T.win(beat) : (S.score===beat ? T.tie(beat) : T.lose(beat-S.score,beat)); }
     $("sr-sharepanel").hidden=true; $("sr-share").setAttribute("aria-expanded","false"); $("sr-sharemsg").textContent="";
     S.blob=null; S.file=null; buildCard();
-    track("sort_complete",{parcels:S.correct,accuracy:acc,score:S.score,rank:rank,challenge:beat?"yes":"no"});
+    track("sort_complete",{parcels:S.correct,accuracy:acc,score:S.score,rank:RANKKEY[rk],challenge:beat?"yes":"no"});
     $("sr-rank").focus({preventScroll:true});
     res.scrollIntoView({behavior:"smooth",block:"center"});
   }
@@ -135,21 +172,21 @@
     // logo chip
     if(logo){ var lh=70, lw=Math.round(logo.width*lh/logo.height), cw=lw+36, ch=lh+24; x.fillStyle="#fff"; rrect(x,(W-cw)/2,50,cw,ch,16); x.fill(); x.drawImage(logo,(W-lw)/2,62,lw,lh); }
     // "I scored" + big score
-    x.fillStyle="#C9CFEA"; x.font="600 64px "+F; x.fillText("I scored",W/2,290);
-    var big=String(S.score)+"!", size=300; x.font="800 "+size+"px "+F;
+    x.fillStyle="#C9CFEA"; x.font="600 64px "+F; x.fillText(T.cIScored,W/2,290);
+    var big=String(S.score)+T.cBang, size=300; x.font="800 "+size+"px "+F;
     while(x.measureText(big).width>880&&size>120){ size-=10; x.font="800 "+size+"px "+F; }
     x.fillStyle="#fff"; x.fillText(big,W/2,290+size*0.86);
     var y=290+size*0.86+110;
-    x.font="800 86px "+F; x.fillText("Can you keep up?",W/2,y);
+    x.font="800 86px "+F; x.fillText(T.cKeep,W/2,y);
     x.fillStyle="#5CE1FF"; x.font="700 46px "+F; x.fillText(S.rank,W/2,y+68);
-    x.fillStyle="#C9CFEA"; x.font="500 38px "+F; x.fillText(S.correct+" parcels sorted  |  "+S.acc+"% accuracy",W/2,y+124);
+    x.fillStyle="#C9CFEA"; x.font="500 38px "+F; x.fillText(T.cStats(S.correct,S.acc),W/2,y+124);
     // call-to-action panel with LED outline
     var py=H-250, ph=190, pw=860, px=(W-pw)/2;
     x.save(); x.shadowColor="rgba(120,140,255,.9)"; x.shadowBlur=26; x.lineWidth=6; x.strokeStyle=rainbow(x,px,px+pw); rrect(x,px,py,pw,ph,26); x.stroke(); x.restore();
     x.fillStyle="#0C123C"; rrect(x,px+3,py+3,pw-6,ph-6,24); x.fill();
-    x.fillStyle="#fff"; x.font="800 64px "+F; x.fillText("Play Sort Run",W/2,py+80);
-    x.fillStyle="#C9CFEA"; x.font="500 34px "+F; x.fillText("45 seconds. Beat my score.",W/2,py+128);
-    x.fillStyle="#8E98D6"; x.font="500 26px "+F; x.fillText("Precision Deliveries  |  a FastFrate Group company",W/2,py+168);
+    x.fillStyle="#fff"; x.font="800 64px "+F; x.fillText(T.cPlay,W/2,py+80);
+    x.fillStyle="#C9CFEA"; x.font="500 34px "+F; x.fillText(T.cBeat,W/2,py+128);
+    x.fillStyle="#8E98D6"; x.font="500 26px "+F; x.fillText(T.cBrand,W/2,py+168);
     c.toBlob(function(b){
       S.blob=b;
       try{ S.file=new File([b],"sort-run-score.jpg",{type:"image/jpeg"}); }catch(e){ S.file=null; }
@@ -162,7 +199,7 @@
     Promise.all([fonts,loadLogo()]).then(function(r){ drawCard(r[1]); });
   }
 
-  function shareText(){ return "I scored "+S.score+"! Can you keep up? Click to play Sort Run, the 45-second parcel sorting game from Precision Deliveries, and try to beat me."; }
+  function shareText(){ return T.shareText(S.score); }
   function shareUrl(net){ return location.origin+location.pathname+"?utm_source=game_share&utm_medium=referral&utm_campaign=sort_run&utm_content="+encodeURIComponent(net)+"&beat="+S.score+"#sortrun"; }
   function copyText(t){
     if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
@@ -174,21 +211,21 @@
     var b=e.target.closest("[data-net]"); if(!b) return;
     var net=b.getAttribute("data-net"), url=shareUrl(net), txt=shareText(); shMsg.textContent="";
     track("sort_share",{method:net,score:S.score});
-    if(net==="image"){ if(S.file){ navigator.share({files:[S.file],title:"I scored "+S.score+" on Sort Run",text:txt+" "+url}).catch(function(){}); } return; }
+    if(net==="image"){ if(S.file){ navigator.share({files:[S.file],title:T.shareTitle(S.score),text:txt+" "+url}).catch(function(){}); } return; }
     if(net==="save"){
-      if(!S.blob){ shMsg.textContent="One moment, your card is still drawing. Try again."; return; }
+      if(!S.blob){ shMsg.textContent=T.drawing; return; }
       var a=document.createElement("a"); a.href=URL.createObjectURL(S.blob); a.download="sort-run-score.jpg"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      shMsg.textContent="Score card saved. Add it to your story, post or message."; return;
+      shMsg.textContent=T.saved; return;
     }
-    if(net==="native"){ navigator.share({title:"I scored "+S.score+" on Sort Run",text:txt+" "+url}).catch(function(){}); return; }
+    if(net==="native"){ navigator.share({title:T.shareTitle(S.score),text:txt+" "+url}).catch(function(){}); return; }
     if(net==="facebook"){ window.open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(url),"_blank","noopener,width=600,height=500"); return; }
     if(net==="whatsapp"){ window.open("https://wa.me/?text="+encodeURIComponent(txt+" "+url),"_blank","noopener"); return; }
     if(net==="linkedin"){ window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(url),"_blank","noopener,width=600,height=600"); return; }
     var done=copyText(txt+" "+url);   // Instagram and TikTok have no web share link, so copy the message and open the site
     if(net==="instagram") window.open("https://www.instagram.com/","_blank","noopener");
     if(net==="tiktok") window.open("https://www.tiktok.com/","_blank","noopener");
-    done.then(function(){ shMsg.textContent = net==="copy" ? "Link copied. Paste it anywhere." : "Message and link copied. Save the score card above and add it to your "+(net==="instagram"?"Instagram":"TikTok")+" story or post."; })
-        .catch(function(){ shMsg.textContent="Couldn’t copy. Copy this link: "+url; });
+    done.then(function(){ shMsg.textContent = net==="copy" ? T.copied : T.copiedMsg(net==="instagram"?"Instagram":"TikTok"); })
+        .catch(function(){ shMsg.textContent=T.copyFail+url; });
   });
 
   /* ===== Pop-up mode (landing page only): opens once per visit when the visitor scrolls past the section named in data-after,
