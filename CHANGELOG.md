@@ -253,3 +253,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Banner clicks on the French page now use the same events as English: apply_click (cta_location peak_banner) and jobfair_rsvp_click (cta_location peak_banner).
 - The French banner's whole-strip link was replaced by the same layout as English: separate Apply link and Job Fair button.
 - Same changes made in the go-live copies under for-the-go-live-pack-only/.
+
+## 2026-10-27 - Analytics: removed the duplicate Google tag (page views counted twice)
+- index.html and sort-run/index.html each had Google's tag pasted in the head AND loaded it again through assets/js/common.js, so each visit sent page_view twice. The pasted copy is removed from both pages. Google Analytics now loads once per page, from common.js, on every page of the site (English, French, requirements, Sort Run).
+- Page views on the English home page and Sort Run recorded before this date are inflated (about double). Compare English and French page views only from this date on.
+
+## 2026-11-02 - Radio: short spoken address /radio (tracking for radio ads)
+- New page radio/index.html: driveprecision.ca/radio forwards to the home page with ?utm_source=radio&utm_medium=audio&utm_campaign=peak_season_radio&utm_content=spoken_url. Radio ads (Q107, The Edge, Talk 640, Y108, FM96) now say driveprecision.ca/radio, so listeners who type it are counted as radio in GA4. Visits before the stations changed their wording, and anyone who types driveprecision.ca or searches, cannot be attributed to radio.
+- New file 404.html: friendly bilingual "page not found" page, and it sends /Radio (capital R) to /radio/ because GitHub Pages treats upper and lower case as different pages.
