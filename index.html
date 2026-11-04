@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.25">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.26">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 </head>
 <body>
@@ -42,7 +42,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Peak season announcements">
     <span class="track">
-      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span>Job Fair: Sat. Nov 7 in Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Ottawa Job Fair on November 7 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Job Fair: Sat. Nov 7 in Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Ottawa Job Fair on November 7 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
@@ -386,9 +386,9 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
-/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (end of Sat. Nov 7, 2026, Ottawa job fair; change it to the fair's actual end time) the banner button disappears by itself. */
+/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (4:30 p.m. Eastern, Sat. Nov 7, 2026, when the Ottawa job fair ends) the banner button disappears by itself. */
 var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65";
-var JOBFAIR_END = new Date("2026-11-08T04:59:00Z").getTime();
+var JOBFAIR_END = new Date("2026-11-07T21:30:00Z").getTime();
 /* VIDEO_END: the Halloween video stays retired (it ended Oct 31, 2026, 3:30 p.m. Eastern). It has its own date so the banner can run for later job fairs. */
 var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 /* JOBFAIR: the address every location application link is built from (per-location IDs below). */
@@ -427,6 +427,8 @@ var CONFIG = {
   /* Job Fair button: its link comes from JOBFAIR_RSVP (top of this script). The whole Job Fair part leaves the banner once the fair is over. */
   var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
   if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* While the Job Fair is in the banner, the "Apply to Drive" link and the dot after it are taken out. They come back by themselves when the Job Fair part leaves (after JOBFAIR_END). */
+  if (jf && jf.parentNode) { var ap=c.querySelector('a[data-peak="apply"]'); if (ap) { var dt=ap.nextElementSibling; if (dt && dt.className==='dot') dt.parentNode.removeChild(dt); ap.parentNode.removeChild(ap); } }
   /* The copies are for the endless loop only: hidden from screen readers and skipped by the Tab key */
   for(var i=0;i<3;i++){
     var k=c.cloneNode(true); k.setAttribute("aria-hidden","true");

@@ -626,3 +626,6 @@ header.has-apply{isolation:isolate}
 /* Job Fair video note under the French player (English audio, French captions) */
 .jfnote{margin:8px 0 0;font-size:.9rem;opacity:.85}
 .jfnote[hidden]{display:none}
+
+/* Job Fair message bubble (orange pill around the Job Fair wording in the banner). Delete with the .jf-part when the fair is over. */
+#peak .jf-msg{display:inline-block;background:#FF9A3D;color:#0A1033;font-weight:800;padding:.3em 1em;border-radius:999px;box-shadow:0 0 0 2px #fff}

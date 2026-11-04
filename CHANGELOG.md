@@ -264,8 +264,13 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-11-03 - Job Fair banner reused for the Ottawa fair, Sat. Nov 7, 2026 (v2.25)
 - English and French banners now read "Job Fair: Sat. Nov 7 in Ottawa." / "Salon de recrutement : sam. 7 nov. à Ottawa." (the "walk-ins welcome" line was dropped until it is confirmed for Ottawa). Same RSVP button and analytics; the RSVP link (JOBFAIR_RSVP) now points to https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65 instead of the old intake site; same analytics (jobfair_rsvp_click, cta_location peak_banner).
-- JOBFAIR_END (banner removal) is now 11:59 p.m. Eastern on Nov 7, 2026 as a placeholder. Change it to the fair's real end time.
+- JOBFAIR_END (banner removal) is now 4:30 p.m. Eastern on Sat. Nov 7, 2026, the end of the Ottawa fair.
 - New VIDEO_END keeps the Halloween video retired (Oct 31, 3:30 p.m. ET). Before this, one date controlled both, so moving the banner date would have brought the Halloween video back.
 - Banner button colour changed from Halloween orange to the brand yellow. Cache version for styles.css bumped to ?v=2.25.
 - The RSVP form is hosted on the SHANI system, not in this repo, so its styling and wording are changed there.
 - Same changes made in for-the-go-live-pack-only/.
+
+## 2026-11-03 - Job Fair banner: orange bubble, Apply link hidden during the fair (v2.26)
+- The Job Fair wording in the banner now sits in an orange pill (.jf-msg in styles.css, navy text for contrast). Delete the .jf-msg rule at the end of styles.css with the rest of the Job Fair block when the fair is over.
+- While the Job Fair is in the banner, the "Apply to Drive" / "Présentez votre candidature" button and the dot after it are removed by the banner script. They come back by themselves after JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026), because the script only removes them while the Job Fair part is present. Clicking the banner text still goes to the locations and counts as apply_click (cta_location peak_banner). The applying paths on the page itself are unchanged.
+- styles.css cache version bumped to ?v=2.26 on English and French home pages. Same changes in for-the-go-live-pack-only/.

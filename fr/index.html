@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.25">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.26">
 <link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 </head>
@@ -40,7 +40,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Annonces de la haute saison">
     <span class="track">
-      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Présentez votre candidature comme chauffeur</a><i class="dot"></i><span class="jf-part"><span>Salon de recrutement : sam. 7 nov. à Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="Confirmer votre présence au salon de recrutement d’Ottawa du 7 novembre (s’ouvre dans un nouvel onglet)">Confirmer ma présence</a><i class="dot"></i></span></span>
+      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Présentez votre candidature comme chauffeur</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Salon de recrutement : sam. 7 nov. à Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="Confirmer votre présence au salon de recrutement d’Ottawa du 7 novembre (s’ouvre dans un nouvel onglet)">Confirmer ma présence</a><i class="dot"></i></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Mettre en pause le défilement du bandeau"></button>
@@ -384,9 +384,9 @@
 <script>if(typeof I18N!=="undefined"){I18N.open="Ouvrir le menu principal";}</script>
 <script>
 /* ===== CONFIG : the only place you edit locations, links and IDs ===== */
-/* JOBFAIR_RSVP : formulaire de confirmation du salon (sur le site d'accueil). JOBFAIR_END : après ce moment (fin du salon d'Ottawa, sam. 7 nov. 2026 ; à remplacer par l'heure de fin réelle), le bouton du salon disparaît de lui-même. */
+/* JOBFAIR_RSVP : formulaire de confirmation du salon (sur le site d'accueil). JOBFAIR_END : après ce moment (16 h 30 HE, sam. 7 nov. 2026, fin du salon d'Ottawa), le bouton du salon disparaît de lui-même. */
 var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65";
-var JOBFAIR_END = new Date("2026-11-08T04:59:00Z").getTime();
+var JOBFAIR_END = new Date("2026-11-07T21:30:00Z").getTime();
 /* VIDEO_END : la vidéo de l’Halloween reste retirée (terminée le 31 oct. 2026, 15 h 30 HE). Elle a sa propre date pour que le bandeau serve aux prochains salons. */
 var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 var CONFIG = {
@@ -423,6 +423,8 @@ var CONFIG = {
   /* Bouton du salon : son lien vient de JOBFAIR_RSVP (haut du script). Toute la partie « salon » quitte le bandeau une fois le salon terminé. */
   var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
   if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* Tant que le salon est dans le bandeau, le lien « candidature » et le point qui le suit sont retirés. Ils reviennent d'eux-mêmes quand la partie « salon » quitte le bandeau (après JOBFAIR_END). */
+  if (jf && jf.parentNode) { var ap=c.querySelector('a[data-peak="apply"]'); if (ap) { var dt=ap.nextElementSibling; if (dt && dt.className==='dot') dt.parentNode.removeChild(dt); ap.parentNode.removeChild(ap); } }
   /* Les copies servent seulement à la boucle sans fin : cachées des lecteurs d'écran et ignorées par la touche Tab */
   for(var i=0;i<3;i++){
     var k=c.cloneNode(true); k.setAttribute("aria-hidden","true");
