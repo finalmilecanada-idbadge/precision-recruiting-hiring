@@ -274,3 +274,9 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - The Job Fair wording in the banner now sits in an orange pill (.jf-msg in styles.css, navy text for contrast). Delete the .jf-msg rule at the end of styles.css with the rest of the Job Fair block when the fair is over.
 - While the Job Fair is in the banner, the "Apply to Drive" / "Présentez votre candidature" button and the dot after it are removed by the banner script. They come back by themselves after JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026), because the script only removes them while the Job Fair part is present. Clicking the banner text still goes to the locations and counts as apply_click (cta_location peak_banner). The applying paths on the page itself are unchanged.
 - styles.css cache version bumped to ?v=2.26 on English and French home pages. Same changes in for-the-go-live-pack-only/.
+
+## 2026-11-03 - Job Fair alert tile above the Ontario tile (v2.27)
+- A bouncing orange tile (same orange as the banner bubble) now sits above the Ontario tile in "Choose your location to apply": "Job Fair: Sat. Nov 7 in Ottawa" with "RSVP here", linking to the same RSVP link as the banner (JOBFAIR_RSVP). French: "Salon de recrutement : sam. 7 nov. à Ottawa" / "Confirmer ma présence". Opens in a new tab.
+- It shows only until JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026) and then leaves by itself, together with the extra space above the tiles. With "reduce motion" turned on in the visitor's device it does not bounce.
+- Analytics: same event as the banner, jobfair_rsvp_click, with cta_location = province_tile (banner = peak_banner), so the two spots can be compared.
+- styles.css cache version bumped to ?v=2.27. Same changes in for-the-go-live-pack-only/. To retire for good: delete the "Job Fair alert tile" block in the locations script of both home pages and the .jf-tile / .has-jf CSS at the end of styles.css.
