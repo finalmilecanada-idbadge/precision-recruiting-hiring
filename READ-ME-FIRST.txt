@@ -1,15 +1,8 @@
-FRENCH PAGES + FRANCAIS BUTTON FIX  (safe for your live repository)
+UPLOAD EACH FOLDER INTO THE MATCHING PLACE IN GITHUB (do not mix them):
 
-What this adds
-  fr/index.html                 the French home page                    (...your address.../fr/)
-  fr/exigences/index.html       the French requirements page            (...your address.../fr/exigences/)
-  assets/img/share-card-fr.png  the French link-preview picture
-  assets/js/common.js           makes the "Francais" button in the menu open the French page
-                                (and the "English" button on the French pages open the English page)
+1-repo-root          -> upload into the MAIN page of the repo (the top level)   [index.html = ENGLISH home page, CHANGELOG.md]
+2-fr-folder          -> open the "fr" folder in GitHub first, then upload        [index.html = FRENCH home page]
+3-assets-css-folder  -> open assets, then css in GitHub first, then upload       [styles.css]
 
-What it does NOT touch: index.html, requirements/index.html, assets/js/config.js (your Google Analytics ID) or anything for Sort Run.
-
-How to upload: open the live repository > Add file > Upload files > drag in the "fr" folder and the "assets" folder > Commit changes.
-Wait two minutes, then reload the page with Ctrl + F5.
-
-If you ever changed assets/js/common.js yourself, tell Shannon's assistant before uploading.
+Then delete the stray styles.css at the top level of the repo (the one NOT inside assets/css).
+Wait 2 minutes, then Ctrl + F5 on driveprecision.ca and driveprecision.ca/fr/
