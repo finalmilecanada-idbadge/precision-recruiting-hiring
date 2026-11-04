@@ -280,3 +280,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - It shows only until JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026) and then leaves by itself, together with the extra space above the tiles. With "reduce motion" turned on in the visitor's device it does not bounce.
 - Analytics: same event as the banner, jobfair_rsvp_click, with cta_location = province_tile (banner = peak_banner), so the two spots can be compared.
 - styles.css cache version bumped to ?v=2.27. Same changes in for-the-go-live-pack-only/. To retire for good: delete the "Job Fair alert tile" block in the locations script of both home pages and the .jf-tile / .has-jf CSS at the end of styles.css.
+
+## 2026-11-03 - Go-live for search + repair of the English home page (v2.28)
+- REPAIR: the live top-level index.html had been replaced by the French home page. This pack puts the English home page back at index.html and the French one at fr/index.html. A stray styles.css at the top level of the repo is not used by any page and can be deleted; the real stylesheet is assets/css/styles.css.
+- Indexing ON: noindex removed from the home pages, Requirements pages and the new pages; robots.txt now says Allow: / and points to sitemap.xml (8 pages, English and French). Sort Run, radio and 404 pages stay noindex on purpose (they are game, tracking and error pages).
+- Every page now identifies itself as https://driveprecision.ca (canonical, hreflang, share links, share image). The French pages still said github.io.
+- Google Analytics: the duplicate tag in the head of the English home page and Sort Run is removed again, so each visit counts once (loaded once by assets/js/common.js). Page views recorded since the duplicate came back are inflated (about double).
+- Added: structured data (Organization, WebSite, FAQ), a plain-text list of locations on the home pages, and four pages: vehicles/, contract-driver/, fr/vehicules/, fr/chauffeur-contractuel/. Official name everywhere: Precision Parcel & Package Deliveries.
+- Includes the Ottawa Job Fair banner and the bouncing Job Fair tile (v2.27).
