@@ -1,14 +1,12 @@
-JOB FAIR VIDEO + FRENCH PAGE MIRROR (English and French)
+OTTAWA JOB FAIR BANNER (Sat. Nov 7, 2026) - English and French
 
 UPLOAD NOW (live site):
-  index.html, CHANGELOG.md, and the folders "fr", "sort-run" and "assets"
+  index.html, CHANGELOG.md, and the folders "fr" and "assets"
   GitHub > Add file > Upload files > drag those in > Commit. Wait 2 minutes, then Ctrl + F5 on:
-    driveprecision.ca              driveprecision.ca/fr/            driveprecision.ca/fr/sort-run/
-  (assets holds the video, English and French captions, the BOO! picture, styles.css and the updated sortrun.js)
+    driveprecision.ca        driveprecision.ca/fr/
 
 DO NOT UPLOAD NOW:
-  The folder "for-the-go-live-pack-only" (English and French pages plus both Sort Run pages for the go-live pack).
-  Only use its files if you upload the go-live pack later, so none of these changes are lost.
+  The folder "for-the-go-live-pack-only" (same changes, kept for the go-live pack).
 
-After 3:30 p.m. Eastern on Oct 31, 2026 the video swaps back to the "Your Success is Our Success" YouTube tile and the Job Fair part of the banner disappears, on both languages.
-To change that moment, edit  var JOBFAIR_END = ...  in index.html and in fr/index.html.
+After the fair: the Job Fair part leaves the banner by itself at JOBFAIR_END (11:59 p.m. Eastern, Nov 7, placeholder).
+To change it, edit  var JOBFAIR_END = ...  in index.html and fr/index.html.

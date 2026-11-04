@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.23">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.25">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 <script type="application/ld+json">
 {
@@ -160,7 +160,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Peak season announcements">
     <span class="track">
-      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span>Job Fair: Sat. Oct 31 in Oakville. Walk-ins welcome.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://intake.driveridbadge.ca/jobfair" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Oakville Job Fair on October 31 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span>Job Fair: Sat. Nov 7 in Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Ottawa Job Fair on November 7 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
@@ -507,9 +507,11 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
-/* JOBFAIR_RSVP: the Oct 31 Oakville job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (3:30 p.m. Eastern, Oct 31, 2026) the banner button disappears by itself. */
-var JOBFAIR_RSVP = INTAKE + "/jobfair";
-var JOBFAIR_END = new Date("2026-10-31T19:30:00Z").getTime();
+/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (end of Sat. Nov 7, 2026, Ottawa job fair; change it to the fair's actual end time) the banner button disappears by itself. */
+var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65";
+var JOBFAIR_END = new Date("2026-11-08T04:59:00Z").getTime();
+/* VIDEO_END: the Halloween video stays retired (it ended Oct 31, 2026, 3:30 p.m. Eastern). It has its own date so the banner can run for later job fairs. */
+var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 /* JOBFAIR: the address every location application link is built from (per-location IDs below). */
 var JOBFAIR = "https://shani.precisiondeliveries.com/jobfair";
 var CONFIG = {
@@ -620,7 +622,7 @@ document.getElementById("vidbtn").addEventListener("click", function(){
 (function(){
   var jf=document.getElementById("jf-frame"), yt=document.getElementById("yt-frame");
   if(!jf||!yt) return;
-  if(Date.now()>JOBFAIR_END){ jf.hidden=true; yt.hidden=false; return; }
+  if(Date.now()>VIDEO_END){ jf.hidden=true; yt.hidden=false; return; }
   var v=document.getElementById("jfvideo"), b=document.getElementById("jfbtn"), name="halloween_job_fair_2026";
   v.removeAttribute("controls"); b.hidden=false;           // no-JavaScript visitors keep the browser's own controls; with JavaScript we use the big play button
   b.addEventListener("click", function(){
