@@ -1,0 +1,293 @@
+# Change log
+Record every meaningful change (headline, CTA wording, layout, campaign launches) with the date, so results before and after can be compared.
+
+## 2026-10-07 - v1.1 (pre-launch)
+- Real Precision logo and route graphic added
+- Video moved to the top, directly under Apply to Drive; "Your Success is Our Success" added
+- Location picker moved directly under the hero; every Apply button scrolls to it
+- Real application links added for 12 locations; Brandon, Portage la Prairie and Laval pending
+- Driver match request and LinkedIn link added
+- Background-check provider recommendation removed
+
+## 2026-10-14 - v1.2 (pre-launch)
+- Location list matched to the Figma design: Manitoba now Winnipeg, Brandon, Morden, Portage la Prairie; Quebec now Montreal, Laval, Quebec City
+- Morden added (no application link yet)
+
+## 2026-10-14 - v1.3 (pre-launch)
+- Game replaced: "What kind of driver are you?" is now "Build your road trip playlist" (4 picks: genre, audio format, listening moment, driving mood)
+- New events: game_answer (question, answer), game_complete (genre, audio_format, listen_time, mood), game_share
+- Privacy wording updated to say game picks are counted anonymously
+
+## 2026-10-14 - v1.4 (pre-launch)
+- Game section: rainbow "LED strip" glowing outlines on game buttons, option tiles and result card; moving colour-cycling equalizer bars; LED strip divider under the heading
+- Animations run only while the game is on screen and are switched off for visitors who prefer reduced motion
+
+## 2026-10-14 - v1.5 (pre-launch)
+- Colour pass across the page: rainbow accent bars, tinted section backgrounds, colour-coded steps, province tiles and FAQ rows, gradient hero and final call to action, rainbow-framed video, glow behind the hero Apply button
+- Colour is used on shapes and backgrounds only; body text colours unchanged for readability. Apply buttons remain solid.
+
+## 2026-10-14 - v1.6 (pre-launch)
+- Hero trimmed: headline shortened to "Drive your own vehicle. Deliver with us."; eyebrow and detail sentence removed; three tags added (Independent contractors, Paid by the piece, Ontario - Manitoba - Quebec)
+- Baseline for future headline tests. Change one hero variable at a time from here and log it.
+
+## 2026-10-14 - v1.7 (pre-launch)
+- Mobile layout centered (screens under 720px): headings, hero, tags, cards, steps, province tiles, city rows, game, FAQ and footer. Requirements checklist and privacy paragraph stay left-aligned.
+
+## 2026-10-14 - v1.8 (pre-launch)
+- Game music added (assets/audio/road-trip-loop.mp3). Starts only when the visitor presses play, loops softly, has a Music on/off button, and stops when the game scrolls off screen or the tab is hidden. Does not load until pressed.
+- New event: music_toggle (state)
+
+## 2026-10-14 - v1.9 (pre-launch)
+- Peak banner is now a large scrolling ticker (still shown only Oct 6 to Jan 12). Whole strip taps through to the locations and counts as apply_click (cta_location peak_banner). Pause button added; static centered text for visitors who prefer reduced motion.
+
+## 2026-10-14 - v1.10 (pre-launch)
+- How it works, step 1 heading changed from "Apply online" to "Click the Apply to Drive button" (artifact comment)
+
+## 2026-10-14 - v1.11 (pre-launch)
+- How it works, step 1 body changed to "Choose your location to start the conversation. It's not a commitment." (artifact comment)
+
+## 2026-10-14 - v1.12 (pre-launch)
+- How it works, step 2 body changed to list the documents (licence, abstract, background check, a few more) and state that the contractor runs their own business and is not an employee (artifact comment)
+
+## 2026-10-14 - v1.13 (pre-launch)
+- How it works, step 2 body simplified and made lighter: "Gather a few business documents. You're running your own show, not clocking in." Full document list stays in "What you need to get started" (artifact comment)
+
+## 2026-10-14 - v1.14 (pre-launch)
+- How it works, steps 3 and 4 body text lightened to match step 2's tone: "Get road-ready. Every driver goes through the same onboarding." and "Hit the road in your own vehicle. Your business, your wheels." (artifact comment)
+
+## 2026-10-14 - v1.15 (pre-launch)
+- How it works cards: text always centered, number badges now true circles (they were stretching into ovals when stacked), 2 columns on tablet widths so text no longer squeezes, balanced line breaks (artifact comment)
+
+## 2026-10-14 - v1.16 (pre-launch)
+- Vehicles card: three illustrated white vehicles added (cargo van, minivan, SUV) with captions (artifact comment). Illustrations, not photos; swap for real photos when available.
+
+## 2026-10-14 - v1.17 (pre-launch)
+- Background check requirement now says it must be from the last 90 days (requirements list and FAQ) (artifact comment)
+
+## 2026-10-14 - v1.18 (pre-launch)
+- Pay wording: "paid by the piece" changed to "paid for each piece delivered" in the pay section and the FAQ (artifact comment). Hero tag and search description still say "by the piece" pending a decision.
+
+## 2026-10-14 - v1.19 (pre-launch)
+- Game heading changed from "Build your road trip playlist" to "What's your delivery playlist?"; intro line now "Four picks. One driver persona. Dare you to find out?"; share text updated to match (artifact comment)
+
+## 2026-10-14 - v1.20 (pre-launch)
+- Final call-to-action graphic: left edge now fades out instead of looking cut off (artifact comment)
+
+## 2026-10-14 - v1.21 (pre-launch)
+- Top and footer accent strips changed from rainbow to a glowing white-to-teal-to-navy strip (artifact comment). Rainbow remains in the game and other accents pending a decision.
+
+## 2026-10-14 - v1.22 (pre-launch)
+- Peak banner: arrow removed; "Apply to Drive" is now a white pill button with a teal glow so it stands out in the scrolling text (artifact comment)
+
+## 2026-10-14 - v1.23 (pre-launch)
+- Accent strips restyled as an LED strip (dotted bulbs) fading from white to dark blue with a blue glow; teal removed because it read as green. Banner button glow changed from teal to light blue (artifact comment)
+
+## 2026-10-14 - v1.24 (pre-launch)
+- Accent strips: dotted LED bulbs removed; back to the smooth glowing strip, now in the white to light blue to royal blue to navy palette (artifact comment)
+
+## 2026-10-14 - v1.25 (pre-launch)
+- Hero background changed from a blue-to-pink gradient to the solid light blue used at its top-left corner (artifact comment)
+
+## 2026-10-14 - v1.26 (pre-launch)
+- Video frame outline changed from rainbow to the same glowing white-to-dark-blue strip as the banner strip (artifact comment)
+
+## 2026-10-14 - v1.27 (pre-launch)
+- Driver match card reworded: heading "Consider our Driver Match Program", button "Request a team here"; FAQ and unavailable-city message updated to match (artifact comment)
+
+## 2026-10-14 - v1.28 (pre-launch)
+- "Request a team here" now opens the Driver Match Program panel in place: a short plain-language outline (3 steps, onboarding requirements still apply) plus the same province and city list. Each city link goes to the driver match request with the city added as a location parameter. New events: driver_match_click (opens panel), driver_match_start (province, city). Cities without an application link now open this panel too (artifact comment)
+
+## 2026-10-14 - v1.29 (pre-launch)
+- Earnings wording: pay section now says earnings are performance based, no two drivers are the same, and earnings are never forecasted or guaranteed; FAQ answer matched (artifact comment)
+
+## 2026-10-14 - v1.30 (pre-launch)
+- "What you need to get started" section background changed from yellow to light blue (artifact comment)
+
+## 2026-10-14 - v1.31 (pre-launch)
+- Vehicles card changed to dark blue with white text; vehicle drawings' ground shadows lightened to suit (artifact comment)
+
+## 2026-10-15 - v1.32 (pre-launch)
+- Hero tag and search-result description changed from "Paid by the piece" to "Paid for each piece delivered" so pay wording matches everywhere (artifact comment). "By the piece" no longer appears on the page.
+
+## 2026-10-15 - v1.33 (pre-launch)
+- Driver Match Program card (and the panel that opens under it) changed from lavender to light blue (artifact comment)
+
+## 2026-10-15 - v1.34 (pre-launch)
+- Hero blue now fades smoothly to white down through the Locations and How it works sections (one continuous gradient; the sections no longer have separate background colours) (artifact comment)
+
+## 2026-10-15 - v1.35 (pre-launch)
+- Light blue of "What you need to get started" now fades to white through "How contractor pay works" (one continuous gradient; the pink wash on the pay section is gone) (artifact comment)
+
+## 2026-10-15 - v1.36 (pre-launch)
+- Game intro rebuilt as five speech bubbles that pop in with a small bounce when scrolled into view (Four picks / One driver persona / Dare you to find out! / Just for fun / No wrong answers). "It isn't an application or an eligibility check" moved under the Press play button (artifact comment)
+
+## 2026-10-15 - v1.37 (pre-launch)
+- Game note under Press play shortened to "Not an application or an eligibility check." (artifact comment)
+
+## 2026-10-15 - v1.38 (pre-launch)
+- Game: "Focus mode" renamed "Career mode" (answer value now career); result renamed "The Empire Builder" with copy about building your own business (artifact comment)
+
+## 2026-10-15 - v1.39 (pre-launch)
+- Game question 1 renamed "Pick your road trip with friends soundtrack"; new "+ Add your own genre" tile lets a player type a genre (max 24 characters). The typed text is shown only in their own result tag; analytics records the answer as "other" and never the text (privacy). Option to capture sanitized text later after privacy sign-off. (artifact comment)
+
+## 2026-10-15 - v1.40 (pre-launch)
+- Share: "Share my playlist" now opens a panel with Facebook, WhatsApp, LinkedIn, Instagram, TikTok, Copy link and (on phones) the device share menu. Message uses the player's persona ("I'm The Empire Builder. What's your delivery playlist?"). Links are tagged utm_source=game_share with utm_content per network and open at the game. Instagram and TikTok have no web share link, so they copy the message and open the site. New events: game_share_open, game_share (method) (artifact comment)
+
+## 2026-10-15 - v1.41 (pre-launch)
+- Custom genres now recorded: game_answer carries custom_genre (cleaned: lowercase letters, spaces, hyphens, ampersands, max 24 characters; skipped if it looks like an email, web address or number). Input hint says "Just a music genre, please. No names or personal details." Privacy wording updated. Switch: CONFIG.captureCustomGenre. TO DO before launch: privacy sign-off and register custom_genre as a GA4 custom dimension (artifact comment)
+
+## 2026-10-15 - v2.0 (pre-launch)
+- Styles moved into assets/css/styles.css and shared scripts into assets/js/common.js and assets/js/config.js so every page uses the same look and analytics. Put the GA4 ID in assets/js/config.js (one place).
+- New header menu: burger on phones, links in the header on larger screens (Home, Requirements, Where we operate, Driver Match Program, Play the game, Apply to Drive). New events: menu_open, nav_click.
+- New page: /requirements/ (driver, vehicle, documents, business, how to start, FAQ). Orange dashed "To confirm before launch" boxes mark details that still need verified wording; remove them or add class hide-confirm to <body>.
+
+## 2026-10-15 - v2.1 (pre-launch)
+- Game section moved up: it now sits between "How it works" and "What you need to get started" (was after the pay section)
+
+## 2026-10-15 - v2.2 (pre-launch)
+- Game bubbles: first view pops in with a bounce (unchanged); each later scroll back they softly fade and glow instead of bouncing (artifact comment)
+
+## 2026-10-15 - v2.3 (pre-launch)
+- Header tidied (artifact comment): phones and tablets get one row (burger left, logo centered, Francais right); links sit in a single row only on wide screens (1000px and up). Link labels shortened: Locations, Driver Match.
+
+## 2026-10-15 - v2.4 (pre-launch)
+- Requirements page: Apply to Drive moved into the top row of the header (visible without opening the menu) and removed from the menu and from the page header; sticky bar now follows the page header (artifact comment). Home page unchanged.
+
+## 2026-10-15 - v2.5 (pre-launch)
+- Requirements page: top-row Apply to Drive button gets the same soft rainbow glow the page-header button had (artifact comment)
+
+## 2026-10-15 - v2.6 (pre-launch)
+- Apply to Drive buttons centered and evenly spaced: full-width buttons on phones/small tablets are capped (420px) and centered; Requirements header uses three equal columns so the logo is exactly centered; short "Apply" label below 560px.
+
+## 2026-10-15 - v2.7 (pre-launch)
+- Home page header now matches the Requirements header: burger, centred logo and a glowing Apply to Drive button in the top row, directly under the scrolling banner. Francais moved into the menu on both pages; language handler moved to the shared script (artifact comment)
+
+## 2026-10-15 - v2.8 (pre-launch)
+- Home page: big Apply to Drive button under the hero headline removed; the glowing top-row button and the bottom bar remain. Bottom bar now appears once the hero has scrolled out of view (artifact comment)
+
+## 2026-10-15 - v2.9 (pre-launch)
+- Hero cleaned up (artifact comment): "Watch on YouTube" text link removed (the video plays on the page), the three tags stack as equal-width pills on phones, video slightly narrower, spacing evened out.
+
+## 2026-10-15 - v2.10 (pre-launch)
+- Hero restacked (artifact comment): bigger headline and tags on top, wide 16:9 video tile below. Because the YouTube Short is vertical, pressing play opens the tile into a tall player so the picture isn't tiny.
+
+## 2026-10-15 - v2.11 (pre-launch)
+- Game result now pops open like a balloon with a colourful burst, on a white card that keeps the rainbow outline, glow and colours. Share my playlist is now a large button with a prompt ("Think your friends will match?") right under Apply to Drive; Build another moved to the bottom. Reduced-motion visitors see the card without animation.
+
+## 2026-10-15 - v2.12 (pre-launch)
+- Cache-busting: styles and scripts are linked with ?v=2.12 so browsers and GitHub Pages pick up new versions straight away. Bump this number (in both HTML files) with every release.
+
+## 2026-10-15 - v2.13 (pre-launch)
+- Share picture added (assets/img/share-card.png, 1200x630) and wired in with og:image and twitter:card tags, so links shared from the game show a picture on Facebook, LinkedIn, WhatsApp and others. BEFORE LAUNCH: replace REPLACE-WITH-LIVE-ADDRESS in the og:image tag of both pages with the real web address (platforms need the full address).
+- GitHub repository card (1280x640) made separately: upload it under Settings > General > Social preview (optional).
+
+## 2026-10-15 - v2.14 (pre-launch)
+- Share picture: slogan removed; centred "Hiring Now" badge added in the bottom block (artifact/chat request). Repository card matches.
+
+## 2026-10-15 - v2.15 (pre-launch)
+- Favicon added: white P on royal blue (browser tab, iPhone/Android home screen, web manifest). Files: favicon.ico, favicon-16x16.png, favicon-32x32.png, favicon-48x48.png, apple-touch-icon.png, android-chrome-192x192.png, android-chrome-512x512.png, site.webmanifest. Made from the logo's P mark; swap in a vector version if the brand team has one.
+
+## 2026-10-15 - v2.16 (pre-launch)
+- Favicon links now carry ?v=2.16 so browsers fetch the icon fresh instead of showing an old cached (blank) one.
+
+## 2026-10-20 - v2.18 (pre-launch)
+- ANALYTICS FIX: assets/js/config.js had an empty Google Analytics ID, so custom events (apply_click, application_link_click, location_select, game_*, etc.) were logged to the browser console but never sent to GA4. The ID is now set. Only automatic events (page_view, session_start, first_visit, scroll, user_engagement, outbound click) were being recorded before this date, so custom-event data starts 2026-10-20.
+- game_complete and game_share now include a persona parameter (the result title, e.g. "The Empire Builder"). Heads-up: with analytics now live, the cleaned-up custom genre a visitor types is sent as custom_genre on game_answer, because captureCustomGenre is true in index.html (its code comment says it needs privacy sign-off before launch). Set it to false to stop.
+- Cache-busting version bumped to ?v=2.18 in both pages.
+
+## 2026-10-21 - v2.19 (pre-launch)
+- New second game: "Sort Run", a 45-second parcel sorting game (match each parcel to its route, oversize parcels go to the shelf). It is a pop-up, not a page section: it opens once per visit when a visitor scrolls past "What you need to get started", or from the "Sort Run" menu link or a shared challenge link. Close with X, Esc or a tap outside. The playlist game is unchanged. Same LED outlines, pop-open result with burst, Apply to Drive button and share options (phone share menu, Facebook, WhatsApp, LinkedIn, Instagram, TikTok, copy link).
+- Players get a drawn score card image ("I scored N! Can you keep up?") they can share as a picture or save. It is made in their browser and never uploaded or stored.
+- Friends who open a shared link (?beat=N) see "A friend scored N points. Can you beat it?".
+- Standalone page for emails and posts: /sort-run/. Both use the same code: assets/js/sortrun.js and assets/css/sortrun.css.
+- After the Sort Run pop-up is closed it zooms to a "Play Sort Run" tab on the right edge of the screen, which bounces and glows until clicked (calm once clicked or after a run is finished, and a small x hides it for the visit). New events: sort_tab_click, sort_tab_hide.
+- Start button: the old bouncing bars are replaced by little packages dropping in from the top of the tile.
+- New events: sort_popup_open (trigger: scroll, menu, shared_link), sort_popup_close, sort_start, sort_complete (parcels, accuracy, score, rank, challenge), sort_share_open, sort_share (method, score). Share links use utm_campaign=sort_run.
+- New file: assets/img/sort-run-share-card.png (link preview picture for /sort-run/). Privacy text updated to mention Sort Run.
+
+## 2026-10-21 - v2.20 (pre-launch)
+- Sort Run pop-up: the scroll trigger now checks the scroll position directly, so a fast flick or jump past "What you need to get started" can no longer skip it. It still waits for a real scroll, tap or key press so it never opens on page load.
+- Cache-busting version for assets/css/sortrun.css and assets/js/sortrun.js bumped to ?v=2.20 so browsers fetch the new files instead of an older saved copy.
+
+## 2026-10-21 - v2.21 (pre-launch)
+- Share wording: the playlist game now shares "I'm The Empire Builder. Click to find your delivery playlist." and Sort Run shares "I scored N! Can you keep up? Click to play Sort Run...". On phones the link is now placed inside the message text (instead of as a separate item), so the message and link are sent together as one message.
+- sortrun.css / sortrun.js cache version bumped to ?v=2.21.
+
+
+## 2026-10-23 - location application links moved
+- All 12 location application links (English and French) now point to shani.precisiondeliveries.com/jobfair/<id> instead of intake.driveridbadge.ca/e/<id>; same 12 location IDs, no wording or layout change
+- Driver Match link (intake.driveridbadge.ca/driver-match) intentionally unchanged: still working in the old system
+- Brandon, Morden, Portage la Prairie and Laval still pending
+- Analytics unchanged: UTM tagging and application_link_click event still apply to the new links
+
+## 2026-10-26 - Job Fair RSVP button in the peak banner (v2.22)
+- The scrolling peak banner now carries the Oct 31 Oakville Job Fair: message "Job Fair: Sat. Oct 31 in Oakville. Walk-ins welcome." plus an orange "RSVP for the Job Fair" button that opens the RSVP form (intake.driveridbadge.ca/jobfair) in a new tab
+- The banner is no longer one big link: "Apply to Drive" is its own button and the Job Fair button is its own link. Clicking the banner text still jumps to the locations. Copies used for the endless loop are hidden from screen readers and skipped by the Tab key
+- The Job Fair part removes itself after 3:30 p.m. Eastern on Oct 31, 2026 (JOBFAIR_END in index.html). Scroll time raised from 32s to 54s so the speed stays the same with the longer message
+- Analytics: new event jobfair_rsvp_click (cta_location: peak_banner). apply_click for the banner is unchanged
+- styles.css cache version bumped to ?v=2.19 on the English home page
+- To retire after the fair: delete the .jf-part span in index.html, the JOBFAIR_RSVP/JOBFAIR_END lines, and the "Peak banner: Job Fair RSVP button" block at the end of styles.css
+
+## 2026-10-26 - Halloween Job Fair video in the hero video spot (v2.23)
+- English home page: the hero video spot now shows the self-hosted Halloween Job Fair 2026 video (assets/video/precision-halloween-job-fair-2026.mp4, 720p, about 4 MB, 53 seconds). Until it is tapped it shows the "BOO!" picture (assets/img/job-fair-poster.webp) with a play button. Nothing downloads until the visitor taps play (preload none), so page speed is unchanged.
+- The video swaps itself out after JOBFAIR_END (3:30 p.m. Eastern, Oct 31, 2026): it hides and the previous "Your Success is Our Success" YouTube tile returns. No upload needed on Nov 1.
+- Analytics: video_play now carries a video_name parameter (halloween_job_fair_2026 or your_success_youtube); same event name for both videos. New event video_complete (video_name). Register video_name as a custom dimension in GA4 (Admin > Custom definitions) to see it in reports.
+- No captions file yet. French page unchanged (still the YouTube tile).
+- styles.css cache version bumped to ?v=2.23. The same change was made in for-the-go-live-pack-only/index.html so it is not lost when the go-live pack is uploaded.
+- To retire for good: delete the #jf-frame block, the "Job Fair video" script and the .jfvid CSS block, remove the hidden attribute from #yt-frame, and delete assets/video/ and job-fair-poster.webp.
+
+## 2026-10-26 - Job Fair video captions (v2.23, same upload)
+- English captions added to the Job Fair video (assets/video/precision-halloween-job-fair-2026.en.vtt, from Shannon's SRT). They are on by default; viewers can switch them off in the player. Remove the "default" word on the <track> line in index.html to make them opt-in.
+
+## 2026-10-26 - Job Fair video with French captions on the French page (v2.24)
+- fr/index.html: the hero video spot now shows the same Job Fair video (English audio) with French captions (assets/video/precision-halloween-job-fair-2026.fr.vtt, Quebec French, drafted from the English captions, on by default) and the note "Vidéo en anglais, avec sous-titres en français." Same poster image, same tap-to-play, same auto-swap back to the YouTube tile after JOBFAIR_END (3:30 p.m. Eastern, Oct 31, 2026).
+- Analytics: same events as the English page (video_play, video_complete with video_name halloween_job_fair_2026); the language parameter is fr automatically. The French YouTube tile's video_play now also carries video_name your_success_youtube.
+- styles.css cache version on the French page bumped to ?v=2.24.
+- Same change made in for-the-go-live-pack-only/fr/index.html (go-live version of the French page).
+- Known gaps on the French page, not part of this change: no Sort Run, no Job Fair button in the peak banner, still on the v2.18 build.
+
+## 2026-10-26 - French page now mirrors the English page (v2.24)
+- fr/index.html: added the Job Fair banner (Salon de recrutement, sam. 31 oct. à Oakville, button "Confirmer ma présence", same RSVP form as English, same auto-removal at 3:30 p.m. Eastern on Oct 31, 2026) and the Sort Run game (menu link, pop-up after "Les prérequis pour commencer", side tab, French privacy sentence). Section "Les prérequis pour commencer" now has id="needs" so the pop-up trigger works.
+- New page fr/sort-run/ (French standalone Sort Run for emails and posts), with an English link back to /sort-run/.
+- assets/js/sortrun.js now carries English and French text and picks by the page language. The English page behaves as before. Analytics values stay English on both languages (rank is always "Dock veteran", "Solid sorter" or "Getting your bearings"), so reports are not split by language; the language parameter says fr or en. Cache version for sortrun.js bumped to ?v=2.24 on all pages that load it.
+- Banner clicks on the French page now use the same events as English: apply_click (cta_location peak_banner) and jobfair_rsvp_click (cta_location peak_banner).
+- The French banner's whole-strip link was replaced by the same layout as English: separate Apply link and Job Fair button.
+- Same changes made in the go-live copies under for-the-go-live-pack-only/.
+
+## 2026-10-27 - Analytics: removed the duplicate Google tag (page views counted twice)
+- index.html and sort-run/index.html each had Google's tag pasted in the head AND loaded it again through assets/js/common.js, so each visit sent page_view twice. The pasted copy is removed from both pages. Google Analytics now loads once per page, from common.js, on every page of the site (English, French, requirements, Sort Run).
+- Page views on the English home page and Sort Run recorded before this date are inflated (about double). Compare English and French page views only from this date on.
+
+## 2026-11-02 - Radio: short spoken address /radio (tracking for radio ads)
+- New page radio/index.html: driveprecision.ca/radio forwards to the home page with ?utm_source=radio&utm_medium=audio&utm_campaign=peak_season_radio&utm_content=spoken_url. Radio ads (Q107, The Edge, Talk 640, Y108, FM96) now say driveprecision.ca/radio, so listeners who type it are counted as radio in GA4. Visits before the stations changed their wording, and anyone who types driveprecision.ca or searches, cannot be attributed to radio.
+- New file 404.html: friendly bilingual "page not found" page, and it sends /Radio (capital R) to /radio/ because GitHub Pages treats upper and lower case as different pages.
+
+## 2026-11-03 - Job Fair banner reused for the Ottawa fair, Sat. Nov 7, 2026 (v2.25)
+- English and French banners now read "Job Fair: Sat. Nov 7 in Ottawa." / "Salon de recrutement : sam. 7 nov. à Ottawa." (the "walk-ins welcome" line was dropped until it is confirmed for Ottawa). Same RSVP button and analytics; the RSVP link (JOBFAIR_RSVP) now points to https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65 instead of the old intake site; same analytics (jobfair_rsvp_click, cta_location peak_banner).
+- JOBFAIR_END (banner removal) is now 4:30 p.m. Eastern on Sat. Nov 7, 2026, the end of the Ottawa fair.
+- New VIDEO_END keeps the Halloween video retired (Oct 31, 3:30 p.m. ET). Before this, one date controlled both, so moving the banner date would have brought the Halloween video back.
+- Banner button colour changed from Halloween orange to the brand yellow. Cache version for styles.css bumped to ?v=2.25.
+- The RSVP form is hosted on the SHANI system, not in this repo, so its styling and wording are changed there.
+- Same changes made in for-the-go-live-pack-only/.
+
+## 2026-11-03 - Job Fair banner: orange bubble, Apply link hidden during the fair (v2.26)
+- The Job Fair wording in the banner now sits in an orange pill (.jf-msg in styles.css, navy text for contrast). Delete the .jf-msg rule at the end of styles.css with the rest of the Job Fair block when the fair is over.
+- While the Job Fair is in the banner, the "Apply to Drive" / "Présentez votre candidature" button and the dot after it are removed by the banner script. They come back by themselves after JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026), because the script only removes them while the Job Fair part is present. Clicking the banner text still goes to the locations and counts as apply_click (cta_location peak_banner). The applying paths on the page itself are unchanged.
+- styles.css cache version bumped to ?v=2.26 on English and French home pages. Same changes in for-the-go-live-pack-only/.
+
+## 2026-11-03 - Job Fair alert tile above the Ontario tile (v2.27)
+- A bouncing orange tile (same orange as the banner bubble) now sits above the Ontario tile in "Choose your location to apply": "Job Fair: Sat. Nov 7 in Ottawa" with "RSVP here", linking to the same RSVP link as the banner (JOBFAIR_RSVP). French: "Salon de recrutement : sam. 7 nov. à Ottawa" / "Confirmer ma présence". Opens in a new tab.
+- It shows only until JOBFAIR_END (4:30 p.m. Eastern, Sat. Nov 7, 2026) and then leaves by itself, together with the extra space above the tiles. With "reduce motion" turned on in the visitor's device it does not bounce.
+- Analytics: same event as the banner, jobfair_rsvp_click, with cta_location = province_tile (banner = peak_banner), so the two spots can be compared.
+- styles.css cache version bumped to ?v=2.27. Same changes in for-the-go-live-pack-only/. To retire for good: delete the "Job Fair alert tile" block in the locations script of both home pages and the .jf-tile / .has-jf CSS at the end of styles.css.
+
+## 2026-11-03 - Go-live for search + repair of the English home page (v2.28)
+- REPAIR: the live top-level index.html had been replaced by the French home page. This pack puts the English home page back at index.html and the French one at fr/index.html. A stray styles.css at the top level of the repo is not used by any page and can be deleted; the real stylesheet is assets/css/styles.css.
+- Indexing ON: noindex removed from the home pages, Requirements pages and the new pages; robots.txt now says Allow: / and points to sitemap.xml (8 pages, English and French). Sort Run, radio and 404 pages stay noindex on purpose (they are game, tracking and error pages).
+- Every page now identifies itself as https://driveprecision.ca (canonical, hreflang, share links, share image). The French pages still said github.io.
+- Google Analytics: the duplicate tag in the head of the English home page and Sort Run is removed again, so each visit counts once (loaded once by assets/js/common.js). Page views recorded since the duplicate came back are inflated (about double).
+- Added: structured data (Organization, WebSite, FAQ), a plain-text list of locations on the home pages, and four pages: vehicles/, contract-driver/, fr/vehicules/, fr/chauffeur-contractuel/. Official name everywhere: Precision Parcel & Package Deliveries.
+- Includes the Ottawa Job Fair banner and the bouncing Job Fair tile (v2.27).
+
+## 2026-11-03 - Ottawa Job Fair end time changed to 3:00 p.m. Eastern (v2.28)
+- JOBFAIR_END is now 3:00 p.m. Eastern, Sat. Nov 7, 2026 (was 4:30 p.m.). The banner Job Fair part and the bouncing tile above Ontario leave by themselves at that time, and the Apply to Drive button returns to the banner. Changed in index.html and fr/index.html.
