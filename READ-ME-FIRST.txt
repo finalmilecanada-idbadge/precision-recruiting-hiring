@@ -1,8 +1,0 @@
-UPLOAD EACH FOLDER INTO THE MATCHING PLACE IN GITHUB (do not mix them):
-
-1-repo-root          -> upload into the MAIN page of the repo (the top level)   [index.html = ENGLISH home page, CHANGELOG.md]
-2-fr-folder          -> open the "fr" folder in GitHub first, then upload        [index.html = FRENCH home page]
-3-assets-css-folder  -> open assets, then css in GitHub first, then upload       [styles.css]
-
-Then delete the stray styles.css at the top level of the repo (the one NOT inside assets/css).
-Wait 2 minutes, then Ctrl + F5 on driveprecision.ca and driveprecision.ca/fr/
