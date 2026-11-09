@@ -304,3 +304,16 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - The tile now has two lines of text, so the space above the province tiles (.has-jf in styles.css) went from 92px to 128px. styles.css cache version ?v=2.30.
 - Analytics: the same event, jobfair_rsvp_click, with cta_location = peak_banner or province_tile. New parameter job_fair = hamilton_2026-11-12 so this fair can be compared with Ottawa (Nov 7). To see the parameter in GA4 reports, register job_fair as a custom dimension (event scope).
 - Not changed: for-the-go-live-pack-only/ (it is an older copy and does not contain the tile; it is not uploaded).
+
+## 2026-11-09 - Two job fairs (Hamilton + Windsor) and green Job Fair colour (v2.31)
+- Banner: each running fair gets its own green message and its own RSVP button ("RSVP Hamilton", "RSVP Windsor"; French "Confirmer - Hamilton"). Tile above the Ontario tile: one tile with a row per fair, each with its own RSVP link. The tile is taller with two fairs (.has-jf-2).
+- Colour: the Job Fair message and tile are now green (#2FBF71, was Halloween orange); the RSVP buttons are dark green with white text (was yellow).
+- All fairs now live in one list, JOBFAIRS, near the top of the script in index.html and fr/index.html (replaces JOBFAIR_RSVP / JOBFAIR_END). To add a fair, copy a line. Each fair removes itself after its own "end"; when none are left the "Apply to Drive" button returns by itself.
+- Hamilton: Thu. Nov 12, 9AM-3PM, ends 3:00 p.m. Eastern. Windsor: Fri. Nov 13, RSVP link added; hours NOT confirmed, so no hours are shown and it stays up until 11:59 p.m. Eastern Nov 13. Update "when", "aria" and "end" for Windsor once the hours are known.
+- Analytics: jobfair_rsvp_click unchanged; job_fair = hamilton_2026-11-12 or windsor_2026-11-13, cta_location = peak_banner or province_tile.
+- styles.css cache version ?v=2.31.
+
+## 2026-11-09 - Windsor hours and address (v2.32)
+- Windsor Job Fair: Fri. Nov 13, 9AM-3PM, 3181 Devon Dr., Windsor ON N8X 4L3. Ends 3:00 p.m. Eastern Nov 13 (replaces the 11:59 p.m. placeholder). The banner shows the date and hours; the tile also shows "3181 Devon Dr., Windsor" (new optional "where" field in JOBFAIRS; Hamilton has none yet, so no address line).
+- Tile spacing for two fairs raised to 214px (.has-jf-2). styles.css cache version ?v=2.32.
+

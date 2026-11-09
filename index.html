@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.30">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.32">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 <script type="application/ld+json">
 {
@@ -161,7 +161,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Peak season announcements">
     <span class="track">
-      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Hamilton Job Fair: Thu. Nov 12, 9AM-3PM.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Hamilton Job Fair on Thursday, November 12, 9AM to 3PM (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
@@ -508,9 +508,14 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
-/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (3:00 p.m. Eastern, Thu. Nov 12, 2026, when the Hamilton job fair ends) the banner button disappears by itself. */
-var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5";
-var JOBFAIR_END = new Date("2026-11-12T20:00:00Z").getTime();
+/* JOBFAIRS: every job fair promoted in the banner and in the tile above the Ontario tile. To add a fair, copy one line and change it. A fair shows until its "end" moment and then removes itself.
+   id = label sent to Google Analytics (job_fair); city; rsvp = RSVP page; title + when = the wording; aria = the screen-reader wording; end = when it disappears (UTC; Eastern is UTC-5 in winter).
+   Hamilton ends 3:00 p.m. Eastern Thu. Nov 12; Windsor ends 3:00 p.m. Eastern Fri. Nov 13. "where" (optional) = address line shown in the tile only. */
+var JOBFAIRS = [
+  {id:"hamilton_2026-11-12", city:"Hamilton", rsvp:"https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5", title:"Hamilton Job Fair", when:"Thu. Nov 12, 9AM-3PM", aria:"RSVP for the Hamilton Job Fair on Thursday, November 12, 9AM to 3PM", end:new Date("2026-11-12T20:00:00Z").getTime()},
+  {id:"windsor_2026-11-13", city:"Windsor", rsvp:"https://shani.precisiondeliveries.com/jobfair/register/89287ab86eeff81c", title:"Windsor Job Fair", when:"Fri. Nov 13, 9AM-3PM", where:"3181 Devon Dr., Windsor", aria:"RSVP for the Windsor Job Fair on Friday, November 13, 9AM to 3PM at 3181 Devon Drive, Windsor", end:new Date("2026-11-13T20:00:00Z").getTime()}
+];
+function activeFairs(){ var n=Date.now(); return JOBFAIRS.filter(function(f){ return n<=f.end; }); }
 /* VIDEO_END: the Halloween video stays retired (it ended Oct 31, 2026, 3:30 p.m. Eastern). It has its own date so the banner can run for later job fairs. */
 var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 /* JOBFAIR: the address every location application link is built from (per-location IDs below). */
@@ -546,9 +551,9 @@ var CONFIG = {
 /* ===== Peak banner ticker: duplicate the message so the loop never shows a gap; pause button ===== */
 (function(){
   var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild; if(!c) return;
-  /* Job Fair button: its link comes from JOBFAIR_RSVP (top of this script). The whole Job Fair part leaves the banner once the fair is over. */
-  var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
-  if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* Job Fair part of the banner: built from JOBFAIRS (top of this script), one green pill + RSVP button per fair still running. The whole part leaves once every fair is over. */
+  var jf=c.querySelector(".jf-part"), act=activeFairs();
+  if (jf) { if (!act.length) { jf.parentNode.removeChild(jf); } else { jf.innerHTML=act.map(function(f){ return '<span class="jf-item"><span class="jf-msg">'+f.title+': '+f.when+'.</span><i class="dot"></i><a class="cta cta-jf" href="'+f.rsvp+'" target="_blank" rel="noopener" data-peak="jobfair" data-fair="'+f.id+'" aria-label="'+f.aria+' (opens in a new tab)">'+'RSVP '+f.city+'</a><i class="dot"></i></span>'; }).join(""); } }
   /* While the Job Fair is in the banner, the "Apply to Drive" link and the dot after it are taken out. They come back by themselves when the Job Fair part leaves (after JOBFAIR_END). */
   if (jf && jf.parentNode) { var ap=c.querySelector('a[data-peak="apply"]'); if (ap) { var dt=ap.nextElementSibling; if (dt && dt.className==='dot') dt.parentNode.removeChild(dt); ap.parentNode.removeChild(ap); } }
   /* The copies are for the endless loop only: hidden from screen readers and skipped by the Tab key */
@@ -561,7 +566,7 @@ var CONFIG = {
   var tk=document.querySelector("#peak .ticker");
   tk.addEventListener("click",function(e){
     var a=e.target.closest("a[data-peak]");
-    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:"hamilton_2026-11-12"}); return; }
+    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:a.getAttribute("data-fair")}); return; }
     track("apply_click",{cta_location:"peak_banner"});
     if(!a) location.hash="#locations";
   });
@@ -590,13 +595,13 @@ CONFIG.provinces.forEach(function(p){
     var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", String(!open)); list.hidden=open;
     if(!open) track("location_select",{province:p.code});
   });
-  /* Job Fair alert tile: a bouncing orange tile above the Ontario tile with the RSVP link. It shows only until JOBFAIR_END and leaves by itself. To retire it for good, delete this block, the .jf-tile CSS and the .has-jf rule. */
-  if (p.code==="ON" && Date.now()<=JOBFAIR_END) {
-    var jt=document.createElement("a"); jt.className="jf-tile"; jt.href=JOBFAIR_RSVP; jt.target="_blank"; jt.rel="noopener";
-    jt.setAttribute("aria-label","RSVP for the Hamilton Job Fair on Thursday, November 12, 9AM to 3PM (opens in a new tab)");
-    jt.innerHTML='<b>Hamilton Job Fair<br>Thu. Nov 12, 9AM-3PM</b><span>RSVP here &rarr;</span>';
-    jt.addEventListener("click",function(){ track("jobfair_rsvp_click",{cta_location:"province_tile",job_fair:"hamilton_2026-11-12"}); });
-    box.style.position="relative"; box.insertBefore(jt,box.firstChild); grid.classList.add("has-jf");
+  /* Job Fair alert tile: one bouncing green tile above the Ontario tile, one RSVP link per fair still running (from JOBFAIRS). It leaves by itself when every fair is over. To retire it for good, delete this block, the .jf-tile CSS and the .has-jf rules. */
+  var af=activeFairs();
+  if (p.code==="ON" && af.length) {
+    var jt=document.createElement("div"); jt.className="jf-tile";
+    jt.innerHTML=af.map(function(f){ return '<a class="jf-row" href="'+f.rsvp+'" target="_blank" rel="noopener" data-fair="'+f.id+'" aria-label="'+f.aria+' (opens in a new tab)"><b>'+f.title+'<br>'+f.when+(f.where?'<br><small>'+f.where+'</small>':'')+'</b><span>RSVP here &rarr;</span></a>'; }).join("");
+    jt.addEventListener("click",function(e){ var a=e.target.closest("a[data-fair]"); if(a) track("jobfair_rsvp_click",{cta_location:"province_tile",job_fair:a.getAttribute("data-fair")}); });
+    box.style.position="relative"; box.insertBefore(jt,box.firstChild); grid.classList.add(af.length>1?"has-jf-2":"has-jf");
   }
   grid.appendChild(box);
 });

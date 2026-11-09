@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.30">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.32">
 <link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 <script type="application/ld+json">
@@ -161,7 +161,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Annonces de la haute saison">
     <span class="track">
-      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Présentez votre candidature comme chauffeur</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Salon de recrutement à Hamilton : jeu. 12 nov., 9 h à 15 h.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5" target="_blank" rel="noopener" data-peak="jobfair" aria-label="Confirmer votre présence au salon de recrutement de Hamilton du jeudi 12 novembre, de 9 h à 15 h (s’ouvre dans un nouvel onglet)">Confirmer ma présence</a><i class="dot"></i></span></span>
+      <span class="copy"><span>La haute saison est arrivée !</span><i class="dot"></i><span>Nous renforçons notre réseau de chauffeurs contractuels en Ontario, au Manitoba et au Québec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Présentez votre candidature comme chauffeur</a><i class="dot"></i><span class="jf-part"></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Mettre en pause le défilement du bandeau"></button>
@@ -508,9 +508,14 @@
 <script>if(typeof I18N!=="undefined"){I18N.open="Ouvrir le menu principal";}</script>
 <script>
 /* ===== CONFIG : the only place you edit locations, links and IDs ===== */
-/* JOBFAIR_RSVP : formulaire de confirmation du salon (sur le site d'accueil). JOBFAIR_END : après ce moment (15 h HE, jeu. 12 nov. 2026, fin du salon de Hamilton), le bouton du salon disparaît de lui-même. */
-var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5";
-var JOBFAIR_END = new Date("2026-11-12T20:00:00Z").getTime();
+/* JOBFAIRS : tous les salons de recrutement annoncés dans le bandeau et dans la tuile au-dessus de l'Ontario. Pour en ajouter un, copier une ligne et la modifier. Un salon s'affiche jusqu'à son moment « end » puis disparaît de lui-même.
+   id = étiquette envoyée à Google Analytics (job_fair) ; city = ville ; rsvp = page de confirmation ; title + when = texte affiché ; aria = texte pour lecteurs d'écran ; end = fin d'affichage (UTC ; l'heure de l'Est est UTC-5 en hiver).
+   Hamilton se termine à 15 h HE, jeu. 12 nov. Windsor se termine à 15 h HE, ven. 13 nov. « where » (facultatif) = adresse, affichée dans la tuile seulement. */
+var JOBFAIRS = [
+  {id:"hamilton_2026-11-12", city:"Hamilton", rsvp:"https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5", title:"Salon de recrutement \u00e0 Hamilton", when:"jeu. 12 nov., 9\u00a0h \u00e0 15\u00a0h", aria:"Confirmer votre pr\u00e9sence au salon de recrutement de Hamilton du jeudi 12 novembre, de 9\u00a0h \u00e0 15\u00a0h", end:new Date("2026-11-12T20:00:00Z").getTime()},
+  {id:"windsor_2026-11-13", city:"Windsor", rsvp:"https://shani.precisiondeliveries.com/jobfair/register/89287ab86eeff81c", title:"Salon de recrutement \u00e0 Windsor", when:"ven. 13 nov., 9\u00a0h \u00e0 15\u00a0h", where:"3181 Devon Dr., Windsor", aria:"Confirmer votre pr\u00e9sence au salon de recrutement de Windsor du vendredi 13 novembre, de 9\u00a0h \u00e0 15\u00a0h, au 3181 Devon Drive, Windsor", end:new Date("2026-11-13T20:00:00Z").getTime()}
+];
+function activeFairs(){ var n=Date.now(); return JOBFAIRS.filter(function(f){ return n<=f.end; }); }
 /* VIDEO_END : la vidéo de l’Halloween reste retirée (terminée le 31 oct. 2026, 15 h 30 HE). Elle a sa propre date pour que le bandeau serve aux prochains salons. */
 var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 var CONFIG = {
@@ -544,9 +549,9 @@ var CONFIG = {
 /* ===== Peak banner ticker : duplicate the message so the loop never shows a gap ; pause button ===== */
 (function(){
   var t=document.querySelector("#peak .track"), c=t&&t.firstElementChild; if(!c) return;
-  /* Bouton du salon : son lien vient de JOBFAIR_RSVP (haut du script). Toute la partie « salon » quitte le bandeau une fois le salon terminé. */
-  var jf=c.querySelector(".jf-part"), jl=document.getElementById("jf-rsvp");
-  if (jf) { if (Date.now()>JOBFAIR_END) { jf.parentNode.removeChild(jf); } else if (jl) { jl.href=JOBFAIR_RSVP; } }
+  /* Job Fair part of the banner: built from JOBFAIRS (top of this script), one green pill + RSVP button per fair still running. The whole part leaves once every fair is over. */
+  var jf=c.querySelector(".jf-part"), act=activeFairs();
+  if (jf) { if (!act.length) { jf.parentNode.removeChild(jf); } else { jf.innerHTML=act.map(function(f){ return '<span class="jf-item"><span class="jf-msg">'+f.title+' : '+f.when+'.</span><i class="dot"></i><a class="cta cta-jf" href="'+f.rsvp+'" target="_blank" rel="noopener" data-peak="jobfair" data-fair="'+f.id+'" aria-label="'+f.aria+' (s\u2019ouvre dans un nouvel onglet)">'+'Confirmer \u2013 '+f.city+'</a><i class="dot"></i></span>'; }).join(""); } }
   /* Tant que le salon est dans le bandeau, le lien « candidature » et le point qui le suit sont retirés. Ils reviennent d'eux-mêmes quand la partie « salon » quitte le bandeau (après JOBFAIR_END). */
   if (jf && jf.parentNode) { var ap=c.querySelector('a[data-peak="apply"]'); if (ap) { var dt=ap.nextElementSibling; if (dt && dt.className==='dot') dt.parentNode.removeChild(dt); ap.parentNode.removeChild(ap); } }
   /* Les copies servent seulement à la boucle sans fin : cachées des lecteurs d'écran et ignorées par la touche Tab */
@@ -559,7 +564,7 @@ var CONFIG = {
   var tk=document.querySelector("#peak .ticker");
   tk.addEventListener("click",function(e){
     var a=e.target.closest("a[data-peak]");
-    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:"hamilton_2026-11-12"}); return; }
+    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:a.getAttribute("data-fair")}); return; }
     track("apply_click",{cta_location:"peak_banner"});
     if(!a) location.hash="#locations";
   });
@@ -588,13 +593,13 @@ CONFIG.provinces.forEach(function(p){
     var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", String(!open)); list.hidden=open;
     if(!open) track("location_select",{province:p.code});
   });
-  /* Tuile d’alerte du salon : tuile orange qui rebondit au-dessus de la tuile Ontario, avec le lien de confirmation. Elle s’affiche seulement jusqu’à JOBFAIR_END et disparaît d’elle-même. Pour la retirer pour de bon, supprimer ce bloc, le CSS .jf-tile et la règle .has-jf. */
-  if (p.code==="ON" && Date.now()<=JOBFAIR_END) {
-    var jt=document.createElement("a"); jt.className="jf-tile"; jt.href=JOBFAIR_RSVP; jt.target="_blank"; jt.rel="noopener";
-    jt.setAttribute("aria-label","Confirmer votre présence au salon de recrutement de Hamilton du jeudi 12 novembre, de 9 h à 15 h (s’ouvre dans un nouvel onglet)");
-    jt.innerHTML='<b>Salon de recrutement à Hamilton<br>jeu. 12 nov., 9 h à 15 h</b><span>Confirmer ma présence &rarr;</span>';
-    jt.addEventListener("click",function(){ track("jobfair_rsvp_click",{cta_location:"province_tile",job_fair:"hamilton_2026-11-12"}); });
-    box.style.position="relative"; box.insertBefore(jt,box.firstChild); grid.classList.add("has-jf");
+  /* Job Fair alert tile: one bouncing green tile above the Ontario tile, one RSVP link per fair still running (from JOBFAIRS). It leaves by itself when every fair is over. To retire it for good, delete this block, the .jf-tile CSS and the .has-jf rules. */
+  var af=activeFairs();
+  if (p.code==="ON" && af.length) {
+    var jt=document.createElement("div"); jt.className="jf-tile";
+    jt.innerHTML=af.map(function(f){ return '<a class="jf-row" href="'+f.rsvp+'" target="_blank" rel="noopener" data-fair="'+f.id+'" aria-label="'+f.aria+' (s\u2019ouvre dans un nouvel onglet)"><b>'+f.title+'<br>'+f.when+(f.where?'<br><small>'+f.where+'</small>':'')+'</b><span>Confirmer ma pr\u00e9sence &rarr;</span></a>'; }).join("");
+    jt.addEventListener("click",function(e){ var a=e.target.closest("a[data-fair]"); if(a) track("jobfair_rsvp_click",{cta_location:"province_tile",job_fair:a.getAttribute("data-fair")}); });
+    box.style.position="relative"; box.insertBefore(jt,box.firstChild); grid.classList.add(af.length>1?"has-jf-2":"has-jf");
   }
   grid.appendChild(box);
 });

@@ -599,12 +599,13 @@ header.has-apply{isolation:isolate}
   .result.pop > *:not(.burst){animation:none}
 }
 
-/* ===== Peak banner: Job Fair RSVP button (reused for each fair; yellow since Nov 2026, was Halloween orange). Delete this block with the .jf-part in index.html when the fair is over. ===== */
+/* ===== Peak banner: Job Fair RSVP button (reused for each fair; dark green with white text since Nov 9 2026, was yellow, and Halloween orange before that). Delete this block with the .jf-part in index.html when the fair is over. ===== */
 #peak .ticker{cursor:pointer}
 #peak .track{animation-duration:54s}   /* the message is longer now, so the loop takes longer and the scroll speed stays the same as before (was 32s) */
 #peak .jf-part{display:inline-flex;align-items:center;flex:none}
+#peak .jf-item{display:inline-flex;align-items:center;flex:none}
 #peak a.cta:focus-visible{outline:3px solid #ffd400;outline-offset:3px}
-#peak .cta-jf{background:#ffd400;color:#0A1033;padding:.4em 1.15em;box-shadow:0 0 0 3px #fff,0 0 22px rgba(255,212,0,.9);animation:jfpulse 1.8s ease-in-out infinite}
+#peak .cta-jf{background:#0B6B3A;color:#fff;padding:.4em 1.15em;box-shadow:0 0 0 3px #fff,0 0 22px rgba(47,191,113,.9);animation:jfpulse 1.8s ease-in-out infinite}
 @keyframes jfpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 @media(prefers-reduced-motion:reduce){
   #peak .cta-jf{animation:none}
@@ -627,15 +628,20 @@ header.has-apply{isolation:isolate}
 .jfnote{margin:8px 0 0;font-size:.9rem;opacity:.85}
 .jfnote[hidden]{display:none}
 
-/* Job Fair message bubble (orange pill around the Job Fair wording in the banner). Delete with the .jf-part when the fair is over. */
-#peak .jf-msg{display:inline-block;background:#FF9A3D;color:#0A1033;font-weight:800;padding:.3em 1em;border-radius:999px;box-shadow:0 0 0 2px #fff}
+/* Job Fair message bubble (green pill around the Job Fair wording in the banner). Delete with the .jf-part when the fair is over. */
+#peak .jf-msg{display:inline-block;background:#2FBF71;color:#0A1033;font-weight:800;padding:.3em 1em;border-radius:999px;box-shadow:0 0 0 2px #fff}
 
-/* ===== Job Fair alert tile: bounces above the Ontario tile (same orange as the banner bubble). Retire with the "Job Fair alert tile" block in index.html and fr/index.html ===== */
+/* ===== Job Fair alert tile: bounces above the Ontario tile (same green as the banner bubble). Retire with the "Job Fair alert tile" block in index.html and fr/index.html ===== */
 #prov-grid.has-jf{margin-top:128px}
-.jf-tile{position:absolute;left:0;right:0;bottom:calc(100% + 14px);display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;text-decoration:none;background:#FF9A3D;color:#0A1033;border-radius:14px;padding:10px 14px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(255,154,61,.65);animation:jfbounce 1.3s ease-in-out infinite;z-index:2}
+#prov-grid.has-jf-2{margin-top:214px}   /* two fairs = taller tile */
+.jf-tile{position:absolute;left:0;right:0;bottom:calc(100% + 14px);display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;text-decoration:none;background:#2FBF71;color:#0A1033;border-radius:14px;padding:8px 14px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(47,191,113,.65);animation:jfbounce 1.3s ease-in-out infinite;z-index:2}
+.jf-row{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;padding:4px 0;color:inherit;text-decoration:none}
+.jf-row + .jf-row{border-top:2px solid rgba(10,16,51,.25);margin-top:4px;padding-top:8px}
+.jf-row:focus-visible{outline:3px solid #0A1033;outline-offset:2px}
 .jf-tile b{font:800 1.05rem/1.2 Archivo,sans-serif}
+.jf-tile small{display:block;font:600 .85rem/1.3 Archivo,sans-serif;margin-top:1px}
 .jf-tile span{font:700 .95rem/1.2 Archivo,sans-serif;text-decoration:underline;text-underline-offset:.18em}
-.jf-tile::after{content:"";position:absolute;left:50%;bottom:-11px;width:18px;height:18px;background:#FF9A3D;transform:translateX(-50%) rotate(45deg);border-radius:0 0 4px 0;z-index:-1}
+.jf-tile::after{content:"";position:absolute;left:50%;bottom:-11px;width:18px;height:18px;background:#2FBF71;transform:translateX(-50%) rotate(45deg);border-radius:0 0 4px 0;z-index:-1}
 .jf-tile:focus-visible{outline:3px solid #0A1033;outline-offset:3px}
 @keyframes jfbounce{0%,100%{transform:translateY(0)}45%{transform:translateY(-10px)}60%{transform:translateY(0)}72%{transform:translateY(-4px)}}
 @media(prefers-reduced-motion:reduce){.jf-tile{animation:none}}
