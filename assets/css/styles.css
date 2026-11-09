@@ -631,7 +631,7 @@ header.has-apply{isolation:isolate}
 #peak .jf-msg{display:inline-block;background:#FF9A3D;color:#0A1033;font-weight:800;padding:.3em 1em;border-radius:999px;box-shadow:0 0 0 2px #fff}
 
 /* ===== Job Fair alert tile: bounces above the Ontario tile (same orange as the banner bubble). Retire with the "Job Fair alert tile" block in index.html and fr/index.html ===== */
-#prov-grid.has-jf{margin-top:92px}
+#prov-grid.has-jf{margin-top:128px}
 .jf-tile{position:absolute;left:0;right:0;bottom:calc(100% + 14px);display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;text-decoration:none;background:#FF9A3D;color:#0A1033;border-radius:14px;padding:10px 14px;box-shadow:0 0 0 3px #fff,0 6px 18px rgba(255,154,61,.65);animation:jfbounce 1.3s ease-in-out infinite;z-index:2}
 .jf-tile b{font:800 1.05rem/1.2 Archivo,sans-serif}
 .jf-tile span{font:700 .95rem/1.2 Archivo,sans-serif;text-decoration:underline;text-underline-offset:.18em}

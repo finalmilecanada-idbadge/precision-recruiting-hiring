@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.27">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.30">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 <script type="application/ld+json">
 {
@@ -161,7 +161,7 @@
 <div id="peak" hidden>
   <div class="ticker" role="group" aria-label="Peak season announcements">
     <span class="track">
-      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Job Fair: Sat. Nov 7 in Ottawa.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Ottawa Job Fair on November 7 (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
+      <span class="copy"><span>Peak season is here.</span><i class="dot"></i><span>We're building contractor capacity across Ontario, Manitoba and Quebec.</span><i class="dot"></i><a class="cta" href="#locations" data-peak="apply">Apply to Drive</a><i class="dot"></i><span class="jf-part"><span class="jf-msg">Hamilton Job Fair: Thu. Nov 12, 9AM-3PM.</span><i class="dot"></i><a class="cta cta-jf" id="jf-rsvp" href="https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5" target="_blank" rel="noopener" data-peak="jobfair" aria-label="RSVP for the Hamilton Job Fair on Thursday, November 12, 9AM to 3PM (opens in a new tab)">RSVP for the Job Fair</a><i class="dot"></i></span></span>
     </span>
   </div>
   <button class="pause" id="peak-pause" type="button" aria-pressed="false" aria-label="Pause scrolling banner"></button>
@@ -508,9 +508,9 @@
 /* ===== CONFIG: the only place you edit locations, links and IDs ===== */
 /* INTAKE: the one address every application link is built from. Switch this ONE line when the intake site moves. */
 var INTAKE = "https://intake.driveridbadge.ca";
-/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (4:30 p.m. Eastern, Sat. Nov 7, 2026, when the Ottawa job fair ends) the banner button disappears by itself. */
-var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/b0726548c5ac3c65";
-var JOBFAIR_END = new Date("2026-11-07T21:30:00Z").getTime();
+/* JOBFAIR_RSVP: the job fair RSVP form (it lives on the intake site). JOBFAIR_END: after this moment (3:00 p.m. Eastern, Thu. Nov 12, 2026, when the Hamilton job fair ends) the banner button disappears by itself. */
+var JOBFAIR_RSVP = "https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5";
+var JOBFAIR_END = new Date("2026-11-12T20:00:00Z").getTime();
 /* VIDEO_END: the Halloween video stays retired (it ended Oct 31, 2026, 3:30 p.m. Eastern). It has its own date so the banner can run for later job fairs. */
 var VIDEO_END = new Date("2026-10-31T19:30:00Z").getTime();
 /* JOBFAIR: the address every location application link is built from (per-location IDs below). */
@@ -561,7 +561,7 @@ var CONFIG = {
   var tk=document.querySelector("#peak .ticker");
   tk.addEventListener("click",function(e){
     var a=e.target.closest("a[data-peak]");
-    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner"}); return; }
+    if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:"hamilton_2026-11-12"}); return; }
     track("apply_click",{cta_location:"peak_banner"});
     if(!a) location.hash="#locations";
   });
@@ -593,9 +593,9 @@ CONFIG.provinces.forEach(function(p){
   /* Job Fair alert tile: a bouncing orange tile above the Ontario tile with the RSVP link. It shows only until JOBFAIR_END and leaves by itself. To retire it for good, delete this block, the .jf-tile CSS and the .has-jf rule. */
   if (p.code==="ON" && Date.now()<=JOBFAIR_END) {
     var jt=document.createElement("a"); jt.className="jf-tile"; jt.href=JOBFAIR_RSVP; jt.target="_blank"; jt.rel="noopener";
-    jt.setAttribute("aria-label","RSVP for the Ottawa Job Fair on November 7 (opens in a new tab)");
-    jt.innerHTML='<b>Job Fair: Sat. Nov 7 in Ottawa</b><span>RSVP here &rarr;</span>';
-    jt.addEventListener("click",function(){ track("jobfair_rsvp_click",{cta_location:"province_tile"}); });
+    jt.setAttribute("aria-label","RSVP for the Hamilton Job Fair on Thursday, November 12, 9AM to 3PM (opens in a new tab)");
+    jt.innerHTML='<b>Hamilton Job Fair<br>Thu. Nov 12, 9AM-3PM</b><span>RSVP here &rarr;</span>';
+    jt.addEventListener("click",function(){ track("jobfair_rsvp_click",{cta_location:"province_tile",job_fair:"hamilton_2026-11-12"}); });
     box.style.position="relative"; box.insertBefore(jt,box.firstChild); grid.classList.add("has-jf");
   }
   grid.appendChild(box);

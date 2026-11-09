@@ -296,3 +296,11 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Fix: the header button on the English pages showed "Apply toDrive" (the space was dropped inside the button). Added a non-breaking space in index.html, requirements, vehicles, contract-driver and sort-run. French pages were not affected.
 - Footer: the company name now links to precisiondeliveries.com and the footer says driveprecision.ca is the driver recruiting site (helps Google and AI tools connect the two sites). Wording only; no change to the hero or any button.
 
+
+## 2026-11-09 - Hamilton Job Fair banner + tile (v2.30)
+- The Job Fair banner (orange wording + yellow RSVP button) and the bouncing orange tile above the Ontario tile now promote the Hamilton Job Fair: Thursday, Nov 12, 2026, 9AM-3PM. English and French. The Ottawa wording (Nov 7) is gone.
+- New RSVP link (JOBFAIR_RSVP): https://shani.precisiondeliveries.com/jobfair/register/6fe7cf2202b5a1e5
+- JOBFAIR_END is now 3:00 p.m. Eastern, Thu. Nov 12, 2026 (20:00 UTC). After that the banner part and the tile remove themselves and the "Apply to Drive" button returns to the banner.
+- The tile now has two lines of text, so the space above the province tiles (.has-jf in styles.css) went from 92px to 128px. styles.css cache version ?v=2.30.
+- Analytics: the same event, jobfair_rsvp_click, with cta_location = peak_banner or province_tile. New parameter job_fair = hamilton_2026-11-12 so this fair can be compared with Ottawa (Nov 7). To see the parameter in GA4 reports, register job_fair as a custom dimension (event scope).
+- Not changed: for-the-go-live-pack-only/ (it is an older copy and does not contain the tile; it is not uploaded).
