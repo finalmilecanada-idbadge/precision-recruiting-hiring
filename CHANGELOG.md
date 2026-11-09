@@ -288,3 +288,8 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Google Analytics: the duplicate tag in the head of the English home page and Sort Run is removed again, so each visit counts once (loaded once by assets/js/common.js). Page views recorded since the duplicate came back are inflated (about double).
 - Added: structured data (Organization, WebSite, FAQ), a plain-text list of locations on the home pages, and four pages: vehicles/, contract-driver/, fr/vehicules/, fr/chauffeur-contractuel/. Official name everywhere: Precision Parcel & Package Deliveries.
 - Includes the Ottawa Job Fair banner and the bouncing Job Fair tile (v2.27).
+
+## 2026-11-09 - Search listing wording + Search Console verification (v2.29)
+- SEO only, no visible change on the page: title is now "Contract Delivery Drivers | Ontario, Manitoba & Quebec"; meta description and share (og:title) wording updated; the same title and description updated inside the structured data. H1, hero and all conversion elements unchanged.
+- Added the google-site-verification meta tag to the head of index.html (needed to verify Google Search Console). Leave it in the file permanently.
+- Analytics: no change. Compare organic search results before and after Nov 9.
