@@ -293,3 +293,6 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - SEO only, no visible change on the page: title is now "Contract Delivery Drivers | Ontario, Manitoba & Quebec"; meta description and share (og:title) wording updated; the same title and description updated inside the structured data. H1, hero and all conversion elements unchanged.
 - Added the google-site-verification meta tag to the head of index.html (needed to verify Google Search Console). Leave it in the file permanently.
 - Analytics: no change. Compare organic search results before and after Nov 9.
+- Fix: the header button on the English pages showed "Apply toDrive" (the space was dropped inside the button). Added a non-breaking space in index.html, requirements, vehicles, contract-driver and sort-run. French pages were not affected.
+- Footer: the company name now links to precisiondeliveries.com and the footer says driveprecision.ca is the driver recruiting site (helps Google and AI tools connect the two sites). Wording only; no change to the hero or any button.
+
