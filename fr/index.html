@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.35">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.36">
 <link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 <script type="application/ld+json">
@@ -675,7 +675,7 @@ CONFIG.provinces.forEach(function(p){
     if (c.chips && c.chips.length) h+=chipHtml(c.chips.map(function(k){ return TXT.veh[k]; }));
     h+='<div class="lactions">';
     if (c.info) h+='<button class="btn btn-ghost linfobtn" type="button" aria-expanded="false" aria-controls="info-'+pid+'">'+esc(TXT.more)+'</button>';
-    h+= c.closed ? '<span class="lapply closed" role="note">'+esc(TXT.closed)+'</span>' : '<a class="btn lapply'+(c.flex?' glow':'')+'" href="'+esc(applyHref(c))+'">'+esc(c.applyLabel?TXT[c.applyLabel]:TXT.apply)+'<span class="sr"> '+esc(c.label?TXT[c.label]:c.n)+'</span></a>';
+    h+= c.closed ? '<span class="lapply closed" role="note">'+esc(TXT.closed)+'</span>' : '<a class="btn lapply'+''+'" href="'+esc(applyHref(c))+'">'+esc(c.applyLabel?TXT[c.applyLabel]:TXT.apply)+'<span class="sr"> '+esc(c.label?TXT[c.label]:c.n)+'</span></a>';
     h+='</div>';
     if (c.info) h+='<div class="linfo" id="info-'+pid+'" hidden>'+infoHtml(c,p)+'</div>';
     card.innerHTML=h;

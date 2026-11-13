@@ -341,3 +341,6 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-11-13 - v2.35
 - Flex Routes: spacing fixed around the NEW FLEX ROUTES button in the scrolling banner; the white "New Flex Routes" tile is back under the hero chips with the rainbow glow (it also opens Ontario). Header logo enlarged again.
+
+## 2026-11-13 - v2.36
+- Removed the rainbow glow from behind the Apply for Flex Routes button in the Flex Routes tile (the hero tile keeps its glow).
