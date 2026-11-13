@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.34">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.35">
 <link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 <script type="application/ld+json">
@@ -199,6 +199,7 @@
         <li>Rémunération à la pièce livrée</li>
         <li>Ontario &middot; Manitoba &middot; Québec</li>
       </ul>
+      <a class="flexbanner" id="flex-banner" href="#locations" hidden><span class="fb-new">Nouveau</span><b>Flex Routes</b><span>Windsor (Ontario)</span></a>
     </div>
     <div class="vid">
       <h2 class="slogan">Votre réussite, c’est aussi la nôtre</h2>
@@ -603,7 +604,7 @@ function flexActive(){ return Date.now() <= FLEX_ROUTES_END; }
   /* Tant que le salon est dans le bandeau, le lien « candidature » et le point qui le suit sont retirés. Ils reviennent d'eux-mêmes quand la partie « salon » quitte le bandeau (après JOBFAIR_END). */
   if (jf && jf.parentNode) { var ap=c.querySelector('a[data-peak="apply"]'); if (ap) { var dt=ap.nextElementSibling; if (dt && dt.className==='dot') dt.parentNode.removeChild(dt); ap.parentNode.removeChild(ap); } }
   /* Flex Routes button in the banner: white pill, only while Flex Routes runs (FLEX_ROUTES_END). */
-  if (flexActive()) { c.insertAdjacentHTML('beforeend','<i class="dot"></i><a class="cta cta-flex" href="#locations" data-peak="flex">NOUVEAU : FLEX ROUTES</a>'); }
+  if (flexActive()) { c.insertAdjacentHTML('beforeend','<i class="dot"></i><a class="cta cta-flex" href="#locations" data-peak="flex">NOUVEAU : FLEX ROUTES</a><i class="dot"></i>'); }
   /* Les copies servent seulement à la boucle sans fin : cachées des lecteurs d'écran et ignorées par la touche Tab */
   for(var i=0;i<3;i++){
     var k=c.cloneNode(true); k.setAttribute("aria-hidden","true");
@@ -720,6 +721,10 @@ CONFIG.provinces.forEach(function(p){
 });
 var any=document.getElementById("match-any"); any.href=matchHref("");
 any.addEventListener("click",function(){ track("driver_match_start",{city:"unspecified"}); });
+
+/* ===== Flex Routes banner tile (hero). Shown only while Flex Routes is running (FLEX_ROUTES_END). Reuses the location_select event. ===== */
+(function(){ var fb=document.getElementById("flex-banner"); if(!fb||!flexActive()) return; fb.hidden=false;
+  fb.addEventListener("click",function(){ track("location_select",{province:"ON",city:"Windsor",job_type:"flex_routes",cta_location:"hero_tile"}); openProv("ON"); }); })();
 
 /* ===== Video: loads YouTube only after a tap (keeps the page fast) ===== */
 document.getElementById("vidbtn").addEventListener("click", function(){

@@ -714,3 +714,14 @@ details.dcard > summary:focus-visible{outline:3px solid var(--accent);outline-of
 .logo-chip img{width:190px}
 @media(max-width:379px){.logo-chip img{width:140px}}
 @media(max-width:999px){header.has-apply .logo-chip img{width:138px}}
+
+/* ===== v2.35: banner button spacing, glowing hero Flex Routes tile, larger logo ===== */
+#peak .cta-flex{flex:none;margin:0 .2em}
+.flexbanner{position:relative}
+.flexbanner::before{content:"";position:absolute;inset:-4px;border-radius:16px;z-index:-1;background:linear-gradient(90deg,var(--rainbow));filter:blur(12px);opacity:.55;pointer-events:none}
+.logo-chip{flex:none}
+.logo-chip img{width:190px}
+@media(min-width:1000px) and (max-width:1199px){.logo-chip img{width:110px}header.top .sitenav a:not(.btn){padding:10px 6px;font-size:.95rem}}
+@media(min-width:1200px){header.top .wrap{max-width:1280px}}
+@media(max-width:999px){header.has-apply .logo-chip img{width:168px}}
+@media(max-width:359px){header.has-apply .logo-chip img{width:140px}}

@@ -338,3 +338,6 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Province bars start closed (visitors open them; they never close by themselves). The banner Flex Routes button opens Ontario.
 - White NEW FLEX ROUTES button added to the scrolling banner (replaces the hero tile); the Flex Routes Apply button has the rainbow glow.
 - Header logo made larger.
+
+## 2026-11-13 - v2.35
+- Flex Routes: spacing fixed around the NEW FLEX ROUTES button in the scrolling banner; the white "New Flex Routes" tile is back under the hero chips with the rainbow glow (it also opens Ontario). Header logo enlarged again.
