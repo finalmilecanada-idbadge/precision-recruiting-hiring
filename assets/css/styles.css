@@ -694,3 +694,23 @@ header.has-apply{isolation:isolate}
 .fb-new{background:var(--blue);color:#fff;font:800 .75rem Archivo,sans-serif;padding:3px 10px;border-radius:999px}
 .flexbanner:focus-visible,.lcard a:focus-visible,.lcard button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:719px){#prov-grid .prov{padding-left:20px;text-align:left}.lcard .vchips{justify-content:flex-start}.isec h3{font-size:1.2rem}}
+
+/* ===== v2.34: collapsible driver types, glow on Flex Routes button, bigger logo ===== */
+details.dcard{padding:0}
+details.dcard > summary{display:block;font-weight:400;list-style:none;cursor:pointer;padding:16px 48px 16px 18px;position:relative;min-height:48px}
+details.dcard > summary::-webkit-details-marker{display:none}
+details.dcard > summary::after{content:"";position:absolute;right:20px;top:24px;width:10px;height:10px;border-right:3px solid var(--a);border-bottom:3px solid var(--a);transform:rotate(45deg);transition:transform .2s}
+details.dcard[open] > summary::after{transform:rotate(-135deg);top:28px}
+details.dcard > summary h3{margin:0 0 6px}
+details.dcard .def{display:block;font-weight:400}
+details.dcard > :not(summary){margin-left:18px;margin-right:18px}
+details.dcard > :last-child{margin-bottom:18px}
+details.dcard > summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:12px}
+.dtq{font-size:1.15rem;font-weight:700}
+.lcard.flex{isolation:isolate}
+.lapply.glow{position:relative}
+.lapply.glow::before{content:"";position:absolute;inset:-4px;border-radius:14px;z-index:-1;background:linear-gradient(90deg,var(--rainbow));filter:blur(12px);opacity:.55;pointer-events:none}
+#peak .cta-flex{white-space:nowrap}
+.logo-chip img{width:190px}
+@media(max-width:379px){.logo-chip img{width:140px}}
+@media(max-width:999px){header.has-apply .logo-chip img{width:138px}}

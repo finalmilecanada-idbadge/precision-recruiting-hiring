@@ -326,3 +326,15 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Hero headline NOT changed in this release (one conversion variable at a time).
 - Vehicle chips: SUV kept only for Windsor and Windsor Flex Routes; Hanover shows Cargo van and Minivan; Ottawa good-fit line adds all-weather driving; Winnipeg delivery area, terminal address, map and 7-days-a-week routes added to its More info panel; Flex Routes tile now has More info with the Windsor service-area map.
 - Terminal street addresses added to More info > Service area for Windsor, London, Hamilton, Barrie, Oakville, Pickering, Orillia and Winnipeg and Ottawa (none for Montreal, Quebec City or Hanover).
+
+## 2026-11-13 - v2.34
+- Driver type cards are now collapsible (closed to start); the intro line now reads "What kind of driver are you?" and the section moved under the playlist game.
+- Province bars start closed (visitors open them; they never close by themselves). The banner Flex Routes button opens Ontario.
+- White NEW FLEX ROUTES button added to the scrolling banner (replaces the hero tile); Flex Routes Apply button has the rainbow glow.
+- Header logo made larger.
+
+## 2026-11-13 - v2.34
+- Driver type cards are now collapsible (closed to start); the intro line reads "What kind of driver are you?" and the section sits under the playlist game.
+- Province bars start closed (visitors open them; they never close by themselves). The banner Flex Routes button opens Ontario.
+- White NEW FLEX ROUTES button added to the scrolling banner (replaces the hero tile); the Flex Routes Apply button has the rainbow glow.
+- Header logo made larger.
