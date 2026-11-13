@@ -317,3 +317,12 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 - Windsor Job Fair: Fri. Nov 13, 9AM-3PM, 3181 Devon Dr., Windsor ON N8X 4L3. Ends 3:00 p.m. Eastern Nov 13 (replaces the 11:59 p.m. placeholder). The banner shows the date and hours; the tile also shows "3181 Devon Dr., Windsor" (new optional "where" field in JOBFAIRS; Hamilton has none yet, so no address line).
 - Tile spacing for two fairs raised to 214px (.has-jf-2). styles.css cache version ?v=2.32.
 
+## 2026-11-13 - v2.33 (Flex Routes + location picker redesign)
+- New job type: Windsor Flex Routes (own tile and application link, "New" badge, white "New Flex Routes" tile under the hero chips). It removes itself after FLEX_ROUTES_END (set in the script; provisional date, confirm). No on-page mention that it is temporary.
+- New section "Understand your driver type" (Independent Owner Operator and Broker, what you'll need, contractor-not-employment note), above the location picker. English and French.
+- Location picker: three full-width province bars, all open to start and each closable; city tiles show a good-fit line, vehicle chips, "Paid per package delivered", More info above Apply; More info panels with insurance, broker and IOO requirements, and service-area maps (assets/img/maps).
+- Montreal and Quebec City: apply button replaced with "Applications Closed At This Time". Brandon, Morden, Portage la Prairie and Laval tiles removed; the plain-text location sentence updated to match.
+- Analytics: no new event names. location_select, application_link_click now carry job_type (standard or flex_routes); location_select adds action=more_info and cta_location=hero_tile. Flex link adds utm_content=windsor_flex only if the visitor has no utm_content.
+- Hero headline NOT changed in this release (one conversion variable at a time).
+- Vehicle chips: SUV kept only for Windsor and Windsor Flex Routes; Hanover shows Cargo van and Minivan; Ottawa good-fit line adds all-weather driving; Winnipeg delivery area, terminal address, map and 7-days-a-week routes added to its More info panel; Flex Routes tile now has More info with the Windsor service-area map.
+- Terminal street addresses added to More info > Service area for Windsor, London, Hamilton, Barrie, Oakville, Pickering, Orillia and Winnipeg and Ottawa (none for Montreal, Quebec City or Hanover).

@@ -1,0 +1,7 @@
+FLEX ROUTES + NEW LOCATION PICKER (v2.33). Upload ONLY what is in this folder.
+1. github.com > your repository > Code tab > "Add file" > "Upload files".
+2. Drag in the two folders  fr  and  assets  plus the files  index.html  and  CHANGELOG.md  all at once.
+3. Commit message:  Add Flex Routes, driver types, new location picker
+4. "Commit directly to the main branch" > "Commit changes".
+5. After 1-2 minutes open driveprecision.ca and the French page and hard refresh (Ctrl+Shift+R).
+If this repo is your SANDBOX copy, test there first.

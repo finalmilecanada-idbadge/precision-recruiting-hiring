@@ -645,3 +645,52 @@ header.has-apply{isolation:isolate}
 .jf-tile:focus-visible{outline:3px solid #0A1033;outline-offset:3px}
 @keyframes jfbounce{0%,100%{transform:translateY(0)}45%{transform:translateY(-10px)}60%{transform:translateY(0)}72%{transform:translateY(-4px)}}
 @media(prefers-reduced-motion:reduce){.jf-tile{animation:none}}
+
+/* ===== v2.33: driver types, stacked province bars, city tiles, Flex Routes tile + banner ===== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Driver types section */
+.dgrid{display:grid;gap:14px;grid-template-columns:1fr;margin:18px 0}
+@media(min-width:720px){.dgrid{grid-template-columns:1fr 1fr;align-items:start}}
+.disc{background:var(--tint-sky);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0}
+.isec{--a:var(--blue);background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--a);border-radius:12px;padding:16px 18px;min-width:0}
+.isec.c1{--a:#2027E6}.isec.c2{--a:#E86A00}.isec.c3{--a:#1F9E5A}.isec.c4{--a:#0E8C7E}.isec.c5{--a:#7B3FB5}.isec.c6{--a:#D81B7A}
+.isec.wide{grid-column:1/-1}
+.isec h3{margin:0 0 8px;font-size:1.3rem}
+.isec h4{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:1rem}
+.isec h4.need{margin-top:14px;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem;color:var(--muted)}
+.isec p{margin:0 0 10px}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--a);color:#fff;flex:none}
+.ilist{margin:0;padding-left:20px}
+.ilist li{padding:3px 0}
+/* Province bars: stacked, full width, all open to start */
+.prov-stack{display:flex;flex-direction:column;gap:18px}
+#prov-grid .prov{text-align:left;padding:16px 20px}
+#prov-grid .prov > span:first-child{flex:none;text-align:left}
+.lcards{grid-template-columns:1fr;gap:14px;margin-top:12px}
+@media(min-width:720px){.lcards{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+/* City tiles */
+.lcard{position:relative;display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.lcard.flex{border:2px solid var(--accent)}
+.lcard.wide{grid-column:1/-1}
+.lcard h3{margin:0;font-size:1.25rem}
+.lcard p{margin:0}
+.lcard .fit{font-weight:700}
+.lcard .pay,.lcard .lline{color:var(--muted);font-size:.92rem}
+.newbadge{position:absolute;top:-12px;right:14px;background:var(--btn);color:#fff;font:800 .75rem Archivo,sans-serif;padding:4px 12px;border-radius:999px;letter-spacing:.03em}
+.vchips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0}
+.vchips li{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-weight:600;font-size:.85rem;background:var(--bg)}
+.lactions{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:8px}
+.lactions .btn{width:100%;min-height:48px;padding:10px 16px;font-size:1rem}
+.lapply.closed{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border-radius:10px;background:var(--line);color:var(--muted);font:700 1rem Archivo,sans-serif;text-align:center;cursor:not-allowed}
+/* More info panel (full width inside the tile when open) */
+.linfo{margin-top:10px;padding-top:14px;border-top:1px solid var(--line)}
+.isecs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.linfo .isec{background:var(--bg);padding:14px 16px}
+.amap{display:block;width:100%;max-width:640px;height:auto;margin:10px 0 0;border:1px solid var(--line);border-radius:10px}
+/* Flex Routes banner tile (hero) */
+.flexbanner{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;margin-top:14px;min-height:48px;background:#fff;color:var(--navy);border:2px solid var(--blue);border-radius:12px;padding:10px 16px;text-decoration:none;font-weight:700}
+.flexbanner[hidden]{display:none}
+.flexbanner:hover{filter:brightness(.97)}
+.fb-new{background:var(--blue);color:#fff;font:800 .75rem Archivo,sans-serif;padding:3px 10px;border-radius:999px}
+.flexbanner:focus-visible,.lcard a:focus-visible,.lcard button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:719px){#prov-grid .prov{padding-left:20px;text-align:left}.lcard .vchips{justify-content:flex-start}.isec h3{font-size:1.2rem}}

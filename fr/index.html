@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/styles.css?v=2.32">
+<link rel="stylesheet" href="../assets/css/styles.css?v=2.33">
 <link rel="stylesheet" href="../assets/css/sortrun.css?v=2.21">
 <style>.topapply .short{display:none}@media(max-width:559px){.topapply .short{display:inline}.topapply .long{display:none}}</style>
 <script type="application/ld+json">
@@ -199,6 +199,7 @@
         <li>Rémunération à la pièce livrée</li>
         <li>Ontario &middot; Manitoba &middot; Québec</li>
       </ul>
+      <a class="flexbanner" id="flex-banner" href="#locations" hidden><span class="fb-new">Nouveau</span><b>Flex Routes</b><span>Windsor (Ontario)</span></a>
     </div>
     <div class="vid">
       <h2 class="slogan">Votre réussite, c’est aussi la nôtre</h2>
@@ -227,14 +228,63 @@
   </div>
 </section>
 
+<!-- ===== TYPES DE CHAUFFEURS : propriétaire-exploitant indépendant et courtier. Vocabulaire d’entrepreneur seulement : jamais « employé », « embauche », « salaire » ni « avantages sociaux ». ===== -->
+<section class="band" id="driver-types" aria-labelledby="dt">
+  <div class="wrap">
+    <h2 id="dt">Comprendre votre type de chauffeur</h2>
+    <p>Precision travaille avec des entrepreneurs ind&eacute;pendants. Voici en quoi les deux types de chauffeurs diff&egrave;rent.</p>
+    <div class="dgrid">
+      <div class="isec c1 dcard">
+        <h3>Propri&eacute;taire-exploitant ind&eacute;pendant</h3>
+        <p>Vous g&eacute;rez votre propre entreprise de livraison et travaillez seul, sans membre d&rsquo;&eacute;quipe, en offrant des services de livraison &agrave; Precision &agrave; titre d&rsquo;entrepreneur. Vous pouvez exercer comme travailleur autonome ou par l&rsquo;entremise d&rsquo;une soci&eacute;t&eacute;.</p>
+        <ul class="ilist">
+          <li>Vous utilisez votre propre v&eacute;hicule, assurance, carburant et outils</li>
+          <li>R&eacute;mun&eacute;ration &agrave; la pi&egrave;ce livr&eacute;e; une surcharge de carburant peut s&rsquo;appliquer</li>
+          <li>Vous conduisez les parcours vous-m&ecirc;me, sans membre d&rsquo;&eacute;quipe</li>
+          <li>Vous pr&eacute;f&eacute;rez vous joindre &agrave; l&rsquo;&eacute;quipe d&rsquo;un courtier ? Renseignez-vous sur notre programme de jumelage des chauffeurs</li>
+        </ul>
+        <h4 class="need">Ce qu&rsquo;il vous faut</h4>
+        <ul class="ilist">
+          <li><b>Pi&egrave;ces d&rsquo;identit&eacute; personnelles :</b> permis de conduire, relev&eacute; de conduite, v&eacute;rification des ant&eacute;c&eacute;dents judiciaires et une deuxi&egrave;me pi&egrave;ce d&rsquo;identit&eacute; avec photo d&eacute;livr&eacute;e par le gouvernement</li>
+          <li><b>Mode d&rsquo;exploitation :</b> sous votre NAS comme travailleur autonome, ou sous une entreprise enregistr&eacute;e (un num&eacute;ro de TPS est requis)</li>
+          <li><b>Ch&egrave;que annul&eacute; :</b> un ch&egrave;que d&rsquo;entreprise pour une entreprise enregistr&eacute;e, ou un ch&egrave;que personnel pour un travailleur autonome</li>
+          <li><b>Assurance :</b> responsabilit&eacute; de 2 millions de dollars sur votre certificat d&rsquo;assurance. La couverture de la cargaison varie selon le terminal</li>
+          <li><b>Couverture en cas d&rsquo;accident du travail :</b> WCB obligatoire au Manitoba et CNESST au Qu&eacute;bec. La WSIB n&rsquo;est pas requise en Ontario</li>
+          <li><b>Imp&ocirc;ts :</b> vous remettez vos propres imp&ocirc;ts &agrave; l&rsquo;ARC chaque ann&eacute;e</li>
+        </ul>
+      </div>
+      <div class="isec c5 dcard">
+        <h3>Courtier</h3>
+        <p>Vous g&eacute;rez une entreprise de livraison avec une &eacute;quipe de chauffeurs et de v&eacute;hicules, et vous amenez cette &eacute;quipe dans un terminal Precision.</p>
+        <ul class="ilist">
+          <li>Vous constituez et g&eacute;rez votre propre &eacute;quipe de chauffeurs et de v&eacute;hicules</li>
+          <li>Vous ajoutez des chauffeurs &agrave; votre &eacute;quipe dans un ou plusieurs terminaux</li>
+          <li>Les chauffeurs de votre &eacute;quipe sont des sous-traitants</li>
+          <li>Un bon choix si vous voulez faire cro&icirc;tre une &eacute;quipe plut&ocirc;t que conduire seul</li>
+        </ul>
+        <h4 class="need">Ce qu&rsquo;il vous faut</h4>
+        <ul class="ilist">
+          <li><b>Faites approuver votre entreprise d&rsquo;abord :</b> votre entreprise doit &ecirc;tre approuv&eacute;e avant que vous puissiez constituer votre &eacute;quipe</li>
+          <li><b>Pi&egrave;ces d&rsquo;identit&eacute; personnelles :</b> votre nom, permis de conduire, relev&eacute; de conduite, v&eacute;rification des ant&eacute;c&eacute;dents judiciaires et une deuxi&egrave;me pi&egrave;ce d&rsquo;identit&eacute; avec photo d&eacute;livr&eacute;e par le gouvernement</li>
+          <li><b>Documents de la soci&eacute;t&eacute; :</b> indiquant que vous en &ecirc;tes actionnaire, administrateur ou pr&eacute;sident</li>
+          <li><b>Assurance :</b> responsabilit&eacute; de 2 millions de dollars, avec un certificat d&rsquo;assurance au nom de la soci&eacute;t&eacute;. La couverture de la cargaison varie selon le terminal</li>
+          <li><b>Renseignements bancaires :</b> un ch&egrave;que annul&eacute; ou des renseignements de d&eacute;p&ocirc;t direct au m&ecirc;me nom que le certificat d&rsquo;assurance et la soci&eacute;t&eacute;</li>
+          <li><b>Couverture en cas d&rsquo;accident du travail :</b> WSIB en Ontario, CNESST au Qu&eacute;bec et WCB au Manitoba</li>
+        </ul>
+      </div>
+    </div>
+    <p class="disc">Toutes les occasions offertes aux chauffeurs de Precision sont des relations avec des entrepreneurs ind&eacute;pendants, et non des emplois. La r&eacute;mun&eacute;ration est vers&eacute;e &agrave; la pi&egrave;ce livr&eacute;e. Les parcours, les volumes et le revenu ne sont pas garantis.</p>
+  </div>
+</section>
+
 <!-- ===== LOCATIONS: province -> cities. Edit cities and links in CONFIG ===== -->
 <section class="band" id="locations" aria-labelledby="loc">
   <div class="wrap">
     <h2 id="loc">Choisissez votre région pour présenter votre candidature</h2>
     <p>Choisissez votre province, puis votre ville. Vous serez dirigé directement vers le formulaire de candidature correspondant à cet emplacement.</p>
-    <div class="grid c3" id="prov-grid"></div>
+    <div class="prov-stack" id="prov-grid"></div>
     <!-- LISTE DES VILLES POUR LES MOTEURS DE RECHERCHE ET L’IA : texte simple. À TENIR À JOUR avec CONFIG quand un lien en attente devient actif. -->
-    <p class="note" id="loc-list">Les liens de candidature sont actifs pour l’Ontario (Windsor, London, Hanover, Hamilton, Oakville, Pickering, Barrie, Orillia et Ottawa), le Manitoba (Winnipeg) et le Québec (Montréal et la ville de Québec). Les liens pour Brandon, Morden, Portage la Prairie et Laval seront bientôt offerts.</p>
+    <p class="note" id="loc-list">Les liens de candidature sont actifs pour l’Ontario (Windsor, London, Hanover, Hamilton, Oakville, Pickering, Barrie, Orillia et Ottawa) et le Manitoba (Winnipeg). Les candidatures sont fermées pour le moment au Québec (Montréal et la ville de Québec).</p>
     <div class="card match" id="driver-match">
       <div>
         <h3>Découvrez notre programme de jumelage des chauffeurs</h3>
@@ -522,26 +572,23 @@ var CONFIG = {
   captureCustomGenre : true,      // records a cleaned-up (letters only, 24 characters max) custom genre in analytics ; set false to stop. Needs privacy sign-off before launch
   videoId : "wunY1iC9IBc",
   matchUrl : "https://intake.driveridbadge.ca/driver-match",
-  provinces : [
-    { code :"ON", name :"Ontario", cities:[
-      {n :"Windsor",  u :"https://shani.precisiondeliveries.com/jobfair/251a854b248f164a"},
-      {n :"London",   u :"https://shani.precisiondeliveries.com/jobfair/af1b6f624f2a1518"},
-      {n :"Hanover",  u :"https://shani.precisiondeliveries.com/jobfair/300f02af2df4d910"},
-      {n :"Hamilton", u :"https://shani.precisiondeliveries.com/jobfair/411cb7a06cf66278"},
-      {n :"Oakville", u :"https://shani.precisiondeliveries.com/jobfair/7f7b0b6a264fb193"},
-      {n :"Pickering",u :"https://shani.precisiondeliveries.com/jobfair/40419b965494c561"},
-      {n :"Barrie",   u :"https://shani.precisiondeliveries.com/jobfair/9526ae5c2d9075c1"},
-      {n :"Orillia",  u :"https://shani.precisiondeliveries.com/jobfair/7c4e32c821842f62"},
-      {n :"Ottawa",   u :"https://shani.precisiondeliveries.com/jobfair/00b64a1afc428592"} ]},
-    { code :"MB", name :"Manitoba", cities:[
-      {n :"Winnipeg", u :"https://shani.precisiondeliveries.com/jobfair/d13f64a31c14c5f3"},
-      {n :"Brandon",  u :""},                 // link pending
-      {n :"Morden",   u :""},                 // link pending
-      {n :"Portage la Prairie", u :""} ]},    // link pending
-    { code :"QC", name :"Québec", cities:[
-      {n :"Montréal", id :"Montreal", u :"https://shani.precisiondeliveries.com/jobfair/17295a28d5fd3ff2"},
-      {n :"Laval",       u :""},                // link pending
-      {n :"Québec", id :"Quebec City", u :"https://shani.precisiondeliveries.com/jobfair/3b0d9ed353b92bee"} ]}
+  provinces: [
+    { code:"ON", name:"Ontario", cities:[
+      {n:"Windsor", u:"https://shani.precisiondeliveries.com/jobfair/251a854b248f164a", fit:"mv_suv", chips:["mv", "suv"], map:"img/maps/windsor.webp", addr:"Devon Drive, Windsor, Ontario", info:true},
+      {n:"Windsor", label:"flexName", flex:true, u:"https://shani.precisiondeliveries.com/jobfair/7bf63ffc6a14147f", fit:"flex", lines:["flexhours"], chips:["mv", "suv"], applyLabel:"applyFlex", map:"img/maps/windsor.webp", addr:"Devon Drive, Windsor, Ontario", info:true},
+      {n:"London", u:"https://shani.precisiondeliveries.com/jobfair/af1b6f624f2a1518", fit:"cv_mv", chips:["cv", "mv"], map:"img/maps/london.webp", rich:true, addr:"Bessemer Road, London, Ontario", days:"london", towns:"london", info:true},
+      {n:"Hanover", u:"https://shani.precisiondeliveries.com/jobfair/300f02af2df4d910", fit:"wx", chips:["cv", "mv"], map:"img/maps/hanover.webp", info:true},
+      {n:"Hamilton", u:"https://shani.precisiondeliveries.com/jobfair/411cb7a06cf66278", fit:"cv_mv", chips:["cv", "mv"], map:"img/maps/hamilton.webp", addr:"Milton Avenue, Hamilton, Ontario", info:true},
+      {n:"Oakville", u:"https://shani.precisiondeliveries.com/jobfair/7f7b0b6a264fb193", fit:"big", chips:["cv", "mv"], map:"img/maps/oakville.webp", addr:"North Service Road West, Oakville, Ontario", info:true},
+      {n:"Pickering", u:"https://shani.precisiondeliveries.com/jobfair/40419b965494c561", fit:"big", chips:["cv", "mv"], map:"img/maps/pickering.webp", addr:"Sandy Beach Road, Pickering, Ontario", info:true},
+      {n:"Barrie", u:"https://shani.precisiondeliveries.com/jobfair/9526ae5c2d9075c1", fit:"wx", chips:["cv", "mv"], map:"img/maps/barrie.webp", addr:"Ellis Drive, Barrie, Ontario", info:true},
+      {n:"Orillia", u:"https://shani.precisiondeliveries.com/jobfair/7c4e32c821842f62", fit:"wx", chips:["cv", "mv"], map:"img/maps/orillia.webp", addr:"Harvie Settlement Road, Orillia, Ontario", info:true},
+      {n:"Ottawa", u:"https://shani.precisiondeliveries.com/jobfair/00b64a1afc428592", fit:"cv_mv_wx", chips:["cv", "mv"], map:"img/maps/ottawa.webp", addr:"Private Logistics, Ottawa, Ontario", info:true} ]},
+    { code:"MB", name:"Manitoba", cities:[
+      {n:"Winnipeg", u:"https://shani.precisiondeliveries.com/jobfair/d13f64a31c14c5f3", fit:"wx", lines:["wpg_area"], chips:["cv", "mv"], map:"img/maps/winnipeg.webp", addr:"Rail Park Way, Rosser, Manitoba", days:"wpg", towns:"wpg", info:true} ]},
+    { code:"QC", name:"Québec", cities:[
+      {n:"Montréal", id:"Montreal", u:"https://shani.precisiondeliveries.com/jobfair/17295a28d5fd3ff2", fit:"big", chips:["cv", "mv"], closed:true, map:"img/maps/montreal.webp", info:true},
+      {n:"Québec", id:"Quebec City", u:"https://shani.precisiondeliveries.com/jobfair/3b0d9ed353b92bee", fit:"cv_mv", chips:["cv", "mv"], closed:true, info:true} ]}
   ],
   social : [ {label :"LinkedIn", url :"https://www.linkedin.com/company/precision-parcel-package-deliveries/posts/"} ]
 };
@@ -577,17 +624,66 @@ if (isPeak()) document.getElementById("peak").hidden = false;
 
 /* ===== Province -> cities ===== */
 var grid=document.getElementById("prov-grid");
+/* Location picker. Cities come from CONFIG; all wording comes from TXT (this page's language). Province bars start open and close independently. */
+var ASSET = "../assets/";
+var TXT = {"loc": ["emplacement", "emplacements"], "newb": "Nouveau", "apply": "Présentez votre candidature", "applyFlex": "Présentez votre candidature – Flex Routes", "closed": "Candidatures fermées pour le moment", "more": "Plus d’infos", "less": "Masquer les infos", "pay": "Occasion à titre d’entrepreneur indépendant. Rémunération à la pièce livrée.", "flexName": "Windsor Flex Routes", "mapAlt": "Carte de la zone de service de %s", "opens": "(s’ouvre dans un nouvel onglet)", "fit": {"wx": "Un bon choix pour les chauffeurs prêts à conduire par tous les temps.", "big": "Un bon choix pour les chauffeurs qui ont de l’expérience de conduite en grande ville.", "cv_mv_suv": "Un bon choix pour les chauffeurs qui ont un fourgon utilitaire, une mini-fourgonnette ou un VUS.", "cv_mv": "Un bon choix pour les chauffeurs qui ont un fourgon utilitaire ou une mini-fourgonnette.", "cv_mv_wx": "Un bon choix pour les chauffeurs qui ont un fourgon utilitaire ou une mini-fourgonnette et sont prêts à conduire par tous les temps.", "mv_suv": "Un bon choix pour les chauffeurs qui ont une mini-fourgonnette ou un VUS.", "flex": "Un bon choix pour les chauffeurs qui travaillent déjà tôt le matin."}, "lines": {"flexhours": "Chargement entre 10 h et 12 h. Les parcours se terminent habituellement entre 16 h et 18 h, principalement dans la ville de Windsor.", "wpg_area": "La zone de livraison comprend Winnipeg, Brandon et les environs, notamment Gimli, Beausejour, La Broquerie, Saint-Malo, Altona, Morden, Carman et Portage la Prairie."}, "veh": {"cv": "Fourgon utilitaire", "mv": "Mini-fourgonnette", "suv": "VUS"}, "sec": {"ins": "Assurance", "days": "Jours et parcours", "veh": "Types de véhicules", "area": "Zone de service", "andmore": "et plus encore", "broker": "Pour exercer comme courtier", "ioo": "Pour exercer comme propriétaire-exploitant indépendant"}, "ins": {"liab": "Assurance responsabilité de 2 millions de dollars", "cargoLondon": "Couverture de la cargaison de 10 000 $ à 15 000 $", "cargoVaries": "La couverture de la cargaison varie selon le terminal"}, "days": {"london": ["Le terminal est en activité 5 jours par semaine", "Des parcours de fin de semaine peuvent être offerts en cas de surplus", "Parcours d’entreprises et parcours résidentiels", "Aucun parcours ni emplacement n’est garanti"], "wpg": ["Parcours offerts 7 jours par semaine", "Aucun parcours ni emplacement n’est garanti"]}, "brokerItems": ["Faites approuver votre entreprise avant de constituer votre équipe", "Pièces d’identité personnelles : permis de conduire, relevé de conduite, vérification des antécédents judiciaires et une deuxième pièce d’identité avec photo délivrée par le gouvernement", "Documents de la société indiquant que vous en êtes actionnaire, administrateur ou président", "Certificat d’assurance au nom de la société", "Chèque annulé ou renseignements de dépôt direct au même nom que le certificat d’assurance et la société"], "brokerProv": {"ON": "Couverture WSIB obligatoire en Ontario", "QC": "Couverture de la CNESST obligatoire au Québec", "MB": "Couverture WCB obligatoire au Manitoba"}, "iooItems": ["Pièces d’identité personnelles : permis de conduire, relevé de conduite, vérification des antécédents judiciaires et une deuxième pièce d’identité avec photo délivrée par le gouvernement", "Exercer sous votre NAS comme travailleur autonome, ou sous une entreprise enregistrée (numéro de TPS requis)", "Chèque annulé : chèque d’entreprise pour une entreprise enregistrée, chèque personnel pour un travailleur autonome"], "iooProv": {"ON": "Couverture WSIB non requise en Ontario", "QC": "Couverture de la CNESST obligatoire au Québec", "MB": "Couverture WCB obligatoire au Manitoba"}, "iooTax": "Vous remettez vos propres impôts à l’ARC", "towns": {"london": ["London", "St. Mary’s", "Sarnia", "Duart", "Goderich", "Tillsonburg", "Woodstock", "Ingersoll", "Stratford", "Lucan", "St. Thomas", "West Lorne"], "wpg": ["Winnipeg", "Brandon", "Gimli", "Beausejour", "La Broquerie", "Saint-Malo", "Altona", "Morden", "Carman", "Portage la Prairie"]}};
+/* FLEX ROUTES (Windsor): time-limited job type. It disappears by itself after FLEX_ROUTES_END: the Flex Routes tile, the banner tile and nothing else to clean up.
+   END DATE: provisional (end of peak season, 11:59 p.m. Eastern Jan 12, 2027). Change this ONE line when the real take-down date is confirmed. UTC; Eastern is UTC-5 in winter. */
+var FLEX_ROUTES_END = new Date("2027-01-13T04:59:00Z").getTime();
+function flexActive(){ return Date.now() <= FLEX_ROUTES_END; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]; }); }
+function ulHtml(a){ return '<ul class="ilist">'+a.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join("")+'</ul>'; }
+function chipHtml(a){ return '<ul class="vchips">'+a.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join("")+'</ul>'; }
+var ICONS={ shield:'<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/>', cal:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>', van:'<path d="M3 16V7h11v9M14 10h4l3 3v3h-3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>', pin:'<path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>', users:'<circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5M17 6a3 3 0 010 6M21 19c0-2-1.5-3.5-3-4"/>', user:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3.5-6 7-6s7 2.5 7 6"/>' };
+function isec(cls,icon,title,body,wide){ return '<div class="isec '+cls+(wide?' wide':'')+'"><h4><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[icon]+'</svg></span>'+esc(title)+'</h4>'+body+'</div>'; }
+/* More info panel. Insurance, broker and IOO requirements are the same everywhere except the workplace-coverage line (by province). Add terminal facts (days, towns, address) per city in CONFIG. */
+function infoHtml(c,p){
+  var S=TXT.sec, h='<div class="isecs">';
+  h+=isec("c1","shield",S.ins,ulHtml([TXT.ins.liab, c.rich?TXT.ins.cargoLondon:TXT.ins.cargoVaries]));
+  if(c.days) h+=isec("c2","cal",S.days,ulHtml(TXT.days[c.days]));
+  if(c.rich && c.chips.length) h+=isec("c3","van",S.veh,chipHtml(c.chips.map(function(k){ return TXT.veh[k]; })));
+  if(c.towns||c.map||c.addr){
+    var b=''; if(c.addr) b+='<p>'+esc(c.addr)+'</p>';
+    if(c.towns) b+=chipHtml(TXT.towns[c.towns].concat([S.andmore]));
+    if(c.map) b+='<img class="amap" src="'+ASSET+c.map+'" width="900" height="560" loading="lazy" alt="'+esc(TXT.mapAlt.replace("%s",c.n))+'">';
+    h+=isec("c4","pin",S.area,b,true);
+  }
+  h+=isec("c5","users",S.broker,ulHtml(TXT.brokerItems.concat([TXT.brokerProv[p.code]])));
+  h+=isec("c6","user",S.ioo,ulHtml(TXT.iooItems.concat([TXT.iooProv[p.code], TXT.iooTax])));
+  return h+'</div>';
+}
+/* Application link: keeps the visitor's campaign tags. Flex Routes adds utm_content=windsor_flex only when the visitor has no utm_content of their own. */
+function applyHref(c){ var u=withUtm(c.u); if(c.flex){ try{ var x=new URL(u); if(!x.searchParams.get("utm_content")) x.searchParams.set("utm_content","windsor_flex"); u=x.toString(); }catch(e){} } return u; }
 CONFIG.provinces.forEach(function(p){
   var box=document.createElement("div"), id="cities-"+p.code;
-  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+p.name+'<small>'+p.cities.length+' emplacements</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities" id="'+id+'" hidden></div>';
+  var n=p.cities.filter(function(c){ return !c.flex; }).length;
+  box.innerHTML='<button class="prov" type="button" aria-expanded="true" aria-controls="'+id+'"><span>'+esc(p.name)+'<small>'+n+' '+(n===1?TXT.loc[0]:TXT.loc[1])+'</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities lcards" id="'+id+'"></div>';
   var btn=box.querySelector("button"), list=box.querySelector(".cities");
-  p.cities.forEach(function(c){
-    var el;
-    if (c.u) { el=document.createElement("a"); el.href=withUtm(c.u); el.className="city"; el.innerHTML=c.n+'<span aria-hidden="true">&rarr;</span>';
-      el.addEventListener("click",function(){ track("application_link_click",{province:p.code,city:(c.id||c.n)}); }); }
-    else { el=document.createElement("button"); el.type="button"; el.className="city soon"; el.textContent=c.n+" (lien à venir)";
-      el.addEventListener("click",function(){ track("location_select",{province:p.code,city:(c.id||c.n),link_available:"no"}); openMatch(); toast("Le lien de candidature pour "+c.n+" n’est pas encore disponible. Essayez plutôt notre programme de jumelage des chauffeurs ci-dessous."); }); }
-    list.appendChild(el);
+  p.cities.forEach(function(c,i){
+    if (c.flex && !flexActive()) return;                      // Flex Routes leaves by itself after FLEX_ROUTES_END
+    var cid=c.id||c.n, jt=c.flex?"flex_routes":"standard", pid=p.code+"-"+i;
+    var card=document.createElement("div"); card.className="lcard"+(c.flex?" flex":"");
+    var h='';
+    if (c.flex) h+='<span class="newbadge">'+esc(TXT.newb)+'</span>';
+    h+='<h3 class="lname">'+esc(c.label?TXT[c.label]:c.n)+'</h3>';
+    if (c.fit) h+='<p class="fit">'+esc(TXT.fit[c.fit])+'</p>';
+    (c.lines||[]).forEach(function(k){ h+='<p class="lline">'+esc(TXT.lines[k])+'</p>'; });
+    h+='<p class="pay">'+esc(TXT.pay)+'</p>';
+    if (c.chips && c.chips.length) h+=chipHtml(c.chips.map(function(k){ return TXT.veh[k]; }));
+    h+='<div class="lactions">';
+    if (c.info) h+='<button class="btn btn-ghost linfobtn" type="button" aria-expanded="false" aria-controls="info-'+pid+'">'+esc(TXT.more)+'</button>';
+    h+= c.closed ? '<span class="lapply closed" role="note">'+esc(TXT.closed)+'</span>' : '<a class="btn lapply" href="'+esc(applyHref(c))+'">'+esc(c.applyLabel?TXT[c.applyLabel]:TXT.apply)+'<span class="sr"> '+esc(c.label?TXT[c.label]:c.n)+'</span></a>';
+    h+='</div>';
+    if (c.info) h+='<div class="linfo" id="info-'+pid+'" hidden>'+infoHtml(c,p)+'</div>';
+    card.innerHTML=h;
+    var ap=card.querySelector("a.lapply"); if(ap) ap.addEventListener("click",function(){ track("application_link_click",{province:p.code,city:cid,job_type:jt}); });
+    var ib=card.querySelector(".linfobtn");
+    if (ib) ib.addEventListener("click",function(){
+      var o=ib.getAttribute("aria-expanded")==="true"; ib.setAttribute("aria-expanded",String(!o)); ib.textContent=o?TXT.more:TXT.less;
+      card.querySelector(".linfo").hidden=o; card.classList.toggle("wide",!o);
+      if(!o) track("location_select",{province:p.code,city:cid,job_type:jt,action:"more_info"});
+    });
+    list.appendChild(card);
   });
   btn.addEventListener("click", function(){
     var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", String(!open)); list.hidden=open;
@@ -613,15 +709,19 @@ function closeMatch(){ mb.setAttribute("aria-expanded","false"); mp.hidden=true;
 mb.addEventListener("click",function(){ if(mb.getAttribute("aria-expanded")==="true") closeMatch(); else openMatch(); });
 CONFIG.provinces.forEach(function(p){
   var box=document.createElement("div"), id="mcities-"+p.code;
-  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+p.name+'<small>'+p.cities.length+' emplacements</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities" id="'+id+'" hidden></div>';
+  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+p.name+'<small>'+p.cities.filter(function(c){ return !c.flex; }).length+' emplacements</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities" id="'+id+'" hidden></div>';
   var btn=box.querySelector("button"), list=box.querySelector(".cities");
-  p.cities.forEach(function(c){ var a=document.createElement("a"); a.className="city"; a.href=matchHref(c.id||c.n); a.innerHTML=c.n+'<span aria-hidden="true">&rarr;</span>';
+  p.cities.forEach(function(c){ if(c.flex) return; var a=document.createElement("a"); a.className="city"; a.href=matchHref(c.id||c.n); a.innerHTML=c.n+'<span aria-hidden="true">&rarr;</span>';
     a.addEventListener("click",function(){ track("driver_match_start",{province:p.code,city:(c.id||c.n)}); }); list.appendChild(a); });
   btn.addEventListener("click",function(){ var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded",String(!open)); list.hidden=open; });
   mg.appendChild(box);
 });
 var any=document.getElementById("match-any"); any.href=matchHref("");
 any.addEventListener("click",function(){ track("driver_match_start",{city:"unspecified"}); });
+
+/* ===== Flex Routes banner tile (hero). Shown only while Flex Routes is running (FLEX_ROUTES_END). Reuses the location_select event. ===== */
+(function(){ var fb=document.getElementById("flex-banner"); if(!fb||!flexActive()) return; fb.hidden=false;
+  fb.addEventListener("click",function(){ track("location_select",{province:"ON",city:"Windsor",job_type:"flex_routes",cta_location:"hero_tile"}); }); })();
 
 /* ===== Video: loads YouTube only after a tap (keeps the page fast) ===== */
 document.getElementById("vidbtn").addEventListener("click", function(){
