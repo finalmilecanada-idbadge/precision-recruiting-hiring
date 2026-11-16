@@ -344,3 +344,8 @@ Record every meaningful change (headline, CTA wording, layout, campaign launches
 
 ## 2026-11-13 - v2.36
 - Removed the rainbow glow from behind the Apply for Flex Routes button in the Flex Routes tile (the hero tile keeps its glow).
+
+## 2026-11-13 - v2.37
+- Winnipeg Flex Routes added (own tile and application link, same wording as Windsor with "Winnipeg proper"; separate tag utm_content=winnipeg_flex). Removes itself with Windsor Flex Routes after FLEX_ROUTES_END.
+- Hero tile and banner button now just say NEW FLEX ROUTES (no city), since more locations may be added; they open every province that has Flex Routes.
+- Province bars show a pulsing "Flex Routes available" pill while closed and Flex Routes is running there.

@@ -723,3 +723,10 @@ details.dcard > summary:focus-visible{outline:3px solid var(--accent);outline-of
 @media(min-width:1200px){header.top .wrap{max-width:1280px}}
 @media(max-width:999px){header.has-apply .logo-chip img{width:168px}}
 @media(max-width:359px){header.has-apply .logo-chip img{width:140px}}
+
+/* ===== v2.37: pulsing "Flex Routes available" pill on province bars ===== */
+.prov > .flexpill{margin-left:auto;margin-right:14px;background:var(--btn);color:#fff;border-radius:999px;padding:6px 14px;font:800 .78rem Archivo,sans-serif;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;animation:flexpulse 1.6s ease-in-out infinite}
+@keyframes flexpulse{0%,100%{box-shadow:0 0 0 0 rgba(30,42,230,.55)}50%{box-shadow:0 0 0 9px rgba(30,42,230,0)}}
+.prov[aria-expanded="true"] .flexpill{display:none}
+@media(prefers-reduced-motion:reduce){.prov > .flexpill{animation:none}}
+@media(max-width:479px){.prov > .flexpill{margin-right:8px;padding:5px 10px;font-size:.7rem;white-space:normal;text-align:center;max-width:120px}}

@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2.36">
+<link rel="stylesheet" href="assets/css/styles.css?v=2.37">
 <link rel="stylesheet" href="assets/css/sortrun.css?v=2.21">
 <script type="application/ld+json">
 {
@@ -199,7 +199,7 @@
         <li>Paid for each piece delivered</li>
         <li>Ontario &middot; Manitoba &middot; Quebec</li>
       </ul>
-      <a class="flexbanner" id="flex-banner" href="#locations" hidden><span class="fb-new">New</span><b>Flex Routes</b><span>Windsor, Ontario</span></a>
+      <a class="flexbanner" id="flex-banner" href="#locations" hidden><b>NEW FLEX ROUTES</b></a>
     </div>
     <div class="vid">
       <h2 class="slogan">Your Success is Our Success</h2>
@@ -575,7 +575,7 @@ var CONFIG = {
   provinces: [
     { code:"ON", name:"Ontario", cities:[
       {n:"Windsor", u:JOBFAIR+"/251a854b248f164a", fit:"mv_suv", chips:["mv", "suv"], map:"img/maps/windsor.webp", addr:"Devon Drive, Windsor, Ontario", info:true},
-      {n:"Windsor", label:"flexName", flex:true, u:JOBFAIR+"/7bf63ffc6a14147f", fit:"flex", lines:["flexhours"], chips:["mv", "suv"], applyLabel:"applyFlex", map:"img/maps/windsor.webp", addr:"Devon Drive, Windsor, Ontario", info:true},
+      {n:"Windsor", label:"flexName", flex:true, u:JOBFAIR+"/7bf63ffc6a14147f", fit:"flex", lines:["flexhours"], chips:["mv", "suv"], applyLabel:"applyFlex", map:"img/maps/windsor.webp", utmc:"windsor_flex", addr:"Devon Drive, Windsor, Ontario", info:true},
       {n:"London", u:JOBFAIR+"/af1b6f624f2a1518", fit:"cv_mv", chips:["cv", "mv"], map:"img/maps/london.webp", rich:true, addr:"Bessemer Road, London, Ontario", days:"london", towns:"london", info:true},
       {n:"Hanover", u:JOBFAIR+"/300f02af2df4d910", fit:"wx", chips:["cv", "mv"], map:"img/maps/hanover.webp", info:true},
       {n:"Hamilton", u:JOBFAIR+"/411cb7a06cf66278", fit:"cv_mv", chips:["cv", "mv"], map:"img/maps/hamilton.webp", addr:"Milton Avenue, Hamilton, Ontario", info:true},
@@ -585,7 +585,8 @@ var CONFIG = {
       {n:"Orillia", u:JOBFAIR+"/7c4e32c821842f62", fit:"wx", chips:["cv", "mv"], map:"img/maps/orillia.webp", addr:"Harvie Settlement Road, Orillia, Ontario", info:true},
       {n:"Ottawa", u:JOBFAIR+"/00b64a1afc428592", fit:"cv_mv_wx", chips:["cv", "mv"], map:"img/maps/ottawa.webp", addr:"Private Logistics, Ottawa, Ontario", info:true} ]},
     { code:"MB", name:"Manitoba", cities:[
-      {n:"Winnipeg", u:JOBFAIR+"/d13f64a31c14c5f3", fit:"wx", lines:["wpg_area"], chips:["cv", "mv"], map:"img/maps/winnipeg.webp", addr:"Rail Park Way, Rosser, Manitoba", days:"wpg", towns:"wpg", info:true} ]},
+      {n:"Winnipeg", u:JOBFAIR+"/d13f64a31c14c5f3", fit:"wx", lines:["wpg_area"], chips:["cv", "mv"], map:"img/maps/winnipeg.webp", addr:"Rail Park Way, Rosser, Manitoba", days:"wpg", towns:"wpg", info:true},
+      {n:"Winnipeg", label:"flexNameWpg", flex:true, u:JOBFAIR+"/6fcd5b9ff152d554", fit:"flex", lines:["flexhoursWpg"], chips:["mv", "suv"], applyLabel:"applyFlex", map:"img/maps/winnipeg.webp", utmc:"winnipeg_flex", addr:"Rail Park Way, Rosser, Manitoba", info:true} ]},
     { code:"QC", name:"Quebec", cities:[
       {n:"Montreal", id:"Montreal", u:JOBFAIR+"/17295a28d5fd3ff2", fit:"big", chips:["cv", "mv"], closed:true, map:"img/maps/montreal.webp", info:true},
       {n:"Quebec City", id:"Quebec City", u:JOBFAIR+"/3b0d9ed353b92bee", fit:"cv_mv", chips:["cv", "mv"], closed:true, info:true} ]}
@@ -617,7 +618,7 @@ function flexActive(){ return Date.now() <= FLEX_ROUTES_END; }
   var tk=document.querySelector("#peak .ticker");
   tk.addEventListener("click",function(e){
     var a=e.target.closest("a[data-peak]");
-    if(a && a.getAttribute("data-peak")==="flex"){ track("location_select",{province:"ON",city:"Windsor",job_type:"flex_routes",cta_location:"peak_banner"}); openProv("ON"); return; }
+    if(a && a.getAttribute("data-peak")==="flex"){ track("location_select",{job_type:"flex_routes",cta_location:"peak_banner"}); openFlexProvs(); return; }
     if(a && a.getAttribute("data-peak")==="jobfair"){ track("jobfair_rsvp_click",{cta_location:"peak_banner",job_fair:a.getAttribute("data-fair")}); return; }
     track("apply_click",{cta_location:"peak_banner"});
     if(!a) location.hash="#locations";
@@ -633,9 +634,10 @@ if (isPeak()) document.getElementById("peak").hidden = false;
 var grid=document.getElementById("prov-grid");
 /* Location picker. Cities come from CONFIG; all wording comes from TXT (this page's language). Province bars start open and close independently. */
 var ASSET = "assets/";
-var TXT = {"loc": ["location", "locations"], "newb": "New", "apply": "Apply to Drive", "applyFlex": "Apply for Flex Routes", "closed": "Applications Closed At This Time", "more": "More info", "less": "Hide info", "pay": "Contract opportunity. Paid per package delivered.", "flexName": "Windsor Flex Routes", "mapAlt": "Service area map for %s", "opens": "(opens in a new tab)", "fit": {"wx": "A good fit for drivers who are ready for all-weather driving.", "big": "A good fit for drivers with experience driving in a big city.", "cv_mv_suv": "A good fit for drivers with a cargo van, minivan or SUV.", "cv_mv": "A good fit for drivers with a cargo van or minivan.", "cv_mv_wx": "A good fit for drivers with a cargo van or minivan who are ready for all-weather driving.", "mv_suv": "A good fit for drivers with a minivan or SUV.", "flex": "A good fit for drivers who already work an early morning shift."}, "lines": {"flexhours": "Load out between 10 a.m. and 12 p.m. Routes typically wrap up by 4 p.m. to 6 p.m., primarily within Windsor proper.", "wpg_area": "Delivery area includes Winnipeg, Brandon and surrounding areas, including Gimli, Beausejour, La Broquerie, Saint Malo, Altona, Morden, Carman and Portage la Prairie."}, "veh": {"cv": "Cargo van", "mv": "Minivan", "suv": "SUV"}, "sec": {"ins": "Insurance coverage", "days": "Days and routes", "veh": "Vehicle types", "area": "Service area", "andmore": "and more", "broker": "To operate as a broker", "ioo": "To operate as an independent owner operator (IOO)"}, "ins": {"liab": "$2 million liability coverage", "cargoLondon": "$10,000 to $15,000 cargo coverage", "cargoVaries": "Cargo coverage varies by terminal"}, "days": {"london": ["The terminal operates 5 days a week", "Weekend routes may be available when there is overflow", "Business line and residential routes", "No routes or locations are guaranteed"], "wpg": ["Routes offered 7 days a week", "No routes or locations are guaranteed"]}, "brokerItems": ["Onboard your company before you build your team", "Personal ID: driver’s licence, abstract, background check and a second piece of government-issued photo ID", "Corporation documents showing you as a shareholder, director or president", "Certificate of insurance (COI) in the corporation’s name", "Void cheque or direct deposit details matching the COI and corporation"], "brokerProv": {"ON": "WSIB coverage required in Ontario", "QC": "CNESST coverage required in Quebec", "MB": "WCB coverage required in Manitoba"}, "iooItems": ["Personal ID: driver’s licence, abstract, background check and a second piece of government-issued photo ID", "Operate under your SIN as a sole proprietor, or a registered business (GST number required)", "Void cheque: business cheque for a registered business, personal cheque for a sole proprietor"], "iooProv": {"ON": "WSIB coverage not required in Ontario", "QC": "CNESST coverage required in Quebec", "MB": "WCB coverage required in Manitoba"}, "iooTax": "You remit your own taxes to the CRA", "towns": {"london": ["London", "St. Mary’s", "Sarnia", "Duart", "Goderich", "Tillsonburg", "Woodstock", "Ingersoll", "Stratford", "Lucan", "St. Thomas", "West Lorne"], "wpg": ["Winnipeg", "Brandon", "Gimli", "Beausejour", "La Broquerie", "Saint Malo", "Altona", "Morden", "Carman", "Portage la Prairie"]}};
+var TXT = {"loc": ["location", "locations"], "newb": "New", "apply": "Apply to Drive", "applyFlex": "Apply for Flex Routes", "closed": "Applications Closed At This Time", "more": "More info", "less": "Hide info", "pay": "Contract opportunity. Paid per package delivered.", "flexName": "Windsor Flex Routes", "flexNameWpg": "Winnipeg Flex Routes", "flexAvail": "Flex Routes available", "mapAlt": "Service area map for %s", "opens": "(opens in a new tab)", "fit": {"wx": "A good fit for drivers who are ready for all-weather driving.", "big": "A good fit for drivers with experience driving in a big city.", "cv_mv_suv": "A good fit for drivers with a cargo van, minivan or SUV.", "cv_mv": "A good fit for drivers with a cargo van or minivan.", "cv_mv_wx": "A good fit for drivers with a cargo van or minivan who are ready for all-weather driving.", "mv_suv": "A good fit for drivers with a minivan or SUV.", "flex": "A good fit for drivers who already work an early morning shift."}, "lines": {"flexhours": "Load out between 10 a.m. and 12 p.m. Routes typically wrap up by 4 p.m. to 6 p.m., primarily within Windsor proper.", "flexhoursWpg": "Load out between 10 a.m. and 12 p.m. Routes typically wrap up by 4 p.m. to 6 p.m., primarily within Winnipeg proper.", "wpg_area": "Delivery area includes Winnipeg, Brandon and surrounding areas, including Gimli, Beausejour, La Broquerie, Saint Malo, Altona, Morden, Carman and Portage la Prairie."}, "veh": {"cv": "Cargo van", "mv": "Minivan", "suv": "SUV"}, "sec": {"ins": "Insurance coverage", "days": "Days and routes", "veh": "Vehicle types", "area": "Service area", "andmore": "and more", "broker": "To operate as a broker", "ioo": "To operate as an independent owner operator (IOO)"}, "ins": {"liab": "$2 million liability coverage", "cargoLondon": "$10,000 to $15,000 cargo coverage", "cargoVaries": "Cargo coverage varies by terminal"}, "days": {"london": ["The terminal operates 5 days a week", "Weekend routes may be available when there is overflow", "Business line and residential routes", "No routes or locations are guaranteed"], "wpg": ["Routes offered 7 days a week", "No routes or locations are guaranteed"]}, "brokerItems": ["Onboard your company before you build your team", "Personal ID: driver’s licence, abstract, background check and a second piece of government-issued photo ID", "Corporation documents showing you as a shareholder, director or president", "Certificate of insurance (COI) in the corporation’s name", "Void cheque or direct deposit details matching the COI and corporation"], "brokerProv": {"ON": "WSIB coverage required in Ontario", "QC": "CNESST coverage required in Quebec", "MB": "WCB coverage required in Manitoba"}, "iooItems": ["Personal ID: driver’s licence, abstract, background check and a second piece of government-issued photo ID", "Operate under your SIN as a sole proprietor, or a registered business (GST number required)", "Void cheque: business cheque for a registered business, personal cheque for a sole proprietor"], "iooProv": {"ON": "WSIB coverage not required in Ontario", "QC": "CNESST coverage required in Quebec", "MB": "WCB coverage required in Manitoba"}, "iooTax": "You remit your own taxes to the CRA", "towns": {"london": ["London", "St. Mary’s", "Sarnia", "Duart", "Goderich", "Tillsonburg", "Woodstock", "Ingersoll", "Stratford", "Lucan", "St. Thomas", "West Lorne"], "wpg": ["Winnipeg", "Brandon", "Gimli", "Beausejour", "La Broquerie", "Saint Malo", "Altona", "Morden", "Carman", "Portage la Prairie"]}};
 /* Opens one province bar (used by the banner Flex Routes button, which has to reveal Ontario). */
 function openProv(code){ var b=document.querySelector('#prov-grid button[aria-controls="cities-'+code+'"]'), l=document.getElementById("cities-"+code); if(b&&l){ b.setAttribute("aria-expanded","true"); l.hidden=false; } }
+function openFlexProvs(){ CONFIG.provinces.forEach(function(p){ if(p.cities.some(function(c){ return c.flex; })) openProv(p.code); }); }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]; }); }
 function ulHtml(a){ return '<ul class="ilist">'+a.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join("")+'</ul>'; }
 function chipHtml(a){ return '<ul class="vchips">'+a.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join("")+'</ul>'; }
@@ -657,12 +659,12 @@ function infoHtml(c,p){
   h+=isec("c6","user",S.ioo,ulHtml(TXT.iooItems.concat([TXT.iooProv[p.code], TXT.iooTax])));
   return h+'</div>';
 }
-/* Application link: keeps the visitor's campaign tags. Flex Routes adds utm_content=windsor_flex only when the visitor has no utm_content of their own. */
-function applyHref(c){ var u=withUtm(c.u); if(c.flex){ try{ var x=new URL(u); if(!x.searchParams.get("utm_content")) x.searchParams.set("utm_content","windsor_flex"); u=x.toString(); }catch(e){} } return u; }
+/* Application link: keeps the visitor's campaign tags. Flex Routes adds utm_content=windsor_flex / winnipeg_flex (c.utmc) only when the visitor has no utm_content of their own. */
+function applyHref(c){ var u=withUtm(c.u); if(c.flex){ try{ var x=new URL(u); if(!x.searchParams.get("utm_content")) x.searchParams.set("utm_content",c.utmc||"flex_routes"); u=x.toString(); }catch(e){} } return u; }
 CONFIG.provinces.forEach(function(p){
   var box=document.createElement("div"), id="cities-"+p.code;
-  var n=p.cities.filter(function(c){ return !c.flex; }).length;
-  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+esc(p.name)+'<small>'+n+' '+(n===1?TXT.loc[0]:TXT.loc[1])+'</small></span><span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities lcards" id="'+id+'" hidden></div>';
+  var n=p.cities.filter(function(c){ return !c.flex; }).length, hasFlex=flexActive() && p.cities.some(function(c){ return c.flex; });
+  box.innerHTML='<button class="prov" type="button" aria-expanded="false" aria-controls="'+id+'"><span>'+esc(p.name)+'<small>'+n+' '+(n===1?TXT.loc[0]:TXT.loc[1])+'</small></span>'+(hasFlex?'<span class="flexpill">'+esc(TXT.flexAvail)+'</span>':'')+'<span class="chev" aria-hidden="true">&#9662;</span></button><div class="cities lcards" id="'+id+'" hidden></div>';
   var btn=box.querySelector("button"), list=box.querySelector(".cities");
   p.cities.forEach(function(c,i){
     if (c.flex && !flexActive()) return;                      // Flex Routes leaves by itself after FLEX_ROUTES_END
@@ -677,7 +679,7 @@ CONFIG.provinces.forEach(function(p){
     if (c.chips && c.chips.length) h+=chipHtml(c.chips.map(function(k){ return TXT.veh[k]; }));
     h+='<div class="lactions">';
     if (c.info) h+='<button class="btn btn-ghost linfobtn" type="button" aria-expanded="false" aria-controls="info-'+pid+'">'+esc(TXT.more)+'</button>';
-    h+= c.closed ? '<span class="lapply closed" role="note">'+esc(TXT.closed)+'</span>' : '<a class="btn lapply'+''+'" href="'+esc(applyHref(c))+'">'+esc(c.applyLabel?TXT[c.applyLabel]:TXT.apply)+'<span class="sr"> '+esc(c.label?TXT[c.label]:c.n)+'</span></a>';
+    h+= c.closed ? '<span class="lapply closed" role="note">'+esc(TXT.closed)+'</span>' : '<a class="btn lapply'+(c.flex?' glow':'')+'" href="'+esc(applyHref(c))+'">'+esc(c.applyLabel?TXT[c.applyLabel]:TXT.apply)+'<span class="sr"> '+esc(c.label?TXT[c.label]:c.n)+'</span></a>';
     h+='</div>';
     if (c.info) h+='<div class="linfo" id="info-'+pid+'" hidden>'+infoHtml(c,p)+'</div>';
     card.innerHTML=h;
@@ -726,7 +728,7 @@ any.addEventListener("click",function(){ track("driver_match_start",{city:"unspe
 
 /* ===== Flex Routes banner tile (hero). Shown only while Flex Routes is running (FLEX_ROUTES_END). Reuses the location_select event. ===== */
 (function(){ var fb=document.getElementById("flex-banner"); if(!fb||!flexActive()) return; fb.hidden=false;
-  fb.addEventListener("click",function(){ track("location_select",{province:"ON",city:"Windsor",job_type:"flex_routes",cta_location:"hero_tile"}); openProv("ON"); }); })();
+  fb.addEventListener("click",function(){ track("location_select",{job_type:"flex_routes",cta_location:"hero_tile"}); openFlexProvs(); }); })();
 
 /* ===== Video: loads YouTube only after a tap (keeps the page fast) ===== */
 document.getElementById("vidbtn").addEventListener("click", function(){

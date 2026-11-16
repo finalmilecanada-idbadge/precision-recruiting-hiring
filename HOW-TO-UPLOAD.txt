@@ -1,6 +1,2 @@
-FLEX ROUTES + NEW LOCATION PICKER (v2.35). Upload ONLY what is in this folder.
-1. github.com > your repository > Code tab > "Add file" > "Upload files".
-2. Drag in the two folders  fr  and  assets  plus the files  index.html  and  CHANGELOG.md  all at once.
-3. Commit message:  Flex Routes banner fixes, bigger logo
-4. "Commit directly to the main branch" > "Commit changes".
-5. After 1-2 minutes open driveprecision.ca and hard refresh (Ctrl+Shift+R).
+v2.37 (Winnipeg Flex Routes). Upload ONLY what is in this folder: open it and drag in fr, assets, index.html, CHANGELOG.md.
+github.com > your repository > Add file > Upload files > Commit changes. Wait 1-2 minutes, then hard refresh.
